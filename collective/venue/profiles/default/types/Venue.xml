@@ -19,7 +19,7 @@
  <property name="behaviors">
   <element value="plone.app.content.interfaces.INameFromTitle"/>
   <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-  <element value="collective.address.behavior.IAddress"/>
+  <element value="collective.address.behaviors.IAddress"/>
   <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
  </property>
  <property name="schema"></property>
