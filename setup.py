@@ -32,6 +32,12 @@ setup(name='collective.venue',
           'plone.formwidget.geolocation',
           'Products.GenericSetup',
       ],
+      extras_require={
+          'archetypes': [
+              'Products.ATContentTypes',
+              'plone.app.referenceablebehavior',
+          ],
+      },
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone

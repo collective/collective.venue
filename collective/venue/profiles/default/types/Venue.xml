@@ -21,6 +21,7 @@
   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   <element value="collective.address.behaviors.IAddress"/>
   <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
+  <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
  </property>
  <property name="schema">plone.dexterity.interfaces.IDexteritySchema</property>
  <property name="model_source"></property>
