@@ -36,6 +36,7 @@ setup(name='collective.venue',
           'archetypes': [
               'Products.ATContentTypes',
               'plone.app.referenceablebehavior',
+              'archetypes.referencebrowserwidget',
           ],
       },
       entry_points="""

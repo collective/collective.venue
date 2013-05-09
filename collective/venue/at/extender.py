@@ -15,6 +15,7 @@ from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
 from archetypes.schemaextender.field import ExtensionField
 
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
     pass
@@ -25,21 +26,28 @@ class ATEventExtender(object):
     adapts(IATEvent)
 
     fields = [
-        ReferenceFieldExtender("venue",
+        ReferenceFieldExtender("location",
             required=False,
             searchable=True,
             languageIndependent=True,
             relationship='isVenueForEvent',
             multiValued=False,
             allowed_types=('Venue',),
-            vocabulary_display_path_bound=-1,  # Avoid silly Archetypes object
-                                               # title magic
-            enforceVocabulary=True,
-            widget=atapi.ReferenceWidget(
+            addable=True,
+            #vocabulary_display_path_bound=-1,  # Avoid silly Archetypes object
+            #                                   # title magic
+            #enforceVocabulary=True,
+            widget=ReferenceBrowserWidget(
                 description='',
                 label=_(u'label_event_location', default=u'Event Location'),
-                checkbox_bound=1,  # use selection widget
-                ),
+            ),
+            #widget=atapi.ReferenceWidget(
+            #description='',
+            #    label=_(u'label_event_location', default=u'Event Location'),
+            #    checkbox_bound=1,  # use selection widget
+            #    destination_types=['Venue'],
+            #    addable=True,
+            #    ),
             ),
     ]
 
@@ -67,7 +75,7 @@ class ATEventExtender(object):
 
             return order
 
-        return move_after(order, 'venue', 'endDate')
+        return move_after(order, 'location', 'endDate')
 
 
 class ATEventModifier(object):
@@ -78,8 +86,8 @@ class ATEventModifier(object):
         self.context = context
 
     def fiddle(self, schema):
-        schema['location'].widget.visible = {'view': 'hidden',
-                                             'edit': 'hidden'}
+        #schema['location'].widget.visible = {'view': 'hidden',
+        #                                     'edit': 'hidden'}
         schema['contactName'].widget.visible = {'view': 'hidden',
                                                 'edit': 'hidden'}
         schema['contactEmail'].widget.visible = {'view': 'hidden',
