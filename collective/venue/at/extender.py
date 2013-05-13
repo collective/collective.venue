@@ -6,16 +6,18 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes import atapi
-from Products.ATContentTypes import ATCTMessageFactory as _
 try:
     from plone.app.event.at.interfaces import IATEvent
-except:
+    from plone.app.event import messageFactory as _
+except ImportError:
     from Products.ATContentTypes.interfaces import IATEvent
+    from Products.ATContentTypes import ATCTMessageFactory as _
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
 from archetypes.schemaextender.field import ExtensionField
 
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
+
 
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
     pass
@@ -34,21 +36,11 @@ class ATEventExtender(object):
             multiValued=False,
             allowed_types=('Venue',),
             addable=True,
-            #vocabulary_display_path_bound=-1,  # Avoid silly Archetypes object
-            #                                   # title magic
-            #enforceVocabulary=True,
             widget=ReferenceBrowserWidget(
                 description='',
                 label=_(u'label_event_location', default=u'Event Location'),
             ),
-            #widget=atapi.ReferenceWidget(
-            #description='',
-            #    label=_(u'label_event_location', default=u'Event Location'),
-            #    checkbox_bound=1,  # use selection widget
-            #    destination_types=['Venue'],
-            #    addable=True,
-            #    ),
-            ),
+        ),
     ]
 
     def __init__(self, context):
@@ -67,12 +59,9 @@ class ATEventExtender(object):
                 s_to = order[schemata_to]
             else:
                 s_to = s_from
-
             s_from.remove(new_field)
-
             idx = s_to.index(after_field)
             s_to.insert(idx + 1, new_field)
-
             return order
 
         return move_after(order, 'location', 'endDate')
@@ -86,8 +75,6 @@ class ATEventModifier(object):
         self.context = context
 
     def fiddle(self, schema):
-        #schema['location'].widget.visible = {'view': 'hidden',
-        #                                     'edit': 'hidden'}
         schema['contactName'].widget.visible = {'view': 'hidden',
                                                 'edit': 'hidden'}
         schema['contactEmail'].widget.visible = {'view': 'hidden',
