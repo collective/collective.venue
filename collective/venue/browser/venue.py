@@ -3,6 +3,11 @@ from collective.geolocationbehavior.geolocation import IGeolocatable
 from collective.address.behaviors import IAddress
 from Products.Five.browser import BrowserView
 
+try:
+    from Products.Archetypes.interfaces.referenceable import IReferenceable
+except ImportError:
+    from plone.app.referenceablebehavior.referenceable import IReferenceable
+
 
 class VenueView(BrowserView):
 
@@ -37,3 +42,8 @@ class VenueView(BrowserView):
             'country': add.country,
             'notes': add.notes,
         }
+
+    @property
+    def get_brefs(self):
+        ref = IReferenceable(self.context)
+        return ref.getBRefs()
