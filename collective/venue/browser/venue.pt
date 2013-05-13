@@ -39,21 +39,21 @@
       i18n:attributes="title label_country"
       tal:content="data/country">Country</span>
 </tal:cond>
-<tal:cond condition="data/has_geo">
-  <br/>
+</p>
+
+<div class="documentByLine" tal:condition="data/has_geo">
   <dfn
     i18n:domain="collective.geolocationbehavior"
     i18n:translate="">Geolocation</dfn>
   <span
-      class="documentByLine"
+      class="latitude"
       i18n:attributes="title label_latitude"
       tal:content="latitude">Latitude</span>
   <span
-      class="documentByLine"
+      class="longitude"
       i18n:attributes="title label_longitude"
       tal:content="longitude">Longitude</span>
-</tal:cond>
-</p>
+</div>
 
 <div class="geolocation_wrapper" tal:condition="data/has_geo">
   <div class="geolocation" tal:attributes="data-latitude data/latitude; data-longitude data/longitude; data-description data/popup"></div>
@@ -69,7 +69,8 @@
     <li tal:repeat="ref refs">
       <a tal:attributes="href ref/absolute_url">
         <span class="title" tal:content="ref/Title"/>
-        <span class="description documentByLine" tal:content="ref/Description"/>
+        <span class="description documentByLine"
+            tal:condition="ref/Description" tal:content="ref/Description"/>
       </a>
     </li>
   </ul>
