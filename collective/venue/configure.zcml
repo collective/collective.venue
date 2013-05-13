@@ -4,6 +4,9 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.venue">
 
+  <include package="collective.js.leaflet"/>
+
+  <include package=".browser"/>
   <include zcml:condition="installed Products.ATContentTypes" package=".at" />
 
   <genericsetup:registerProfile

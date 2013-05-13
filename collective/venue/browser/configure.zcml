@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="collective.venue">
+
+  <browser:resourceDirectory
+      name="collective.venue"
+      directory="resources"
+      />
+
+  <browser:page
+      for="collective.venue.interfaces.IVenue"
+      name="venue"
+      class=".venue.VenueView"
+      template="venue.pt"
+      permission="zope2.View"
+      />
+
+  <include package="z3c.unconfigure" file="meta.zcml" />
+  <include package="z3c.form" file="meta.zcml" />
+  <include package="plone.formwidget.geolocation" />
+  <!-- use our template -->
+  <unconfigure>
+    <z3c:widgetTemplate
+        mode="display"
+        widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="geolocation_display.pt"
+        />
+    <z3c:widgetTemplate
+        mode="input"
+        widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="geolocation_input.pt"
+        />
+  </unconfigure>
+  <z3c:widgetTemplate
+      mode="display"
+      widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="geolocation_display.pt"
+      />
+  <z3c:widgetTemplate
+      mode="input"
+      widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
+      layer="z3c.form.interfaces.IFormLayer"
+      template="geolocation_input.pt"
+      />
+
+</configure>

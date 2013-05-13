@@ -4,14 +4,14 @@
  <property name="title" i18n:translate="">Venue</property>
  <property name="description" i18n:translate="">None</property>
  <property name="icon_expr"></property>
- <property name="immediate_view">view</property>
+ <property name="immediate_view">venue</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>
  <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
- <property name="default_view">view</property>
+ <property name="default_view">venue</property>
  <property name="view_methods">
-  <element value="view"/>
+  <element value="venue"/>
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
@@ -23,7 +23,7 @@
   <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
   <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
  </property>
- <property name="schema">plone.dexterity.interfaces.IDexteritySchema</property>
+ <property name="schema">collective.venue.interfaces.IVenue</property>
  <property name="model_source"></property>
  <property name="model_file"></property>
  <alias from="(Default)" to="(dynamic view)"/>

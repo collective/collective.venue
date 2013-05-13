@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      tal:omit-tag="">
+  <div class="geolocation_wrapper edit">
+    <div class="geolocation"
+        tal:attributes="data-latitude python:view.value[0];
+                        data-longitude python:view.value[1]"/>
+    <input id="" name="" class="" style="" value="" type="text"
+        tal:attributes="id string:${view/id}_latitude;
+                        name string:${view/name}:tuple;
+                        class string:${view/klass} latitude;
+                        style view/style;
+                        value python:view.value[0]" />
+    <input id="" name="" class="" style="" value="" type="text"
+        tal:attributes="id string:${view/id}_longitude;
+                        name string:${view/name}:tuple;
+                        class string:${view/klass} longitude;
+                        style view/style;
+                        value python:view.value[1]" />
+    <div id="map"></div>
+  </div>
+</html>

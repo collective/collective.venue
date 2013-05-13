@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="collective.venue">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core"
+    tal:define="data view/data;
+                latitude data/latitude;
+                longitude data/longitude">
+
+<h3 i18n:translate="label_address">Address</h3>
+<p>
+<tal:cond condition="data/street">
+  <span
+      class="street"
+      i18n:attributes="title label_street"
+      tal:content="data/street">Street</span><br/>
+</tal:cond>
+<tal:cond condition="data/zip_code">
+  <span
+      class="zip_code"
+      i18n:attributes="title label_zip_code"
+      tal:content="data/zip_code">Zip Code</span>
+</tal:cond>
+<tal:cond condition="data/city">
+  <span
+      class="city"
+      i18n:attributes="title label_city"
+      tal:content="data/city">City</span>
+</tal:cond>
+<tal:cond condition="data/country">
+  <span
+      class="country"
+      i18n:attributes="title label_country"
+      tal:content="data/country">Country</span>
+</tal:cond>
+<tal:cond condition="data/has_geo">
+  <br/>
+  <dfn
+    i18n:domain="collective.geolocationbehavior"
+    i18n:translate="">Geolocation</dfn>
+  <span
+      class="documentByLine"
+      i18n:attributes="title label_latitude"
+      tal:content="latitude">Latitude</span>
+  <span
+      class="documentByLine"
+      i18n:attributes="title label_longitude"
+      tal:content="longitude">Longitude</span>
+</tal:cond>
+</p>
+
+<div class="geolocation_wrapper" tal:condition="data/has_geo">
+  <div class="geolocation" tal:attributes="data-latitude data/latitude; data-longitude data/longitude; data-description data/popup"></div>
+  <div id="map"></div>
+</div>
+
+<p tal:content="structure data/notes/output">Venue notes</p>
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

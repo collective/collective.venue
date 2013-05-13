@@ -31,6 +31,9 @@ setup(name='collective.venue',
           'plone.app.dexterity',
           'plone.formwidget.geolocation',
           'Products.GenericSetup',
+          'collective.js.leaflet',
+          'z3c.form',
+          'z3c.unconfigure',
       ],
       extras_require={
           'archetypes': [
