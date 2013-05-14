@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+    if ($('#map').length === 0) { return; }
+
     var editable = $('div.geolocation_wrapper.edit').length && true || false;
     
     var map = new L.Map("map", {});
