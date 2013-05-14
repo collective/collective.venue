@@ -2,6 +2,7 @@
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
     xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.venue">
 
   <include package="archetypes.schemaextender" />
@@ -14,5 +15,15 @@
       factory=".extender.ATEventModifier"
       name="collective.venue.ATEventModifier"
       />
+
+  <configure zcml:condition="installed plone.app.event">
+    <class class="plone.app.event.at.content.ATEvent">
+      <implements interface=".interfaces.IATEventWithVenue"/>
+    </class>
+    <adapter
+        factory=".extender.VenueEventAccessor"
+        for=".interfaces.IATEventWithVenue"
+        />
+  </configure>
 
 </configure>

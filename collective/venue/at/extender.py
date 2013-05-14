@@ -1,6 +1,3 @@
-from zope.component import adapts
-from zope.interface import implements
-
 try:
     from Products.LinguaPlone import public  as atapi
 except ImportError:
@@ -12,11 +9,15 @@ try:
 except ImportError:
     from Products.ATContentTypes.interfaces import IATEvent
     from Products.ATContentTypes import ATCTMessageFactory as _
+from archetypes.referencebrowserwidget import ReferenceBrowserWidget
+from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import ISchemaModifier
-from archetypes.schemaextender.field import ExtensionField
-
-from archetypes.referencebrowserwidget import ReferenceBrowserWidget
+from collective.address.behaviors import IAddress
+from plone.app.dexterity.behaviors.metadata import IDublinCore
+from plone.app.event.at.content import EventAccessor
+from zope.component import adapts
+from zope.interface import implements
 
 
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
@@ -81,3 +82,19 @@ class ATEventModifier(object):
                                                  'edit': 'hidden'}
         schema['contactPhone'].widget.visible = {'view': 'hidden',
                                                  'edit': 'hidden'}
+
+
+class VenueEventAccessor(EventAccessor):
+
+    @property
+    def location(self):
+        location = self.context.getLocation()
+        meta = IDublinCore(location)
+        add = IAddress(location)
+        return u"%s, %s, %s %s, %s" % (
+            meta.title,
+            add.street,
+            add.zip_code,
+            add.city,
+            add.country
+        )
