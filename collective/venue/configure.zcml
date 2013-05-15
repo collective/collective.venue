@@ -9,6 +9,10 @@
   <include package=".browser"/>
   <include zcml:condition="installed Products.ATContentTypes" package=".at" />
 
+  <adapter
+      name="SearchableText"
+      factory=".indexer.searchable_text_indexer"/>
+
   <genericsetup:registerProfile
       name="default"
       title="collective.venue"
