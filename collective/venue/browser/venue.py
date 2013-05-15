@@ -1,6 +1,7 @@
 from plone.app.dexterity.behaviors.metadata import IDublinCore
 from collective.geolocationbehavior.geolocation import IGeolocatable
 from collective.address.behaviors import IAddress
+from collective.address.vocabulary import get_pycountry_name
 from Products.Five.browser import BrowserView
 
 try:
@@ -39,7 +40,7 @@ class VenueView(BrowserView):
             'street': add.street,
             'zip_code': add.zip_code,
             'city': add.city,
-            'country': add.country,
+            'country': get_pycountry_name(add.country),
             'notes': add.notes,
         }
 
