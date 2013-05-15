@@ -11,10 +11,6 @@
       factory=".extender.ATEventExtender"
       name="collective.venue.ATEventExtender"
       />
-  <adapter
-      factory=".extender.ATEventModifier"
-      name="collective.venue.ATEventModifier"
-      />
 
   <configure zcml:condition="installed plone.app.event">
     <class class="plone.app.event.at.content.ATEvent">

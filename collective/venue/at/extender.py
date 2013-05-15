@@ -12,7 +12,6 @@ except ImportError:
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
-from archetypes.schemaextender.interfaces import ISchemaModifier
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
 from plone.app.dexterity.behaviors.metadata import IDublinCore
@@ -72,23 +71,16 @@ class ATEventExtender(object):
             s_to.insert(idx + 1, new_field)
             return order
 
-        return move_after(order, 'location', 'endDate')
-
-
-class ATEventModifier(object):
-    implements(ISchemaModifier)
-    adapts(IATEvent)
-
-    def __init__(self, context):
-        self.context = context
-
-    def fiddle(self, schema):
-        schema['contactName'].widget.visible = {'view': 'hidden',
-                                                'edit': 'hidden'}
-        schema['contactEmail'].widget.visible = {'view': 'hidden',
-                                                 'edit': 'hidden'}
-        schema['contactPhone'].widget.visible = {'view': 'hidden',
-                                                 'edit': 'hidden'}
+        order = move_after(order, 'location', 'wholeDay')
+        # This, if above makes problems
+        # order = None
+        # try:
+        #    order = move_after(order, 'location', 'wholeDay', )
+        # except XXXError:
+        #    order = move_after(order, 'location', 'endDate',
+        #               schemata_from='categorization'
+        #               schemata_to='default')
+        return order
 
 
 class VenueEventAccessor(EventAccessor):
