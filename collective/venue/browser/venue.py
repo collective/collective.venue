@@ -40,8 +40,8 @@ class VenueView(BrowserView):
             'street': add.street,
             'zip_code': add.zip_code,
             'city': add.city,
-            'country': get_pycountry_name(add.country),
-            'notes': add.notes,
+            'country': get_pycountry_name(add.country) or '',
+            'notes': add.notes and add.notes.output or '',
         }
 
     @property

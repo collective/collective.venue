@@ -60,7 +60,7 @@
   <div id="map"></div>
 </div>
 
-<p tal:content="structure data/notes/output">Venue notes</p>
+<p tal:condition="data/notes" tal:content="structure data/notes">Venue notes</p>
 
 
 <tal:all_ref define="refs view/get_brefs" condition="refs">

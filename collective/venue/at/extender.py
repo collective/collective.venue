@@ -19,6 +19,7 @@ from plone.app.dexterity.behaviors.metadata import IDublinCore
 from plone.app.event.at.content import EventAccessor
 from zope.component import adapts
 from zope.interface import implements
+from collective.venue.interfaces import IVenue
 
 
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
@@ -41,6 +42,11 @@ class ATEventExtender(object):
             widget=ReferenceBrowserWidget(
                 description='',
                 label=_(u'label_event_location', default=u'Event Location'),
+                base_query={'object_provides': IVenue.__identifier__},
+                allow_search=True,
+                allow_browse=False,
+                force_close_on_insert=True,
+                show_results_without_query=True,
             ),
         ),
     ]
@@ -103,5 +109,5 @@ class VenueEventAccessor(EventAccessor):
                 add.street,
                 add.zip_code,
                 add.city,
-                get_pycountry_name(add.country)
+                get_pycountry_name(add.country) or ''
             )
