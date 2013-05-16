@@ -32,7 +32,7 @@ class ATEventExtender(object):
     fields = [
         ReferenceFieldExtender("location",
             required=False,
-            searchable=True,
+            searchable=False,
             languageIndependent=True,
             relationship='isVenueForEvent',
             multiValued=False,
@@ -57,30 +57,33 @@ class ATEventExtender(object):
         return self.fields
 
     def getOrder(self, order):
-        def move_after(order,
-                       new_field, after_field,
-                       schemata_from='default',
-                       schemata_to=None):
-            s_from = order[schemata_from]
-            if schemata_to:
-                s_to = order[schemata_to]
-            else:
-                s_to = s_from
-            s_from.remove(new_field)
-            idx = s_to.index(after_field)
-            s_to.insert(idx + 1, new_field)
-            return order
-
-        order = move_after(order, 'location', 'wholeDay')
-        # This, if above makes problems
-        # order = None
-        # try:
-        #    order = move_after(order, 'location', 'wholeDay', )
-        # except XXXError:
-        #    order = move_after(order, 'location', 'endDate',
-        #               schemata_from='categorization'
-        #               schemata_to='default')
+        # default order is fine
         return order
+
+#        def move_after(order,
+#                       new_field, after_field,
+#                       schemata_from='default',
+#                       schemata_to=None):
+#            s_from = order[schemata_from]
+#            if schemata_to:
+#                s_to = order[schemata_to]
+#            else:
+#                s_to = s_from
+#            s_from.remove(new_field)
+#            idx = s_to.index(after_field)
+#            s_to.insert(idx + 1, new_field)
+#            return order
+#
+#        order = move_after(order, 'location', 'wholeDay')
+#        # This, if above makes problems
+#        # order = None
+#        # try:
+#        #    order = move_after(order, 'location', 'wholeDay', )
+#        # except XXXError:
+#        #    order = move_after(order, 'location', 'endDate',
+#        #               schemata_from='categorization'
+#        #               schemata_to='default')
+#        return order
 
 
 class VenueEventAccessor(EventAccessor):
