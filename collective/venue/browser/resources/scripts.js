@@ -9,11 +9,9 @@
 
         var map = new L.Map("map", {});
 
-        // add an OpenStreetMap tile layer
-        var layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        });
-        map.addLayer(layer);
+        L.tileLayer.provider('OpenStreetMap.DE').addTo(map);
+        var baseLayers = ['OpenStreetMap.DE', 'Esri.WorldImagery', 'Esri.WorldStreetMap', 'OpenCycleMap'];
+        var layerControl = L.control.layers.provided(baseLayers).addTo(map);
 
         var fullScreen = new L.Control.FullScreen();
         map.addControl(fullScreen);
@@ -53,7 +51,8 @@
             // GEOSEARCH
             var geosearch = new L.Control.GeoSearch({
                 draggable: editable,
-                provider: new L.GeoSearch.Provider.OpenStreetMap()
+                provider: new L.GeoSearch.Provider.Google()
+                //provider: new L.GeoSearch.Provider.OpenStreetMap()
             }).addTo(map);
         }
 
