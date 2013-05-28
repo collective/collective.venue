@@ -41,7 +41,8 @@ class ATEventExtender(object):
             widget=ReferenceBrowserWidget(
                 description='',
                 label=_(u'label_event_location', default=u'Event Location'),
-                base_query={'object_provides': IVenue.__identifier__},
+                base_query={'object_provides': IVenue.__identifier__,
+                            'sort_on': 'sortable_title'},
                 allow_search=True,
                 allow_browse=False,
                 force_close_on_insert=True,
