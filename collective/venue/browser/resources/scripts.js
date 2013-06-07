@@ -61,12 +61,14 @@
     $(document).ready(function () {
         initialize_map();
         // Open location view in popup.
-        $('.template-event_view td.location a').prepOverlay({
+        var overlay_opts = {
             subtype: 'ajax',
             filter: common_content_filter,
             cssclass: 'overlay-venue',
             config: { onLoad: initialize_map }
-        });
+        }
+        $('.event_listing div.location a').prepOverlay(overlay_opts);
+        $('.template-event_view td.location a').prepOverlay(overlay_opts);
     });
 
 })(jQuery);
