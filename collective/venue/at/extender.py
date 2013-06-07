@@ -98,7 +98,7 @@ class VenueEventAccessor(EventAccessor):
         else:
             meta = IDublinCore(location)
             add = IAddress(location)
-            return u"%s, %s, %s %s, %s" % (
+            return '%s, %s, %s %s, %s' % (
                 meta.title,
                 add.street,
                 add.zip_code,
