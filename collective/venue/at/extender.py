@@ -14,7 +14,7 @@ from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
-from plone.app.dexterity.behaviors.metadata import IDublinCore
+from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.event.at.content import EventAccessor
 from zope.component import adapts
 from zope.interface import implements
@@ -96,10 +96,10 @@ class VenueEventAccessor(EventAccessor):
             # graceful handling in case of unmigrated ATEvent objects.
             return location
         else:
-            meta = IDublinCore(location)
+            meta_basic = IBasic(location)
             add = IAddress(location)
             return '%s, %s, %s %s, %s' % (
-                meta.title,
+                meta_basic.title,
                 add.street,
                 add.zip_code,
                 add.city,

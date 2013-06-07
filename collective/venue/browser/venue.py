@@ -1,4 +1,4 @@
-from plone.app.dexterity.behaviors.metadata import IDublinCore
+from plone.app.dexterity.behaviors.metadata import IBasic
 from collective.geolocationbehavior.geolocation import IGeolocatable
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
@@ -20,19 +20,19 @@ class VenueView(BrowserView):
     @property
     def data(self):
         context = self.context
-        meta = IDublinCore(context)
+        meta_basic = IBasic(context)
         geo = IGeolocatable(context)
         add = IAddress(context)
 
-        title = self.cleanup(meta.title)
-        description = self.cleanup(meta.description)
+        title = self.cleanup(meta_basic.title)
+        description = self.cleanup(meta_basic.description)
         popup = '<h3>%s</h3><p>%s</p>' % (
             title,
             description and description or '')
 
         return {
-            'title': meta.title,
-            'description': meta.description,
+            'title': meta_basic.title,
+            'description': meta_basic.description,
             'popup': popup,
             'has_geo': geo.geolocation.latitude and geo.geolocation.longitude,
             'latitude': geo.geolocation.latitude,
