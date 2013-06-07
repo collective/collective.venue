@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <metadata>
   <version>1</version>
-	<dependencies>
-	   <dependency>profile-collective.js.leaflet:default</dependency>
-	</dependencies>
+  <dependencies>
+     <dependency>profile-plone.app.dexterity:default</dependency>
+     <dependency>profile-collective.js.leaflet:default</dependency>
+  </dependencies>
 </metadata>
