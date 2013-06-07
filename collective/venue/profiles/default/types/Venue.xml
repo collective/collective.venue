@@ -18,7 +18,8 @@
  <property name="klass">plone.dexterity.content.Item</property>
  <property name="behaviors">
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
   <element value="collective.address.behaviors.IAddress"/>
   <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
   <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
