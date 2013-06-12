@@ -10,6 +10,7 @@
   <adapter
       factory=".extender.ATEventExtender"
       name="collective.venue.ATEventExtender"
+      provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
       />
 
   <configure zcml:condition="installed plone.app.event">

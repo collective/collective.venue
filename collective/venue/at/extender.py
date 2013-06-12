@@ -12,6 +12,7 @@ except ImportError:
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
+from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
 from plone.app.dexterity.behaviors.metadata import IBasic
@@ -19,6 +20,7 @@ from plone.app.event.at.content import EventAccessor
 from zope.component import adapts
 from zope.interface import implements
 from collective.venue.interfaces import IVenue
+from collective.venue.interfaces import IVenueLayer
 
 
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
@@ -26,8 +28,9 @@ class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
 
 
 class ATEventExtender(object):
-    implements(IOrderableSchemaExtender)
+    implements(IOrderableSchemaExtender, IBrowserLayerAwareExtender)
     adapts(IATEvent)
+    layer = IVenueLayer  # Only apply if product is installed
 
     fields = [
         ReferenceFieldExtender("location",

@@ -5,6 +5,7 @@
     i18n_domain="collective.venue">
 
   <include package="collective.js.leaflet"/>
+  <include package="plone.browserlayer" />
 
   <include package=".browser"/>
   <include zcml:condition="installed Products.ATContentTypes" package=".at" />
