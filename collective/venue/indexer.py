@@ -1,7 +1,7 @@
-from plone.indexer import indexer
 from collective.address.behaviors import searchable_text_indexer as address_idx
 from collective.venue.interfaces import IVenue
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.indexer import indexer
 
 
 # Text indexing

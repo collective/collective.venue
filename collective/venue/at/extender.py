@@ -11,16 +11,16 @@ except ImportError:
     from Products.ATContentTypes import ATCTMessageFactory as _
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from archetypes.schemaextender.field import ExtensionField
-from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
+from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
+from collective.venue.interfaces import IVenue
+from collective.venue.interfaces import IVenueLayer
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.event.at.content import EventAccessor
 from zope.component import adapts
 from zope.interface import implements
-from collective.venue.interfaces import IVenue
-from collective.venue.interfaces import IVenueLayer
 
 
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):

@@ -1,8 +1,8 @@
-from plone.app.dexterity.behaviors.metadata import IBasic
-from collective.geolocationbehavior.geolocation import IGeolocatable
+from Products.Five.browser import BrowserView
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
-from Products.Five.browser import BrowserView
+from collective.geolocationbehavior.geolocation import IGeolocatable
+from plone.app.dexterity.behaviors.metadata import IBasic
 
 try:
     from Products.Archetypes.interfaces.referenceable import IReferenceable
