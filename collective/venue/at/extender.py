@@ -9,6 +9,7 @@ try:
 except ImportError:
     from Products.ATContentTypes.interfaces import IATEvent
     from Products.ATContentTypes import ATCTMessageFactory as _
+from Products.CMFPlone.utils import safe_unicode
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
@@ -21,7 +22,6 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.event.at.content import EventAccessor
 from zope.component import adapts
 from zope.interface import implements
-
 
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
     pass
@@ -94,17 +94,17 @@ class VenueEventAccessor(EventAccessor):
     def location(self):
         location = self.context.getLocation()
         if not location:
-            return None
+            return ''
         if isinstance(location, basestring):
             # graceful handling in case of unmigrated ATEvent objects.
-            return location
+            return safe_unicode(location)
         else:
             meta_basic = IBasic(location)
             add = IAddress(location)
-            return '%s, %s, %s %s, %s' % (
+            return safe_unicode('%s, %s, %s %s, %s' % (
                 meta_basic.title,
                 add.street,
                 add.zip_code,
                 add.city,
                 get_pycountry_name(add.country) or ''
-            )
+            ))
