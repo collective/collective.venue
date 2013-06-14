@@ -101,10 +101,11 @@ class VenueEventAccessor(EventAccessor):
         else:
             meta_basic = IBasic(location)
             add = IAddress(location)
-            return safe_unicode('%s, %s, %s %s, %s' % (
+            country = get_pycountry_name(add.country)
+            return safe_unicode('%s%s%s%s%s' % (
                 meta_basic.title,
-                add.street,
-                add.zip_code,
-                add.city,
-                get_pycountry_name(add.country) or ''
+                add.street and ', %s' % add.street or '',
+                add.zip_code and ', %s' % add.zip_code or '',
+                add.city and ' %s' % add.street or '',
+                country and ', %s' % country or ''
             ))
