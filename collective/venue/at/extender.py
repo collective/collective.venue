@@ -106,6 +106,6 @@ class VenueEventAccessor(EventAccessor):
                 meta_basic.title,
                 add.street and ', %s' % add.street or '',
                 add.zip_code and ', %s' % add.zip_code or '',
-                add.city and ' %s' % add.street or '',
+                add.city and ' %s' % add.city or '',
                 country and ', %s' % country or ''
             ))
