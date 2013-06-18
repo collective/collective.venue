@@ -5,22 +5,15 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.venue">
 
+  <class class="plone.app.event.at.content.ATEvent">
+    <implements interface="..interfaces.IEventWithVenue"/>
+  </class>
+
   <include package="archetypes.schemaextender" />
-  <!-- include package="archetypes.schemaextender" file="caching.zcml" /-->
   <adapter
       factory=".extender.ATEventExtender"
       name="collective.venue.ATEventExtender"
       provides="archetypes.schemaextender.interfaces.IOrderableSchemaExtender"
       />
-
-  <configure zcml:condition="installed plone.app.event">
-    <class class="plone.app.event.at.content.ATEvent">
-      <implements interface=".interfaces.IATEventWithVenue"/>
-    </class>
-    <adapter
-        factory=".extender.VenueEventAccessor"
-        for=".interfaces.IATEventWithVenue"
-        />
-  </configure>
 
 </configure>

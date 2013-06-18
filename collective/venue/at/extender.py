@@ -9,21 +9,21 @@ try:
 except ImportError:
     from Products.ATContentTypes.interfaces import IATEvent
     from Products.ATContentTypes import ATCTMessageFactory as _
-from Products.CMFPlone.utils import safe_unicode
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
-from collective.address.behaviors import IAddress
-from collective.address.vocabulary import get_pycountry_name
 from collective.venue.interfaces import IVenue
 from collective.venue.interfaces import IVenueLayer
-from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.app.event.at.content import EventAccessor
 from zope.component import adapts
 from zope.interface import implements
 
+
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
+    pass
+
+
+class TextFieldExtender(ExtensionField, atapi.TextField):
     pass
 
 
@@ -52,6 +52,24 @@ class ATEventExtender(object):
                 show_results_without_query=True,
             ),
         ),
+
+        TextFieldExtender('location_notes',
+            required=False,
+            searchable=True,
+            default_content_type='text/plain',
+            allowable_content_types=('text/plain',),
+            widget=atapi.TextAreaWidget(
+                label=_(
+                    u'label_event_location_notes',
+                    default=u'Notes for the Venue'),
+                description=_(
+                    u'description_event_location_notes',
+                    default=u'Additional Information for the Venue.'),
+                rows=2,
+                allow_file_upload=False,
+                ),
+            ),
+
     ]
 
     def __init__(self, context):
@@ -76,8 +94,16 @@ class ATEventExtender(object):
             s_to.insert(idx + 1, new_field)
             return order
 
-        order = move_after(order, 'location', 'recurrence')
-        # This, if above makes problems
+        loc_from = 'default'
+        loc_to = 'default'
+        if 'location' in order['categorization']:
+            # Fix, if location still in categorization
+            loc_from = 'categorization'
+        order = move_after(order, 'location', 'recurrence',
+                           schemata_from=loc_from, schemata_to=loc_to)
+        order = move_after(order, 'location_notes', 'location')
+
+        # This, if above causes troubles
         # order = None
         # try:
         #    order = move_after(order, 'location', 'wholeDay', )
@@ -85,27 +111,5 @@ class ATEventExtender(object):
         #    order = move_after(order, 'location', 'endDate',
         #               schemata_from='categorization'
         #               schemata_to='default')
+
         return order
-
-
-class VenueEventAccessor(EventAccessor):
-
-    @property
-    def location(self):
-        location = self.context.getLocation()
-        if not location:
-            return ''
-        if isinstance(location, basestring):
-            # graceful handling in case of unmigrated ATEvent objects.
-            return safe_unicode(location)
-        else:
-            meta_basic = IBasic(location)
-            add = IAddress(location)
-            country = get_pycountry_name(add.country)
-            return safe_unicode('%s%s%s%s%s' % (
-                meta_basic.title,
-                add.street and ', %s' % add.street or '',
-                add.zip_code and ', %s' % add.zip_code or '',
-                add.city and ' %s' % add.city or '',
-                country and ', %s' % country or ''
-            ))

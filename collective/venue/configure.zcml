@@ -6,9 +6,15 @@
 
   <include package="collective.js.leaflet"/>
   <include package="plone.browserlayer" />
+  <include package="plone.app.event"/>
 
   <include package=".browser"/>
   <include zcml:condition="installed Products.ATContentTypes" package=".at" />
+
+  <adapter
+      factory=".VenueEventAccessor"
+      for=".interfaces.IEventWithVenue"
+      />
 
   <adapter
       name="SearchableText"
