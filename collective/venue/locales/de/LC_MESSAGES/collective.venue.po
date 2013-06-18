@@ -1,0 +1,68 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# Deutsche Übersetzung.
+# Johannes Raggam <raggam-nl@adm.at>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-06-18 12:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: Johannes Raggam <raggam-nl@adm.at>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: Deutsch\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.venue\n"
+
+#. Default: "All events at this location"
+#: collective/venue/browser/venue.pt:67
+msgid "all_events"
+msgstr "Alle Termine zu diesem Veranstaltungsort"
+
+#. Default: "Additional Information for the Venue."
+#: collective/venue/at/extender.py:65
+msgid "description_event_location_notes"
+msgstr "Zusätzliche Angaben zum Veranstaltungsort."
+
+#. Default: "Address"
+#: collective/venue/browser/venue.pt:16
+msgid "label_address"
+msgstr "Adresse"
+
+#: collective/venue/browser/venue.pt:31
+msgid "label_city"
+msgstr "Ort"
+
+#: collective/venue/browser/venue.pt:37
+msgid "label_country"
+msgstr "Staat"
+
+#. Default: "Event Location"
+#: collective/venue/at/extender.py:46
+msgid "label_event_location"
+msgstr "Veranstaltungsort"
+
+#. Default: "Notes for the Venue"
+#: collective/venue/at/extender.py:62
+msgid "label_event_location_notes"
+msgstr "Hinweise zum Veranstaltungsort"
+
+#: collective/venue/browser/venue.pt:48
+msgid "label_latitude"
+msgstr "Latitude"
+
+#: collective/venue/browser/venue.pt:52
+msgid "label_longitude"
+msgstr "Longitude"
+
+#: collective/venue/browser/venue.pt:19
+msgid "label_street"
+msgstr "Straße"
+
+#: collective/venue/browser/venue.pt:25
+msgid "label_zip_code"
+msgstr "PLZ"
+

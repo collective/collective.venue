@@ -1,0 +1,68 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2013-06-18 12:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.venue\n"
+
+#. Default: "All events at this location"
+#: collective/venue/browser/venue.pt:67
+msgid "all_events"
+msgstr ""
+
+#. Default: "Additional Information for the Venue."
+#: collective/venue/at/extender.py:65
+msgid "description_event_location_notes"
+msgstr ""
+
+#. Default: "Address"
+#: collective/venue/browser/venue.pt:16
+msgid "label_address"
+msgstr ""
+
+#: collective/venue/browser/venue.pt:31
+msgid "label_city"
+msgstr ""
+
+#: collective/venue/browser/venue.pt:37
+msgid "label_country"
+msgstr ""
+
+#. Default: "Event Location"
+#: collective/venue/at/extender.py:46
+msgid "label_event_location"
+msgstr ""
+
+#. Default: "Notes for the Venue"
+#: collective/venue/at/extender.py:62
+msgid "label_event_location_notes"
+msgstr ""
+
+#: collective/venue/browser/venue.pt:48
+msgid "label_latitude"
+msgstr ""
+
+#: collective/venue/browser/venue.pt:52
+msgid "label_longitude"
+msgstr ""
+
+#: collective/venue/browser/venue.pt:19
+msgid "label_street"
+msgstr ""
+
+#: collective/venue/browser/venue.pt:25
+msgid "label_zip_code"
+msgstr ""
+
