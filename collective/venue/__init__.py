@@ -82,7 +82,7 @@ def get_location(context):
         location = '<a class="venue_ref_popup" href="%s" title="%s">%s</a>' % (
             location.absolute_url(),
             '%s%s%s%s' % (
-                add.street and ', %s' % add.street or '',
+                add.street and add.street or '',
                 add.zip_code and ', %s' % add.zip_code or '',
                 add.city and ' %s' % add.city or '',
                 country and ', %s' % country or '',
