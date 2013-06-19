@@ -39,10 +39,13 @@ class VenueEventAccessor(EventAccessor):
                 add.city and ' %s' % add.city or '',
                 country and ', %s' % country or ''
             ))
+
+        location = safe_unicode(location)
+        location_notes = safe_unicode(location_notes)
         location = '%s%s%s' % (location and location or '',
                                location and location_notes and ', ' or '',
                                location_notes and location_notes or '')
-        return safe_unicode(location)
+        return location
 
 
 def get_location(context):
@@ -86,14 +89,15 @@ def get_location(context):
             ),
             meta_basic.title,
         )
-
     # Else: graceful handling of location as basestring in case of unmigrated
     # ATEvent objects.
 
+    location = safe_unicode(location)
+    location_notes = safe_unicode(location_notes)
     location = '%s%s%s' % (location and location or '',
                          location and location_notes and ', ' or '',
                          location_notes and location_notes or '')
-    return safe_unicode(location)
+    return location
 
 
 # PATCH
