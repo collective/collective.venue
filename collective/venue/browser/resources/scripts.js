@@ -67,7 +67,7 @@
             cssclass: 'overlay-venue',
             config: { onLoad: initialize_map }
         }
-        $('a.pae_location_ref').prepOverlay(overlay_opts);
+        $('a.venue_ref_popup').prepOverlay(overlay_opts);
     });
 
 })(jQuery);
