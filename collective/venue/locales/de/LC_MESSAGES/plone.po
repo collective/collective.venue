@@ -24,8 +24,5 @@ msgstr "Veranstaltungsort"
 
 # TRANSLATE TYPE
 #
-msgid "title_venue"
+msgid "Venue"
 msgstr "Veranstaltungsort"
-
-msgid "description_venue"
-msgstr "Einen neuen Veranstaltungsort anlegen."

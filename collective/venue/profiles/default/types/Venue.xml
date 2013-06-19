@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <object name="Venue" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="title_venue">Venue</property>
- <property name="description" i18n:translate="description_venue"></property>
+ <property name="title" i18n:translate="">Venue</property>
+ <property name="description" i18n:translate=""></property>
  <property name="icon_expr"></property>
  <property name="immediate_view">venue</property>
  <property name="global_allow">True</property>

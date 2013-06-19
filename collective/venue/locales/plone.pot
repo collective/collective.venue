@@ -24,8 +24,5 @@ msgstr ""
 
 # TRANSLATE TYPE
 #
-msgid "title_venue"
-msgstr ""
-
-msgid "description_venue"
+msgid "Venue"
 msgstr ""
