@@ -19,6 +19,13 @@ from zope.component import adapts
 from zope.interface import implements
 
 
+def base_query_venue():
+    base_query = {}
+    base_query['object_provides'] = IVenue.__identifier__
+    base_query['sort_on'] = 'sortable_title'
+    return base_query
+
+
 class ReferenceFieldExtender(ExtensionField, atapi.ReferenceField):
     pass
 
@@ -44,8 +51,7 @@ class ATEventExtender(object):
             widget=ReferenceBrowserWidget(
                 description='',
                 label=_(u'label_event_location', default=u'Event Location'),
-                base_query={'object_provides': IVenue.__identifier__,
-                            'sort_on': 'sortable_title'},
+                base_query=base_query_venue,
                 allow_search=True,
                 allow_browse=False,
                 force_close_on_insert=True,
