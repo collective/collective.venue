@@ -39,8 +39,8 @@
         ////map.addLayer(markers);
 
         // autozoom
-        var bounds = markers.getBounds();
-        map.fitBounds(bounds);
+        ////var bounds = markers.getBounds();
+        ////map.fitBounds(bounds);
 
         if (editable) {
             var update_inputs = function(lat, lng) {
