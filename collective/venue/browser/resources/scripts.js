@@ -17,9 +17,14 @@
         map.addControl(fullScreen);
 
         // ADD MARKERS
-        var markers = new L.MarkerClusterGroup();
+        //// DISABLE MARKERCLUSTER (indicated by quad ////). currently not
+        //// compatible with IE
+        ////var markers = new L.MarkerClusterGroup();
         $('div.geolocation').each(function() {
             var geo = $(this).data();
+            var marker = L.marker([geo.latitude, geo.longitude],
+                                  {draggable: editable}).addTo(map);
+
             var marker = new L.Marker([geo.latitude, geo.longitude],
                                   {draggable: editable});
             marker.bindPopup(geo.description);
@@ -29,9 +34,9 @@
                     update_inputs(coords.lat, coords.lng);
                 });
             }
-            markers.addLayer(marker);
+            ////markers.addLayer(marker);
         });
-        map.addLayer(markers);
+        ////map.addLayer(markers);
 
         // autozoom
         var bounds = markers.getBounds();
