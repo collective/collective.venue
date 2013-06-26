@@ -7,7 +7,6 @@
   <browser:resourceDirectory
       name="collective.venue"
       directory="resources"
-      layer="..interfaces.IVenueLayer"
       />
 
   <browser:page
