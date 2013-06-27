@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-18 12:41+0000\n"
+"POT-Creation-Date: 2013-06-27 10:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,8 +23,13 @@ msgid "all_events"
 msgstr ""
 
 #. Default: "Additional Information for the Venue."
-#: collective/venue/at/extender.py:65
+#: collective/venue/at/extender.py:71
 msgid "description_event_location_notes"
+msgstr ""
+
+#. Default: "Additional notes for the address."
+#: collective/venue/interfaces.py:13
+msgid "help_notes"
 msgstr ""
 
 #. Default: "Address"
@@ -41,12 +46,12 @@ msgid "label_country"
 msgstr ""
 
 #. Default: "Event Location"
-#: collective/venue/at/extender.py:46
+#: collective/venue/at/extender.py:53
 msgid "label_event_location"
 msgstr ""
 
 #. Default: "Notes for the Venue"
-#: collective/venue/at/extender.py:62
+#: collective/venue/at/extender.py:68
 msgid "label_event_location_notes"
 msgstr ""
 
@@ -56,6 +61,11 @@ msgstr ""
 
 #: collective/venue/browser/venue.pt:52
 msgid "label_longitude"
+msgstr ""
+
+#. Default: "Notes"
+#: collective/venue/interfaces.py:12
+msgid "label_notes"
 msgstr ""
 
 #: collective/venue/browser/venue.pt:19
