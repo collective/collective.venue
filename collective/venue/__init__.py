@@ -7,6 +7,10 @@ from plone.app.event.at.content import EventAccessor
 from plone.app.event.at.interfaces import IATEvent
 from plone.app.event.dx.interfaces import IDXEvent
 from plone.event.interfaces import IOccurrence
+from zope.i18nmessageid import MessageFactory
+
+
+messageFactory = MessageFactory('collective.venue')
 
 
 class VenueEventAccessor(EventAccessor):
