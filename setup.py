@@ -44,6 +44,7 @@ setup(name='collective.venue',
               'Products.ATContentTypes',
               'plone.app.referenceablebehavior',
               'archetypes.referencebrowserwidget',
+              'archetypes.schemaextender',
           ],
       },
       entry_points="""
