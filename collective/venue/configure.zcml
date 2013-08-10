@@ -12,7 +12,7 @@
   <include package="plone.app.event"/>
 
   <include package=".browser"/>
-  <include zcml:condition="installed Products.ATContentTypes" package=".at" />
+  <include zcml:condition="installed archetypes.schemaextender" package=".at" />
 
   <adapter
       factory=".VenueEventAccessor"
