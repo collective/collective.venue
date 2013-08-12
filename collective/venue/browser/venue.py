@@ -47,4 +47,5 @@ class VenueView(BrowserView):
     @property
     def get_brefs(self):
         ref = IReferenceable(self.context)
-        return ref.getBRefs(relationship='isVenueForEvent')
+        refs = ref.getBRefs(relationship='isVenueForEvent')
+        return refs
