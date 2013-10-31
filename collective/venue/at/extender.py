@@ -104,22 +104,14 @@ class ATEventExtender(object):
             s_to.insert(idx + 1, new_field)
             return order
 
-        loc_from = 'default'
-        loc_to = 'default'
+        # cleanup
         if 'location' in order['categorization']:
-            # Fix, if location still in categorization
-            loc_from = 'categorization'
-        order = move_after(order, 'location', 'recurrence',
-                           schemata_from=loc_from, schemata_to=loc_to)
-        order = move_after(order, 'location_notes', 'location')
+            # Remove location, if location still in categorization
+            order['categorization'].remove('location')
+        if order['default'].count('location') > 1:
+            order['default'].remove('location')
 
-        # This, if above causes troubles
-        # order = None
-        # try:
-        #    order = move_after(order, 'location', 'wholeDay', )
-        # except XXXError:
-        #    order = move_after(order, 'location', 'endDate',
-        #               schemata_from='categorization'
-        #               schemata_to='default')
+        order = move_after(order, 'location', 'recurrence')
+        order = move_after(order, 'location_notes', 'location')
 
         return order
