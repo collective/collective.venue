@@ -19,24 +19,28 @@
   <span
       class="street"
       i18n:attributes="title label_street"
+      i18n:domain="collective.address"
       tal:content="data/street">Street</span><br/>
 </tal:cond>
 <tal:cond condition="data/zip_code">
   <span
       class="zip_code"
       i18n:attributes="title label_zip_code"
+      i18n:domain="collective.address"
       tal:content="data/zip_code">Zip Code</span>
 </tal:cond>
 <tal:cond condition="data/city">
   <span
       class="city"
       i18n:attributes="title label_city"
+      i18n:domain="collective.address"
       tal:content="data/city">City</span>
 </tal:cond>
 <tal:cond condition="data/country">
   <span
       class="country"
       i18n:attributes="title label_country"
+      i18n:domain="collective.address"
       tal:content="data/country">Country</span>
 </tal:cond>
 </p>
@@ -48,10 +52,12 @@
   <span
       class="latitude"
       i18n:attributes="title label_latitude"
+      i18n:domain="plone.formwidget.geolocation"
       tal:content="latitude">Latitude</span>
   <span
       class="longitude"
       i18n:attributes="title label_longitude"
+      i18n:domain="plone.formwidget.geolocation"
       tal:content="longitude">Longitude</span>
 </div>
 

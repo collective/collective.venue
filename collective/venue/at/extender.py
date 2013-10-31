@@ -1,18 +1,18 @@
 try:
-    from Products.LinguaPlone import public  as atapi
+    from Products.LinguaPlone import public as atapi
 except ImportError:
     # No multilingual support
     from Products.Archetypes import atapi
+
 try:
     from plone.app.event.at.interfaces import IATEvent
-    from plone.app.event import messageFactory as _
 except ImportError:
     from Products.ATContentTypes.interfaces import IATEvent
-    from Products.ATContentTypes import ATCTMessageFactory as _
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from archetypes.schemaextender.field import ExtensionField
 from archetypes.schemaextender.interfaces import IBrowserLayerAwareExtender
 from archetypes.schemaextender.interfaces import IOrderableSchemaExtender
+from collective.venue import messageFactory as _
 from collective.venue.interfaces import IVenue
 from collective.venue.interfaces import IVenueLayer
 from zope.component import adapts
@@ -40,7 +40,8 @@ class ATEventExtender(object):
     layer = IVenueLayer  # Only apply if product is installed
 
     fields = [
-        ReferenceFieldExtender("location",
+        ReferenceFieldExtender(
+            "location",
             required=False,
             searchable=False,
             languageIndependent=True,
@@ -49,8 +50,10 @@ class ATEventExtender(object):
             allowed_types=('Venue',),
             addable=True,
             widget=ReferenceBrowserWidget(
-                description='',
                 label=_(u'label_event_location', default=u'Event Location'),
+                description=_(
+                    u'description_event_location',
+                    default=u'Reference to an existing location.'),
                 base_query=base_query_venue,
                 allow_search=True,
                 allow_browse=False,
@@ -59,7 +62,8 @@ class ATEventExtender(object):
             ),
         ),
 
-        TextFieldExtender('location_notes',
+        TextFieldExtender(
+            'location_notes',
             required=False,
             searchable=True,
             default_content_type='text/plain',
