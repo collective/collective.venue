@@ -3,11 +3,19 @@ from Products.CMFPlone.utils import safe_unicode
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
 from plone.app.dexterity.behaviors.metadata import IBasic
-from plone.app.event.at.content import EventAccessor
-from plone.app.event.at.interfaces import IATEvent
 from plone.app.event.dx.interfaces import IDXEvent
 from plone.event.interfaces import IOccurrence
 from zope.i18nmessageid import MessageFactory
+
+try:
+    from plone.app.event.at.content import EventAccessor
+    from plone.app.event.at.interfaces import IATEvent
+except ImportError:
+    from zope.interface import Interface
+    class EventAccessor(Interface): pass
+    class IATEvent(Interface): pass
+
+
 
 
 messageFactory = MessageFactory('collective.venue')
