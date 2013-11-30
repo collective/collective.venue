@@ -1,5 +1,3 @@
-(function($) {
-
     function initialize_map() {
         // Initialize the map
 
@@ -42,7 +40,7 @@
                 var map_wrap = $('#map').closest('div.geolocation_wrapper.edit');
                 map_wrap.find('input.latitude').attr('value', lat);
                 map_wrap.find('input.longitude').attr('value', lng);
-            }
+            };
             map.on('geosearch_showlocation', function (e) {
                 var coords = e.Location;
                 update_inputs(coords.Y, coords.X);
@@ -58,16 +56,21 @@
 
     }
 
+
+(function($) {
+
     $(document).ready(function () {
         initialize_map();
         // Open location view in popup.
-        var overlay_opts = {
-            subtype: 'ajax',
-            filter: common_content_filter,
-            cssclass: 'overlay-venue',
-            config: { onLoad: initialize_map }
+        if(typeof common_content_filter!='undefined' && 'prepOverlay' in $) {
+            var overlay_opts = {
+                subtype: 'ajax',
+                filter: common_content_filter,
+                cssclass: 'overlay-venue',
+                config: { onLoad: initialize_map }
+            }
+            $('a.venue_ref_popup').prepOverlay(overlay_opts);
         }
-        $('a.venue_ref_popup').prepOverlay(overlay_opts);
     });
 
 })(jQuery);
