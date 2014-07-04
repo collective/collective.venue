@@ -4,6 +4,7 @@ from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.event.dx.interfaces import IDXEvent
+from plone.event.interfaces import IEventAccessor
 from plone.event.interfaces import IOccurrence
 from zope.i18nmessageid import MessageFactory
 
@@ -12,10 +13,12 @@ try:
     from plone.app.event.at.interfaces import IATEvent
 except ImportError:
     from zope.interface import Interface
-    class EventAccessor(Interface): pass
-    class IATEvent(Interface): pass
 
+    class EventAccessor(Interface):
+        pass
 
+    class IATEvent(Interface):
+        pass
 
 
 messageFactory = MessageFactory('collective.venue')
@@ -69,6 +72,9 @@ def get_location(context):
     # location instead of the referenced object.
     location = None
     location_notes = None
+    if IEventAccessor.providedBy(context):
+        # Get context from accessor object
+        context = context.context
     if IOccurrence.providedBy(context):
         # Get location from real object
         context = aq_parent(context)
@@ -107,8 +113,8 @@ def get_location(context):
     location = safe_unicode(location)
     location_notes = safe_unicode(location_notes)
     location = '%s%s%s' % (location and location or '',
-                         location and location_notes and ', ' or '',
-                         location_notes and location_notes or '')
+                           location and location_notes and ', ' or '',
+                           location_notes and location_notes or '')
     return location
 
 
