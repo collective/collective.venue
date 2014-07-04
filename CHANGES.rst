@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1 (unreleased)
----------------
+1.1 (2014-07-04)
+----------------
 
 - Fix prepOverlay availability check, which has somehow changed to be only
   available on jQuery objects and not jQuery itself.
