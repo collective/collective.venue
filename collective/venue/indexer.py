@@ -24,6 +24,6 @@ def searchable_text_indexer(obj):
             'text/plain',
             notes,
             mimetype='text/html',
-            ).getData().strip()
+        ).getData().strip()
         text += body_plain
     return safe_unicode(text.strip())

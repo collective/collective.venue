@@ -77,8 +77,8 @@ class ATEventExtender(object):
                     default=u'Additional Information for the Venue.'),
                 rows=2,
                 allow_file_upload=False,
-                ),
             ),
+        ),
 
     ]
 
