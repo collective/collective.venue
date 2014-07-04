@@ -1,26 +1,38 @@
+/*jslint browser: true*/
+/*global $, jQuery, L, common_content_filter*/
+
 function initialize_map() {
     // Initialize the map
+    var editable,
+        map,
+        baseLayers,
+        fullScreen,
+        markers,
+        bounds,
+        update_inputs,
+        geosearch;
 
     if ($('#map').length === 0) {
         return;
     }
 
-    var editable = $('div.geolocation_wrapper.edit').length && true || false;
+    editable = ($('div.geolocation_wrapper.edit').length && true) || false;
 
-    var map = new L.Map("map", {});
+    map = new L.Map("map", {});
 
     L.tileLayer.provider('OpenStreetMap.DE').addTo(map);
-    var baseLayers = ['OpenStreetMap.DE', 'Esri.WorldImagery', 'Esri.WorldStreetMap', 'OpenCycleMap'];
-    var layerControl = L.control.layers.provided(baseLayers).addTo(map);
+    baseLayers = ['OpenStreetMap.DE', 'Esri.WorldImagery', 'Esri.WorldStreetMap', 'OpenCycleMap'];
+    L.control.layers.provided(baseLayers).addTo(map);
 
-    var fullScreen = new L.Control.FullScreen();
+    fullScreen = new L.Control.FullScreen();
     map.addControl(fullScreen);
 
     // ADD MARKERS
-    var markers = new L.MarkerClusterGroup();
+    markers = new L.MarkerClusterGroup();
     $('div.geolocation').each(function() {
-        var geo = $(this).data();
-        var marker = new L.Marker([geo.latitude, geo.longitude], {
+        var geo, marker;
+        geo = $(this).data();
+        marker = new L.Marker([geo.latitude, geo.longitude], {
             draggable: editable
         });
         marker.bindPopup(geo.description);
@@ -35,11 +47,11 @@ function initialize_map() {
     map.addLayer(markers);
 
     // autozoom
-    var bounds = markers.getBounds();
+    bounds = markers.getBounds();
     map.fitBounds(bounds);
 
     if (editable) {
-        var update_inputs = function(lat, lng) {
+        update_inputs = function(lat, lng) {
             var map_wrap = $('#map').closest('div.geolocation_wrapper.edit');
             map_wrap.find('input.latitude').attr('value', lat);
             map_wrap.find('input.longitude').attr('value', lng);
@@ -50,11 +62,12 @@ function initialize_map() {
         });
 
         // GEOSEARCH
-        var geosearch = new L.Control.GeoSearch({
+        geosearch = new L.Control.GeoSearch({
             draggable: editable,
             provider: new L.GeoSearch.Provider.Google()
             //provider: new L.GeoSearch.Provider.OpenStreetMap()
-        }).addTo(map);
+        });
+        geosearch.addTo(map);
     }
 
 }
@@ -65,7 +78,7 @@ function initialize_map() {
     $(document).ready(function() {
         initialize_map();
         // Open location view in popup.
-        if (typeof common_content_filter != 'undefined' && 'prepOverlay' in $) {
+        if (common_content_filter !== undefined && $.prepOverlay !== undefined) {
             var overlay_opts = {
                 subtype: 'ajax',
                 filter: common_content_filter,
@@ -73,9 +86,9 @@ function initialize_map() {
                 config: {
                     onLoad: initialize_map
                 }
-            }
+            };
             $('a.venue_ref_popup').prepOverlay(overlay_opts);
         }
     });
 
-})(jQuery);
+}(jQuery));
