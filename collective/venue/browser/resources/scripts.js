@@ -78,7 +78,7 @@ function initialize_map() {
     $(document).ready(function() {
         initialize_map();
         // Open location view in popup.
-        if (common_content_filter !== undefined && $.prepOverlay !== undefined) {
+        if (common_content_filter !== undefined && $('body').prepOverlay !== undefined) {
             var overlay_opts = {
                 subtype: 'ajax',
                 filter: common_content_filter,
