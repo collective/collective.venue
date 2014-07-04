@@ -2,7 +2,14 @@ Changelog
 =========
 
 1.1 (unreleased)
-----------------
+---------------
+
+- Fix prepOverlay availability check, which has somehow changed to be only
+  available on jQuery objects and not jQuery itself.
+  [thet]
+
+- JSLint'ing.
+  [thet]
 
 - Also support IEventAccessor in get_location and fix location not beeing
   displayed on ``@@event_listing`` views.
