@@ -7,7 +7,7 @@
     i18n_domain="collective.venue">
 
   <i18n:registerTranslations directory="locales" />
-  
+
   <include package="collective.js.leaflet"/>
   <include package="plone.browserlayer" />
   <include package="plone.app.event"/>
@@ -20,9 +20,12 @@
       for="*"
       />
 
-  <adapter
-      name="SearchableText"
-      factory=".indexer.searchable_text_indexer"/>
+  <adapter name="venue" factory=".indexer.venue_indexer"/>
+  <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
+
+  <utility
+      name="collective.venue.venues"
+      component=".vocabularies.VenuesVocabularyFactory"/>
 
   <genericsetup:registerProfile
       name="default"

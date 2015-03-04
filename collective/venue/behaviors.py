@@ -10,7 +10,7 @@ from plone.autoform import directives as form
 class ILocation(model.Schema):
 
     location = schema.Tuple(
-        label=_(u'label_event_location', default=u'Event Location'),
+        title=_(u'label_event_location', default=u'Event Location'),
         description=_(
             u'description_event_location',
             default=u'Reference to an existing location.'),
@@ -22,7 +22,7 @@ class ILocation(model.Schema):
                 vocabulary='collective.venue.venues')
 
     location_notes = schema.Text(
-        label=_(
+        title=_(
             u'label_event_location_notes',
             default=u'Notes for the Venue'),
         description=_(
