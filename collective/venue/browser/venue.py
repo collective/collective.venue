@@ -4,11 +4,6 @@ from collective.address.vocabulary import get_pycountry_name
 from collective.geolocationbehavior.geolocation import IGeolocatable
 from plone.app.dexterity.behaviors.metadata import IBasic
 
-try:
-    from Products.Archetypes.interfaces.referenceable import IReferenceable
-except ImportError:
-    from plone.app.referenceablebehavior.referenceable import IReferenceable
-
 
 class VenueView(BrowserView):
 
@@ -43,9 +38,3 @@ class VenueView(BrowserView):
             'country': get_pycountry_name(add.country) or '',
             'notes': add.notes and add.notes.output or '',
         }
-
-    @property
-    def get_brefs(self):
-        ref = IReferenceable(self.context)
-        refs = ref.getBRefs(relationship='isVenueForEvent')
-        return refs

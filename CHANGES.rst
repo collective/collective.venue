@@ -1,6 +1,14 @@
 Changelog
 =========
 
+2.0 (unreleased)
+----------------
+
+- Remove Archetypes code. Since 2.0, we're only supporting Dexterity types
+  based on plone.app.event >= 2.0.
+  [thet]
+
+
 1.1 (2014-07-04)
 ----------------
 

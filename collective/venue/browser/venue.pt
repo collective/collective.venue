@@ -68,20 +68,6 @@
 
 <p tal:condition="data/notes" tal:content="structure data/notes">Venue notes</p>
 
-
-<tal:all_ref define="refs view/get_brefs" condition="refs">
-  <h3 i18n:translate="all_events">All events at this location</h3>
-  <ul>
-    <li tal:repeat="ref refs">
-      <a tal:attributes="href ref/absolute_url">
-        <span class="title" tal:content="ref/Title"/>
-        <span class="description documentByLine"
-            tal:condition="ref/Description" tal:content="ref/Description"/>
-      </a>
-    </li>
-  </ul>
-</tal:all_ref>
-
 </metal:block>
 </metal:content-core>
 

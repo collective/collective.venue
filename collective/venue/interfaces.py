@@ -21,8 +21,3 @@ class IVenueLayer(Interface):
     """A Browserlayer indicating that this product is actually installed via
     Generic Setup.
     """
-
-
-class IEventWithVenue(Interface):
-    """Event, which provides references to Venue objects.
-    """

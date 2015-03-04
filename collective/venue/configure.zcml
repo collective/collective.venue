@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.venue">
 
@@ -12,11 +13,11 @@
   <include package="plone.app.event"/>
 
   <include package=".browser"/>
-  <include zcml:condition="installed archetypes.schemaextender" package=".at" />
 
-  <adapter
-      factory=".VenueEventAccessor"
-      for=".interfaces.IEventWithVenue"
+  <plone:behavior
+      title="collective.venue event locations"
+      provides=".behaviors.ILocation"
+      for="*"
       />
 
   <adapter
