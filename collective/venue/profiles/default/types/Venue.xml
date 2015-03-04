@@ -21,8 +21,8 @@
   <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
   <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
   <element value="collective.address.behaviors.IAddress"/>
+  <element value="collective.address.behaviors.IContact"/>
   <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
-  <element value="plone.app.referenceablebehavior.referenceable.IReferenceable" />
  </property>
  <property name="schema">collective.venue.interfaces.IVenue</property>
  <property name="model_source"></property>
