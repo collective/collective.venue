@@ -1,25 +1,25 @@
 from collective.venue import messageFactory as _
+from collective.venue.interfaces import IVenue
+from plone.app.vocabularies.catalog import CatalogSource
+from plone.app.widgets.dx import RelatedItemsFieldWidget
+from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
 from zope.interface import alsoProvides
-from plone.app.widgets.dx import AjaxSelectFieldWidget
-from plone.autoform import directives as form
 
 
 class ILocation(model.Schema):
 
-    location = schema.Tuple(
+    location_uid = schema.Choice(
         title=_(u'label_event_location', default=u'Event Location'),
         description=_(
             u'description_event_location',
             default=u'Reference to an existing location.'),
-        value_type=schema.TextLine(),
         required=False,
-        missing_value=(),
+        source=CatalogSource(object_provides=IVenue.__identifier__),
     )
-    form.widget('location', AjaxSelectFieldWidget,
-                vocabulary='collective.venue.venues')
+    form.widget('location_uid', RelatedItemsFieldWidget)
 
     location_notes = schema.Text(
         title=_(
