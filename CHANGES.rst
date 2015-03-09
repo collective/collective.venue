@@ -4,6 +4,10 @@ Changelog
 2.0 (unreleased)
 ----------------
 
+- Change the view name ``venue`` to ``venue_view`` to be more unique among
+  content being traversed and also named venue.
+  [thet]
+
 - Remove Archetypes code. Since 2.0, we're only supporting Dexterity types
   based on plone.app.event >= 2.0.
   [thet]

@@ -11,7 +11,7 @@
 
   <browser:page
       for="collective.venue.interfaces.IVenue"
-      name="venue"
+      name="venue_view"
       class=".venue.VenueView"
       template="venue.pt"
       permission="zope2.View"
@@ -48,5 +48,17 @@
       layer="z3c.form.interfaces.IFormLayer"
       template="geolocation_input.pt"
       />
+
+
+  <!-- BBB -->
+  <browser:page
+      for="collective.venue.interfaces.IVenue"
+      name="venue"
+      class=".venue.VenueView"
+      template="venue.pt"
+      permission="zope2.View"
+      layer="..interfaces.IVenueLayer"
+      />
+
 
 </configure>
