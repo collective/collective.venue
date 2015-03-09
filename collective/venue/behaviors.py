@@ -17,6 +17,7 @@ class ILocation(model.Schema):
             u'description_event_location',
             default=u'Reference to an existing location.'),
         required=False,
+        default=None,
         source=CatalogSource(object_provides=IVenue.__identifier__),
     )
     form.widget('location_uid', RelatedItemsFieldWidget)
@@ -29,6 +30,6 @@ class ILocation(model.Schema):
             u'description_event_location_notes',
             default=u'Additional Information for the Venue.'),
         required=False,
-        missing_value=u'',
+        default=None,
     )
 alsoProvides(ILocation, IFormFieldProvider)
