@@ -4,6 +4,11 @@ Changelog
 2.0 (unreleased)
 ----------------
 
+- Remove ``geolocation_display.pt`` and ``geolocation_input.pt`` templates.
+  Those were just overriding the id attribute from the original templates under
+  ``plone.formwidget.geolocation``. We should use css classes anyways.
+  [thet]
+
 - Change the view name ``venue`` to ``venue_view`` to be more unique among
   content being traversed and also named venue.
   [thet]

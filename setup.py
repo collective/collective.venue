@@ -37,8 +37,6 @@ setup(
         'Products.CMFPlone',
         'Products.GenericSetup',
         'collective.js.leaflet',
-        'z3c.form',
-        'z3c.unconfigure',
     ],
     extras_require={
         'archetypes': [

@@ -18,38 +18,6 @@
       layer="..interfaces.IVenueLayer"
       />
 
-  <include package="z3c.unconfigure" file="meta.zcml" />
-  <include package="z3c.form" file="meta.zcml" />
-  <include package="plone.formwidget.geolocation" />
-  <!-- use our template -->
-  <unconfigure>
-    <z3c:widgetTemplate
-        mode="display"
-        widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="geolocation_display.pt"
-        />
-    <z3c:widgetTemplate
-        mode="input"
-        widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
-        layer="z3c.form.interfaces.IFormLayer"
-        template="geolocation_input.pt"
-        />
-  </unconfigure>
-  <z3c:widgetTemplate
-      mode="display"
-      widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
-      layer="z3c.form.interfaces.IFormLayer"
-      template="geolocation_display.pt"
-      />
-  <z3c:widgetTemplate
-      mode="input"
-      widget="plone.formwidget.geolocation.interfaces.IGeolocationWidget"
-      layer="z3c.form.interfaces.IFormLayer"
-      template="geolocation_input.pt"
-      />
-
-
   <!-- BBB -->
   <browser:page
       for="collective.venue.interfaces.IVenue"
