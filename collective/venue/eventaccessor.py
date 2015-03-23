@@ -1,0 +1,60 @@
+from Products.CMFPlone.utils import safe_unicode
+from collective.address.behaviors import IAddress
+from collective.address.vocabulary import get_pycountry_name
+from collective.venue.behaviors import ILocation
+from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.app.event.dx.behaviors import EventAccessor
+from plone.app.event.dx.interfaces import IDXEvent
+from plone.app.uuid.utils import uuidToObject
+from plone.event.interfaces import IEventAccessor
+from zope.component import adapter
+from zope.interface import implementer
+
+
+@adapter(IDXEvent)
+@implementer(IEventAccessor)
+class VenueEventAccessor(EventAccessor):
+
+    def __init__(self, context):
+        super(VenueEventAccessor, self).__init__(context)
+        del self._behavior_map['location']
+
+    @property
+    def location(self):
+        context = self.context
+        location_uid = ILocation(context).location_uid
+        location_notes = ILocation(context).location_notes
+        location = uuidToObject(location_uid)
+
+        meta_basic = IBasic(location, None)
+        add = IAddress(location, None)
+
+        ret = u''
+        if meta_basic and add:
+            # I'm a location reference.
+            # Create a link with href, title and urltext.
+            country = get_pycountry_name(add.country)
+            ret = u'<a class="venue_ref_popup" href="{0}" title="{1}">{2}</a>'.format(  # noqa
+                location.absolute_url(),
+                u', '.join([it for it in [
+                    add.street,
+                    add.zip_code,
+                    add.city,
+                    country
+                ] if it]),
+                meta_basic.title,
+            )
+
+        ret = safe_unicode(ret)
+        location_notes = safe_unicode(location_notes)
+
+        ret = u', '.join([it for it in [
+            safe_unicode(ret),
+            safe_unicode(location_notes)
+        ] if it])
+        return ret
+
+    @location.setter
+    def location(self, value):
+        acc = ILocation(self.context)
+        acc.location_notes = safe_unicode(value)

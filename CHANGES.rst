@@ -4,6 +4,11 @@ Changelog
 2.0 (unreleased)
 ----------------
 
+- Include a IEventAccessor implentation for IDXEvent and override the default
+  implementation from plone.app.event. This implementation's locaion property
+  returns a HTLM link to a location object, if defined.
+  [thet]
+
 - Remove ``geolocation_display.pt`` and ``geolocation_input.pt`` templates.
   Those were just overriding the id attribute from the original templates under
   ``plone.formwidget.geolocation``. We should use css classes anyways.
