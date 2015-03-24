@@ -20,6 +20,11 @@ class VenueEventAccessor(EventAccessor):
         del self._behavior_map['location']
 
     @property
+    def _location_link_template(self):
+        return u'<a class="venue_ref_popup" href="{url}" title="{address}">'\
+               u'{title}</a>'
+
+    @property
     def location(self):
         context = self.context
         location_uid = ILocation(context).location_uid
@@ -34,15 +39,15 @@ class VenueEventAccessor(EventAccessor):
             # I'm a location reference.
             # Create a link with href, title and urltext.
             country = get_pycountry_name(add.country)
-            ret = u'<a class="venue_ref_popup" href="{0}" title="{1}">{2}</a>'.format(  # noqa
-                location.absolute_url(),
-                u', '.join([it for it in [
+            ret = self._location_link_template.format(  # noqa
+                url=location.absolute_url(),
+                address=u', '.join([it for it in [
                     add.street,
                     add.zip_code,
                     add.city,
                     country
                 ] if it]),
-                meta_basic.title,
+                title=meta_basic.title,
             )
 
         ret = safe_unicode(ret)
