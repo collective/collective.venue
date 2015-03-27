@@ -36,7 +36,6 @@ setup(
         'plone.formwidget.geolocation',
         'Products.CMFPlone',
         'Products.GenericSetup',
-        'collective.js.leaflet',
         'z3c.unconfigure',
     ],
     extras_require={
