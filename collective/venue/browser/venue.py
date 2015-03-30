@@ -2,36 +2,33 @@ from Products.Five.browser import BrowserView
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
 from collective.geolocationbehavior.geolocation import IGeolocatable
-from plone.app.dexterity.behaviors.metadata import IBasic
+import json
 
 
 class VenueView(BrowserView):
 
-    def cleanup(self, txt):
-        if not txt:
-            return
-        return txt.replace('"', "'")
-
     @property
     def data(self):
         context = self.context
-        meta_basic = IBasic(context)
         geo = IGeolocatable(context)
         add = IAddress(context)
 
-        title = self.cleanup(meta_basic.title)
-        description = self.cleanup(meta_basic.description)
-        popup = '<h3>%s</h3><p>%s</p>' % (
-            title,
-            description and description or '')
+        title = getattr(self.context, 'title', '')
+        description = getattr(self.context, 'description', '')
+        latitude = geo.geolocation.latitude
+        longitude = geo.geolocation.longitude
+        geo_json = json.dumps([{
+            'lat': latitude,
+            'lng': longitude,
+            'popup': '<h3>{0}</h3><p>{1}</p>'.format(title, description)
+        }])
 
         return {
-            'title': meta_basic.title,
-            'description': meta_basic.description,
-            'popup': popup,
-            'has_geo': geo.geolocation.latitude and geo.geolocation.longitude,
-            'latitude': geo.geolocation.latitude,
-            'longitude': geo.geolocation.longitude,
+            'title': title,
+            'description': description,
+            'geopoints': geo_json,
+            'latitude': latitude,
+            'longitude': longitude,
             'street': add.street,
             'zip_code': add.zip_code,
             'city': add.city,

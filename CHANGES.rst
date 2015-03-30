@@ -4,6 +4,11 @@ Changelog
 2.0 (unreleased)
 ----------------
 
+- Remove the ``div.geolocation`` elements. Instead, render the list of
+  geolocation points as JSON value on a ``data-geopoints`` attrbute on the map
+  element.
+  [thet]
+
 - Include a IEventAccessor implentation for IDXEvent and override the default
   implementation from plone.app.event. This implementation's locaion property
   returns a HTLM link to a location object, if defined.
