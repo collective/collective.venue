@@ -4,6 +4,9 @@ Changelog
 2.0 (unreleased)
 ----------------
 
+- Remove Leaflet code. It's now in plone.formwidget.geolocation.
+  [thet]
+
 - Remove the ``div.geolocation`` elements. Instead, render the list of
   geolocation points as JSON value on a ``data-geopoints`` attrbute on the map
   element.
