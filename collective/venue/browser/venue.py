@@ -1,3 +1,4 @@
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
@@ -13,14 +14,14 @@ class VenueView(BrowserView):
         geo = IGeolocatable(context)
         add = IAddress(context)
 
-        title = getattr(self.context, 'title', '')
-        description = getattr(self.context, 'description', '')
+        title = safe_unicode(getattr(self.context, 'title', u''))
+        description = safe_unicode(getattr(self.context, 'description', u''))
         latitude = geo.geolocation.latitude
         longitude = geo.geolocation.longitude
         geo_json = json.dumps([{
             'lat': latitude,
             'lng': longitude,
-            'popup': '<h3>{0}</h3><p>{1}</p>'.format(title, description)
+            'popup': u'<h3>{0}</h3><p>{1}</p>'.format(title, description)
         }])
 
         return {
