@@ -27,8 +27,9 @@ class VenueEventAccessor(EventAccessor):
     @property
     def location(self):
         context = self.context
-        location_uid = ILocation(context).location_uid
-        location_notes = ILocation(context).location_notes
+        location_ref = ILocation(context)
+        location_uid = location_ref.location_uid
+        location_notes = location_ref.location_notes
         location = uuidToObject(location_uid)
 
         meta_basic = IBasic(location, None)
