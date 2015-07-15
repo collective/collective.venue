@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0 (unreleased)
+2.0 (2015-07-15)
 ----------------
 
 - Remove Leaflet code. It's now in plone.formwidget.geolocation.
