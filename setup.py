@@ -15,7 +15,7 @@ setup(
         "Framework :: Plone",
         "Programming Language :: Python",
     ],
-    keywords='plone collective event',
+    keywords='plone collective event geo location',
     author='Johannes Raggam',
     author_email='raggam-nl@adm.at',
     url='https://github.com/collective/collective.venue',

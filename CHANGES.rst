@@ -14,7 +14,7 @@ Changelog
 
 - Include a IEventAccessor implentation for IDXEvent and override the default
   implementation from plone.app.event. This implementation's locaion property
-  returns a HTLM link to a location object, if defined.
+  returns a HTML link to a location object, if defined.
   [thet]
 
 - Remove ``geolocation_display.pt`` and ``geolocation_input.pt`` templates.
