@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<object name="portal_controlpanel" meta_type="Plone Control Panel Tool" i18n:domain="plone" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+  <configlet
+      title="Event Venue Settings" 
+      action_id="Venue"
+      appId="collective.venue"
+      category="Products" 
+      condition_expr=""
+      icon_expr="string:$portal_url/logoIcon.png"
+      url_expr="context/@@sitelogo_utils/controlpanel_url"
+      visible="True"
+      i18n:attributes="title">
+    <permission>Plone Site Setup: Site</permission>
+  </configlet>
+</object>
+

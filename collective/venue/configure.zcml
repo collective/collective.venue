@@ -10,6 +10,7 @@
 
   <include package="plone.browserlayer"/>
   <include package="plone.app.event"/>
+  <include package="plone.app.registry"/>
 
   <include package=".browser"/>
   <includeOverrides file="overrides.zcml"/>
