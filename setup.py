@@ -36,7 +36,7 @@ setup(
         'plone.formwidget.geolocation',
         'Products.CMFPlone',
         'Products.GenericSetup',
-        'z3c.unconfigure',
+        'z3c.unconfigure < 1.1',
     ],
     extras_require={
         'archetypes': [
