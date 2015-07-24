@@ -1,7 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.venue">
 
   <browser:resourceDirectory
@@ -28,5 +28,22 @@
       layer="..interfaces.IVenueLayer"
       />
 
+  <browser:page
+      name="venue-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.VenueControlPanel"
+      layer="collective.venue.interfaces.IVenueLayer"
+      permission="plone.app.controlpanel.Site"
+      />
+  <configure zcml:condition="installed collective.lineage">
+    <browser:page
+        name="venue-controlpanel"
+        for="collective.lineage.interfaces.IChildSite"
+        class=".controlpanel.VenueControlPanel"
+        layer="collective.venue.interfaces.IVenueLayer"
+        permission="plone.app.controlpanel.Site"
+        />
+  </configure>
+  <!--adapter factory=".controlpanel.SourceQueryFieldWidget" /-->
 
 </configure>
