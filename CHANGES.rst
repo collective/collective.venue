@@ -4,7 +4,11 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Moved out geolocation support to extras (WIP)
+  [agitator]
+
+- Disable not working registry and adapter entries.
+  [agitator]
 
 
 2.1.3 (2016-02-04)

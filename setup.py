@@ -27,7 +27,6 @@ setup(
     install_requires=[
         'setuptools',
         'collective.address',
-        'collective.geolocationbehavior',
         'plone.api',
         'plone.app.content',
         'plone.app.dexterity',
@@ -35,7 +34,6 @@ setup(
         'plone.app.widgets',
         'plone.browserlayer',
         'plone.event',
-        'plone.formwidget.geolocation',
         'Products.CMFPlone',
         'Products.GenericSetup',
         'z3c.unconfigure < 1.1',
@@ -46,6 +44,10 @@ setup(
             'plone.app.referenceablebehavior',
             'archetypes.referencebrowserwidget',
             'archetypes.schemaextender',
+        ],
+        'geolocation': [
+            'collective.geolocationbehavior',
+            'plone.formwidget.geolocation',
         ],
     },
     entry_points="""
