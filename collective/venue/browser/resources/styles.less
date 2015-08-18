@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'venue';
+  src: url('++resource++collective.venue/font/venue.eot?92042799');
+  src: url('++resource++collective.venue/font/venue.eot?92042799#iefix') format('embedded-opentype'),
+       url('++resource++collective.venue/font/venue.woff?92042799') format('woff'),
+       url('++resource++collective.venue/font/venue.ttf?92042799') format('truetype'),
+       url('++resource++collective.venue/font/venue.svg?92042799#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body#visual-portal-wrapper.pat-plone .outer-wrapper {
+    [class*="contenttype-venue"]:before {
+        font-family:"venue"; font-size: 100%;
+        padding: 0; margin:0; position: relative; left: inherit; display: inline-block; color: inherit;
+        width: 20px; height: 20px; text-align: center; margin-right: @plone-padding-base-vertical;
+    }
+    .contenttype-venue:before { content: '\1f4c4'; } /* '\1f4c4' */
+}
+
+//*// on right on toolbar
+body#visual-portal-wrapper.pat-plone #edit-zone {
+    [class*="contenttype-venue"] {padding: 5px 15px 5px 50px;}
+
+    [class*="contenttype-"]:after {
+        font-family:"Fontello"; font-size: 100%;
+        padding: 0; margin:0; position: relative; left:  25px; display: inline-block; color: inherit;
+        width: 20px; height: 20px; text-align: center; margin-right: @plone-padding-base-vertical;
+        position:absolute;
+    }
+    .contenttype-venue:before { content: '\1f4c4'; } /* '\1f4c4' */
+}
+
+.icon-venue:before { content: '\1f4c4'; } /* '\1f4c4' */
+body {background: pink;}
