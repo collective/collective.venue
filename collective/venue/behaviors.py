@@ -2,7 +2,9 @@ from collective.venue import messageFactory as _
 from collective.venue.interfaces import IVenue
 from collective.venue.vocabularies import VenueSource
 from plone import api
-from plone.app.widgets.dx import RelatedItemsFieldWidget
+from plone.app.vocabularies.catalog import CatalogSource
+#from plone.app.widgets.dx import RelatedItemsFieldWidget
+from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
