@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts" meta_type="JavaScripts Registry">
 
-  <javascript
+  <!-- <javascript
       bundle="default"
       id="++resource++collective.venue/scripts.js"
       cacheable="True"
@@ -10,6 +10,6 @@
       enabled="True"
       expression=""
       inline="False"
-      />
+      /> -->
 
 </object>
