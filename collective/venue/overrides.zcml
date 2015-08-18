@@ -3,10 +3,10 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     i18n_domain="collective.venue">
 
-  <include package="z3c.unconfigure" file="meta.zcml" />
+  <!-- <include package="z3c.unconfigure" file="meta.zcml" />
   <unconfigure>
     <adapter factory="plone.app.event.dx.behaviors.EventAccessor" />
   </unconfigure>
-  <adapter factory=".eventaccessor.VenueEventAccessor" />
+  <adapter factory=".eventaccessor.VenueEventAccessor" /> -->
 
 </configure>
