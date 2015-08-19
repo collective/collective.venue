@@ -7,7 +7,7 @@
   font-style: normal;
 }
 /* line 18, http://localhost:15500/Plone7/++resource++collective.venue/styles.less */
-body#visual-portal-wrapper.pat-plone .outer-wrapper a.contenttype-venue:after {
+body#visual-portal-wrapper.pat-plone .outer-wrapper a.contenttype-venue:before {
   font-family: "venue";
   content: '\e800';
 }
