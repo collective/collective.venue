@@ -1,0 +1,18 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'venue';
+  src: url('../++resource++collective.venue/++resource++collective.venue/font/fontello.eot');
+  src: url('../++resource++collective.venue/++resource++collective.venue/font/fontello.eot#iefix') format('embedded-opentype'), url('../++resource++collective.venue/++resource++collective.venue/font/fontello.woff') format('woff'), url('../++resource++collective.venue/++resource++collective.venue/font/fontello.ttf') format('truetype'), url('../++resource++collective.venue/++resource++collective.venue/font/fontello.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 18, http://localhost:15500/Plone7/++resource++collective.venue/styles.less */
+body#visual-portal-wrapper.pat-plone .outer-wrapper a.contenttype-venue:after {
+  font-family: "venue";
+  content: '\e800';
+}
+/* line 26, http://localhost:15500/Plone7/++resource++collective.venue/styles.less */
+body#visual-portal-wrapper.pat-plone #edit-zone a.contenttype-venue:after {
+  font-family: "venue";
+  content: '\e800' !important;
+}
