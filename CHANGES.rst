@@ -4,7 +4,8 @@ Changelog
 2.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Better SearchableText indexing.
+  [thet]
 
 
 2.0 (2015-07-15)

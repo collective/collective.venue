@@ -12,18 +12,27 @@ from plone.indexer import indexer
 #     return ILocation(obj).location
 
 
+def _concat_and_utf8(*args):
+    """Concats args with spaces between and returns utf-8 string, it does not
+    matter if input was unicode or str.
+    Taken from ``plone.app.contenttypes.indexers``
+    """
+    result = ''
+    for value in args:
+        if isinstance(value, unicode):
+            value = value.encode('utf-8', 'replace')
+        if value:
+            result = ' '.join((result, value))
+    return result
+
+
 # Text indexing
 @indexer(IVenue)
 def searchable_text_indexer(obj):
-    venue = IVenue(obj)
     address = address_idx(obj)()  # returns DelegatingIndexer callable
     meta_basic = IBasic(obj)
-    text = ''
-    text += '%s\n' % address
-    text += '%s\n' % meta_basic.title
-    text += '%s\n' % meta_basic.description
-    text += '%s\n' % venue.notes
-    notes = venue.notes and venue.notes.output or None
+    venue = IVenue(obj)
+    notes = venue.notes and venue.notes.output or u''
     if notes:
         transforms = getToolByName(obj, 'portal_transforms')
         body_plain = transforms.convertTo(
@@ -31,5 +40,13 @@ def searchable_text_indexer(obj):
             notes,
             mimetype='text/html',
         ).getData().strip()
-        text += body_plain
-    return safe_unicode(text.strip())
+        notes = body_plain
+    parts = [
+        safe_unicode(address),
+        safe_unicode(meta_basic.title),
+        safe_unicode(meta_basic.description),
+        safe_unicode(venue.notes)
+    ]
+    ret = _concat_and_utf8(*parts)
+    print("collective.venue searchable_text_indexer: {0}".format(ret))
+    return ret
