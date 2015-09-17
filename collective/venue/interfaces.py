@@ -23,7 +23,6 @@ class IVenueSettings(Interface):
     """Controlpanel schema for venue types.
     """
 
-    """
     source_query = schema.TextLine(
         title=_(u'Search terms'),
         description=_(u"Define the search terms for the items you want "
@@ -53,6 +52,7 @@ class IVenueSettings(Interface):
             object_provides=IVenue.__identifier__
         )
     )
+    """
 
 
 class IVenueLayer(Interface):

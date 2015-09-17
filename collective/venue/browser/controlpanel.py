@@ -17,7 +17,6 @@ class VenueControlPanel(controlpanel.ControlPanelFormWrapper):
     form = VenueControlPanelForm
 
 
-"""
 from plone.app.widgets.dx import QueryStringWidget
 from z3c.form.interfaces import IFieldWidget
 from z3c.form.util import getSpecification
@@ -30,4 +29,3 @@ from zope.interface import implementer
 @implementer(IFieldWidget)
 def SourceQueryFieldWidget(field, request):
     return FieldWidget(field, QueryStringWidget(request))
-"""

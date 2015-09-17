@@ -44,6 +44,6 @@
         permission="plone.app.controlpanel.Site"
         />
   </configure>
-  <!--adapter factory=".controlpanel.SourceQueryFieldWidget" /-->
+  <adapter factory=".controlpanel.SourceQueryFieldWidget" />
 
 </configure>

@@ -1,6 +1,6 @@
 from collective.venue import messageFactory as _
 from collective.venue.interfaces import IVenue
-from plone.app.vocabularies.catalog import CatalogSource
+from collective.venue.vocabularies import VenueSource
 from plone.app.widgets.dx import RelatedItemsFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
@@ -18,7 +18,7 @@ class ILocation(model.Schema):
             default=u'Reference to an existing location.'),
         required=False,
         default=None,
-        source=CatalogSource(object_provides=IVenue.__identifier__),
+        source=VenueSource(object_provides=IVenue.__identifier__),
     )
     form.widget('location_uid', RelatedItemsFieldWidget)
 
