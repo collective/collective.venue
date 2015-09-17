@@ -28,6 +28,7 @@ setup(
         'setuptools',
         'collective.address',
         'collective.geolocationbehavior',
+        'plone.api',
         'plone.app.content',
         'plone.app.dexterity',
         'plone.app.event',
