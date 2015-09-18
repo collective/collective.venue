@@ -23,6 +23,7 @@
 
   <!--adapter name="venue" factory=".indexer.venue_indexer"/-->
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
+  <adapter factory=".converter.QueryStringJSONDataConverter" />
 
   <genericsetup:registerProfile
       name="default"
