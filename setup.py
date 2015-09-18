@@ -32,6 +32,7 @@ setup(
         'plone.app.content',
         'plone.app.dexterity',
         'plone.app.event',
+        'plone.app.widgets',
         'plone.browserlayer',
         'plone.event',
         'plone.formwidget.geolocation',

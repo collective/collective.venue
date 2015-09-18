@@ -24,6 +24,15 @@
   <!--adapter name="venue" factory=".indexer.venue_indexer"/-->
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
 
+  <utility
+      component=".vocabularies.VenueVocabulary"
+      name="collective.venue.VenueVocabulary"
+      />
+  <utility
+      component=".vocabularies.DefaultVenueVocabulary"
+      name="collective.venue.DefaultVenueVocabulary"
+      />
+
   <genericsetup:registerProfile
       name="default"
       title="collective.venue"

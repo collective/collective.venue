@@ -18,6 +18,15 @@
       layer="..interfaces.IVenueLayer"
       />
 
+  <browser:page
+      for="*"
+      name="venue_view"
+      class=".venue.VenueView"
+      template="venue.pt"
+      permission="zope2.View"
+      layer="..interfaces.IVenueLayer"
+      />
+
   <!-- BBB -->
   <browser:page
       for="collective.venue.interfaces.IVenue"
@@ -44,6 +53,8 @@
         permission="plone.app.controlpanel.Site"
         />
   </configure>
-  <adapter factory=".controlpanel.SourceQueryFieldWidget" />
+
+  <adapter factory=".controlpanel.SearchBaseFieldWidget" />
+  <adapter factory=".controlpanel.DefaultVenueFieldWidget" />
 
 </configure>

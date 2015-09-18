@@ -8,6 +8,7 @@ from plone.app.event.dx.interfaces import IDXEvent
 from plone.app.uuid.utils import uuidToObject
 from plone.event.interfaces import IEventAccessor
 from zope.component import adapter
+from zope.component.hooks import getSite
 from zope.interface import implementer
 
 
@@ -32,6 +33,13 @@ class VenueEventAccessor(EventAccessor):
         location_notes = location_ref.location_notes
         location = uuidToObject(location_uid)
 
+        site_url = getSite().absolute_url()
+        location_url = location.absolute_url()
+        if site_url not in location_url:
+            # location in different site - cannot directly open it
+            location_url = u'{0}/@@venue_view?uid={1}'.format(
+                site_url, location_uid)
+
         meta_basic = IBasic(location, None)
         add = IAddress(location, None)
 
@@ -41,7 +49,7 @@ class VenueEventAccessor(EventAccessor):
             # Create a link with href, title and urltext.
             country = get_pycountry_name(add.country)
             ret = self._location_link_template.format(  # noqa
-                url=location.absolute_url(),
+                url=location_url,
                 address=u', '.join([it for it in [
                     add.street,
                     add.zip_code,

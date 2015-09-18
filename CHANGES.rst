@@ -4,6 +4,14 @@ Changelog
 2.1 (unreleased)
 ----------------
 
+- Allow to show venues via their uid from other subsites, which would otherwise
+  be inaccessible e.g. in a virtual hosting environment.
+  [thet]
+
+- Add controlpanel with configure options for a venue search base folder and a
+  default venue. The search base folder is useful in multi-site environments.
+  [thet]
+
 - Better SearchableText indexing.
   [thet]
 

@@ -1,6 +1,5 @@
 from collective.venue import messageFactory as _
 from plone.app.textfield import RichText
-from plone.app.vocabularies.catalog import CatalogSource
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
@@ -23,15 +22,6 @@ class IVenueSettings(Interface):
     """Controlpanel schema for venue types.
     """
 
-    source_query = schema.TextLine(
-        title=_(u'Search terms'),
-        description=_(u"Define the search terms for the items you want "
-                      u"to list by choosing what to match on. "
-                      u"The list of results will be dynamically updated"),
-        required=False,
-    )
-
-    """
     search_base = schema.Choice(
         title=_(u'label_search_base', default=u'Venue Search Base'),
         description=_(
@@ -40,7 +30,7 @@ class IVenueSettings(Interface):
             u"lineage multisites to seperate main from childsite venue "
             u"folders. Keep empty to search anywhere."),
         required=False,
-        source=CatalogSource(is_folderish=True)
+        vocabulary='collective.venue.VenueVocabulary'
     )
     default_venue = schema.Choice(
         title=_(u'label_default_venue', default=u'Default Venue'),
@@ -48,11 +38,8 @@ class IVenueSettings(Interface):
             u'help_default_venue',
             u"Default venue to be used in events."),
         required=False,
-        source=CatalogSource(
-            object_provides=IVenue.__identifier__
-        )
+        vocabulary='collective.venue.DefaultVenueVocabulary'
     )
-    """
 
 
 class IVenueLayer(Interface):

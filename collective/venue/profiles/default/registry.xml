@@ -1,11 +1,18 @@
 <?xml version="1.0"?>
 <registry>
-  <record name="collective.venue.source_query">
+
+  <record name="collective.venue.search_base">
     <field type="plone.registry.field.TextLine">
-      <title>Venue Query</title>
-      <description>Search query for venues. Used to show the venue list for the location field in the event edit form. This query can be especially useful in a multisite environment.</description>
-      <required>False</required>
+      <title>Venue Search Base</title>
     </field>
     <value/>
   </record>
+
+  <record name="collective.venue.default_venue">
+    <field type="plone.registry.field.TextLine">
+      <title>Default Venue</title>
+    </field>
+    <value/>
+  </record>
+
 </registry>
