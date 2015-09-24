@@ -39,7 +39,6 @@ def VenueVocabulary(context, query=None):
 def DefaultVenueVocabulary(context, query=None):
     """Vocabulary for default venues.
     """
-    print getSite()
     search_base = api.portal.get_registry_record('collective.venue.search_base')  # noqa
     cat_query = {'object_provides': IVenue.__identifier__, 'path': '/'}
     if search_base:
