@@ -4,6 +4,9 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
+- Added social media fields behavior from c.address
+  [agitator]
+
 - Moved out geolocation support to extras (WIP)
   [agitator]
 

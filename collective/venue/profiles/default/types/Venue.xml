@@ -22,6 +22,7 @@
   <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
   <element value="collective.address.behaviors.IAddress"/>
   <element value="collective.address.behaviors.IContact"/>
+  <element value="collective.address.behaviors.ISocial"/>
   <!-- <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/> -->
  </property>
  <property name="schema">collective.venue.interfaces.IVenue</property>
