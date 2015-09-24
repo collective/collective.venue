@@ -48,5 +48,4 @@ def searchable_text_indexer(obj):
         safe_unicode(venue.notes)
     ]
     ret = _concat_and_utf8(*parts)
-    print("collective.venue searchable_text_indexer: {0}".format(ret))
     return ret
