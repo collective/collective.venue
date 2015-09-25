@@ -28,6 +28,7 @@ class ILocation(model.Schema):
             u'description_event_location',
             default=u'Reference to an existing location.'),
         required=False,
+        missing_value='',
         defaultFactory=default_location,
         source=VenueSource(object_provides=IVenue.__identifier__),
     )
