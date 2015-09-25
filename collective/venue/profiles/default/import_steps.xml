@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <import-steps>
-    <import-step id="collective.venue.install" version="2100"
+    <import-step id="collective.venue.install" version="3000"
         handler="collective.venue.setuphandlers.install"
         title="Installing step for collective.venue">
     </import-step>

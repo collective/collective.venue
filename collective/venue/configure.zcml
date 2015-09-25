@@ -61,7 +61,7 @@
       title="Upgrade CSS resources"
       description="Enable minified CSS and fix URL prefixes"
       source="3"
-      destination="2100"
+      destination="3000"
       handler="collective.venue.upgrades.upgrade_resources"
       sortkey="1"
       profile="collective.venue:default"
@@ -69,7 +69,7 @@
    <genericsetup:upgradeStep
       title="Upgrade to version 2"
       source="*"
-      destination="2100"
+      destination="3000"
       handler="collective.venue.upgrades.upgrade_to_plone_5"
       sortkey="1"
       profile="collective.venue:default"
