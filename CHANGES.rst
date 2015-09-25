@@ -4,6 +4,10 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
+- Upgraded profiles for Plone 5 resource registries
+  Added setuphandlers and upgrade steps
+  [agitator]
+
 - Added social media fields behavior from c.address
   [agitator]
 

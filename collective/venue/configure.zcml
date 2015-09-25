@@ -42,4 +42,37 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:registerProfile
+      name="plone4"
+      title="collective.venue plone4"
+      directory="profiles/plone4"
+      description="Installs plone4 specific collective.venue steps"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+  <genericsetup:registerProfile
+      name="plone5"
+      title="collective.venue plone5"
+      directory="profiles/plone5"
+      description="Installs plone5 specific collective.venue steps"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+   <genericsetup:upgradeStep
+      title="Upgrade CSS resources"
+      description="Enable minified CSS and fix URL prefixes"
+      source="3"
+      destination="2100"
+      handler="collective.venue.upgrades.upgrade_resources"
+      sortkey="1"
+      profile="collective.venue:default"
+      />
+   <genericsetup:upgradeStep
+      title="Upgrade to version 2"
+      source="*"
+      destination="2100"
+      handler="collective.venue.upgrades.upgrade_to_plone_5"
+      sortkey="1"
+      profile="collective.venue:default"
+      />
+
 </configure>
