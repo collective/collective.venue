@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1 (unreleased)
+2.1 (2015-09-25)
 ----------------
 
 - Allow to show venues via their uid from other subsites, which would otherwise
