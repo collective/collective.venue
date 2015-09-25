@@ -34,11 +34,39 @@
       tal:content="data/city">City</span>
 </tal:cond>
 <tal:cond condition="data/country">
+  <br>
   <span
       class="country"
       i18n:attributes="title label_country"
       i18n:domain="collective.address"
       tal:content="data/country">Country</span>
+</tal:cond>
+</p>
+
+<p class="socialmedia" tal:condition="data/facebook | data/twitter | data/google_plus | data/instagram">
+<tal:cond condition="data/facebook">
+  <a  class="facebook" title="Facebook"
+      tal:attributes="href data/facebook">
+      <img src="++resource++collective.venue/facebook.svg"
+        width="32" height="32" alt="Facebook"></a>
+</tal:cond>
+<tal:cond condition="data/twitter">
+  <a  class="twitter" title="Twitter"
+      tal:attributes="href data/twitter">
+      <img src="++resource++collective.venue/twitter.svg"
+        width="32" height="32" alt="Twitter"></a>
+</tal:cond>
+<tal:cond condition="data/google_plus">
+  <a  class="google_plus" title="Google Plus"
+      tal:attributes="href data/google_plus">
+      <img src="++resource++collective.venue/google-plus.svg"
+        width="32" height="32" alt="Google Plus"></a>
+</tal:cond>
+<tal:cond condition="data/instagram">
+  <a  class="instagram" title="Instagram"
+      tal:attributes="href data/instagram">
+      <img src="++resource++collective.venue/instagram.svg"
+        width="32" height="32" alt="Instagram"></a>
 </tal:cond>
 </p>
 

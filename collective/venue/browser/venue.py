@@ -1,6 +1,7 @@
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from collective.address.behaviors import IAddress
+from collective.address.behaviors import ISocial
 from collective.address.vocabulary import get_pycountry_name
 from plone.app.uuid.utils import uuidToObject
 import pkg_resources
@@ -37,6 +38,7 @@ class VenueView(BrowserView):
         if HAS_GEOLOCATION:
             geo = IGeolocatable(context)
         add = IAddress(context)
+        social = ISocial(context)
 
         title = safe_unicode(getattr(self.context, 'title', u''))
         description = safe_unicode(getattr(self.context, 'description', u''))
@@ -59,6 +61,10 @@ class VenueView(BrowserView):
                 'zip_code': add.zip_code,
                 'city': add.city,
                 'country': get_pycountry_name(add.country) or '',
+                'facebook': social.facebook_url,
+                'twitter': social.twitter_url,
+                'google_plus': social.google_plus_url,
+                'instagram': social.instagram_url,
                 'notes': add.notes and add.notes.output or '',
             }
 
@@ -72,5 +78,9 @@ class VenueView(BrowserView):
             'zip_code': add.zip_code,
             'city': add.city,
             'country': get_pycountry_name(add.country) or '',
+            'facebook': social.facebook_url,
+            'twitter': social.twitter_url,
+            'google_plus': social.google_plus_url,
+            'instagram': social.instagram_url,
             'notes': add.notes and add.notes.output_relative_to(context) or '',
         }
