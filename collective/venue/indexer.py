@@ -45,7 +45,7 @@ def searchable_text_indexer(obj):
         safe_unicode(address),
         safe_unicode(meta_basic.title),
         safe_unicode(meta_basic.description),
-        safe_unicode(venue.notes)
+        safe_unicode(notes)
     ]
     ret = _concat_and_utf8(*parts)
     return ret

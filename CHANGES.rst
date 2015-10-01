@@ -4,7 +4,8 @@ Changelog
 2.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix indexer, where notes were not properly extracted and indexer failed.
+  [thet]
 
 
 2.1 (2015-09-25)
