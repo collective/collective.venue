@@ -1,8 +1,8 @@
 Changelog
 =========
 
-2.2 (unreleased)
-----------------
+2.1.1 (2015-10-02)
+------------------
 
 - Fix indexer, where notes were not properly extracted and indexer failed.
   [thet]
