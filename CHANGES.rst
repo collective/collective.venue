@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.2 (unreleased)
+2.1.2 (2015-10-06)
 ------------------
 
 - Let ``SearchBaseVocabulary`` only return ``Folder`` and ``Plone Site`` types
