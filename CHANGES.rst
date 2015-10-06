@@ -4,6 +4,10 @@ Changelog
 2.1.2 (unreleased)
 ------------------
 
+- Let ``SearchBaseVocabulary`` only return ``Folder`` and ``Plone Site`` types
+  instead of all folderish types to reduce the vocabulary list.
+  [thet]
+
 - Rename ``VenueVocabulary`` to ``SearchBaseVocabulary``. The old name was
   misleading.
   [thet]

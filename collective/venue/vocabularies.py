@@ -22,7 +22,7 @@ def SearchBaseVocabulary(context, query=None):
     """Vocabulary for venues.
     """
     cat = getToolByName(getSite(), 'portal_catalog')
-    res = cat(is_folderish=True, path='/')
+    res = cat(portal_type={'query': ['Plone Site', 'Folder']}, path='/')
     # TODO: implement batching
     items = [
         SimpleTerm(
