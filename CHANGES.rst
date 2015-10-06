@@ -4,7 +4,9 @@ Changelog
 2.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Rename ``VenueVocabulary`` to ``SearchBaseVocabulary``. The old name was
+  misleading.
+  [thet]
 
 
 2.1.1 (2015-10-02)

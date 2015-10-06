@@ -13,12 +13,12 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 
-_permissions['collective.venue.VenueVocabulary'] = 'View'
+_permissions['collective.venue.SearchBaseVocabulary'] = 'View'
 _permissions['collective.venue.DefaultVenueVocabulary'] = 'View'
 
 
 @provider(IVocabularyFactory)
-def VenueVocabulary(context, query=None):
+def SearchBaseVocabulary(context, query=None):
     """Vocabulary for venues.
     """
     cat = getToolByName(getSite(), 'portal_catalog')

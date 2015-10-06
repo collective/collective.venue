@@ -25,8 +25,8 @@
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
 
   <utility
-      component=".vocabularies.VenueVocabulary"
-      name="collective.venue.VenueVocabulary"
+      component=".vocabularies.SearchBaseVocabulary"
+      name="collective.venue.SearchBaseVocabulary"
       />
   <utility
       component=".vocabularies.DefaultVenueVocabulary"

@@ -30,7 +30,7 @@ class IVenueSettings(Interface):
             u"lineage multisites to seperate main from childsite venue "
             u"folders. Keep empty to search anywhere."),
         required=False,
-        vocabulary='collective.venue.VenueVocabulary'
+        vocabulary='collective.venue.SearchBaseVocabulary'
     )
     default_venue = schema.Choice(
         title=_(u'label_default_venue', default=u'Default Venue'),
