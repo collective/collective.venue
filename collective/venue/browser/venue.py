@@ -35,52 +35,47 @@ class VenueView(BrowserView):
     @property
     def data(self):
         context = self.context
+        address_data = {}
+        add = IAddress(context, None)
+        social = ISocial(context, None)
+        geo = None
         if HAS_GEOLOCATION:
-            geo = IGeolocatable(context)
-        add = IAddress(context)
-        social = ISocial(context)
+            geo = IGeolocatable(context, None)
 
         title = safe_unicode(getattr(self.context, 'title', u''))
         description = safe_unicode(getattr(self.context, 'description', u''))
-        if HAS_GEOLOCATION:
-            latitude = geo.geolocation.latitude
-            longitude = geo.geolocation.longitude
+
+        address_data['title'] = title
+        address_data['description'] = description
+        address_data['street'] = add.street
+        address_data['zip_code'] = add.zip_code
+        address_data['city'] = add.city
+        address_data['country'] = get_pycountry_name(add.country) or ''
+        address_data['geopoints'] = ''
+        address_data['latitude'] = ''
+        address_data['longitude'] = ''
+        address_data['facebook'] = ''
+        address_data['twitter'] = ''
+        address_data['google_plus'] = ''
+        address_data['instagram'] = ''
+        address_data['notes'] = add.notes and add.notes.output or ''
+
+        if social:
+            address_data['facebook'] = social.get('facebook_url', '')
+            address_data['twitter'] = social.get('twitter_url', '')
+            address_data['google_plus'] = social.get('google_plus_url', '')
+            address_data['instagram'] = social.get('instagram_url', '')
+
+        if geo:
+            latitude = geo.geolocation.get('latitude', '')
+            longitude = geo.geolocation.get('longitude', '')
             geo_json = json.dumps([{
                 'lat': latitude,
                 'lng': longitude,
                 'popup': u'<h3>{0}</h3><p>{1}</p>'.format(title, description)
             }])
+            address_data['geopoints'] = geo_json
+            address_data['latitude'] = latitude
+            address_data['longitude'] = longitude
 
-            return {
-                'title': title,
-                'description': description,
-                'geopoints': geo_json,
-                'latitude': latitude,
-                'longitude': longitude,
-                'street': add.street,
-                'zip_code': add.zip_code,
-                'city': add.city,
-                'country': get_pycountry_name(add.country) or '',
-                'facebook': social.facebook_url,
-                'twitter': social.twitter_url,
-                'google_plus': social.google_plus_url,
-                'instagram': social.instagram_url,
-                'notes': add.notes and add.notes.output or '',
-            }
-
-        return {
-            'title': title,
-            'description': description,
-            'geopoints': '',
-            'latitude': '',
-            'longitude': '',
-            'street': add.street,
-            'zip_code': add.zip_code,
-            'city': add.city,
-            'country': get_pycountry_name(add.country) or '',
-            'facebook': social.facebook_url,
-            'twitter': social.twitter_url,
-            'google_plus': social.google_plus_url,
-            'instagram': social.instagram_url,
-            'notes': add.notes and add.notes.output_relative_to(context) or '',
-        }
+        return address_data

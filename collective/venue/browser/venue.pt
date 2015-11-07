@@ -42,7 +42,7 @@
       tal:content="data/country">Country</span>
 </tal:cond>
 </p>
-
+<div tal:content="python:data"></div>
 <p class="socialmedia" tal:condition="data/facebook | data/twitter | data/google_plus | data/instagram">
 <tal:cond condition="data/facebook">
   <a  class="facebook" title="Facebook"
@@ -62,7 +62,7 @@
       <img src="++resource++collective.venue/google-plus.svg"
         width="32" height="32" alt="Google Plus"></a>
 </tal:cond>
-<tal:cond condition="data/instagram">
+<tal:cond condition="python:data['instagram']">
   <a  class="instagram" title="Instagram"
       tal:attributes="href data/instagram">
       <img src="++resource++collective.venue/instagram.svg"
