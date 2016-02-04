@@ -4,7 +4,9 @@ Changelog
 2.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change all ``RichTextValue.output`` to ``RichTextValue.output_relative_to`` references for correct relative link resolving.
+  Also see: https://github.com/plone/plone.app.textfield/pull/17
+  [thet]
 
 
 2.1.2 (2015-10-06)

@@ -49,5 +49,5 @@ class VenueView(BrowserView):
             'zip_code': add.zip_code,
             'city': add.city,
             'country': get_pycountry_name(add.country) or '',
-            'notes': add.notes and add.notes.output or '',
+            'notes': add.notes and add.notes.output_relative_to(context) or '',
         }
