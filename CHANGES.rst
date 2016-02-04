@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.3 (unreleased)
+2.1.3 (2016-02-04)
 ------------------
 
 - Change all ``RichTextValue.output`` to ``RichTextValue.output_relative_to`` references for correct relative link resolving.
