@@ -1,21 +1,32 @@
 Changelog
 =========
 
-2.1.4 (unreleased)
-------------------
+3.0 (unreleased)
+----------------
 
-- Upgraded profiles for Plone 5 resource registries
-  Added setuphandlers and upgrade steps
+Breaking changes:
+
+- Removed support for Plone < 5.
+  [agitator, thet]
+
+New features:
+
+- Upgraded profiles for Plone 5 resource registries.
+  Added setuphandlers and upgrade steps.
   [agitator]
 
-- Added social media fields behavior from c.address
+- Added social media fields behavior from c.address.
   [agitator]
 
-- Moved out geolocation support to extras (WIP)
+- Moved out geolocation support to extras (WIP).
   [agitator]
 
 - Disable not working registry and adapter entries.
   [agitator]
+
+Bug fixes:
+
+- Nothing changed yet.
 
 
 2.1.3 (2016-02-04)

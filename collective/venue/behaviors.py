@@ -2,14 +2,11 @@ from collective.venue import messageFactory as _
 from collective.venue.interfaces import IVenue
 from collective.venue.vocabularies import VenueSource
 from plone import api
-from plone.app.vocabularies.catalog import CatalogSource
-#from plone.app.widgets.dx import RelatedItemsFieldWidget
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
-from zope.interface import alsoProvides
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
@@ -22,6 +19,7 @@ def default_location(context):
     return default_venue or ''
 
 
+@provider(IFormFieldProvider)
 class ILocation(model.Schema):
 
     location_uid = schema.Choice(
@@ -46,4 +44,3 @@ class ILocation(model.Schema):
         required=False,
         default=None,
     )
-alsoProvides(ILocation, IFormFieldProvider)
