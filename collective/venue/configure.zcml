@@ -40,22 +40,12 @@
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-
-   <genericsetup:upgradeStep
-      title="Upgrade CSS resources"
-      description="Enable minified CSS and fix URL prefixes"
+  <genericsetup:upgradeStep
+      title="Upgrade to Plone 5"
+      description="Migrate resources to new resource registry."
       source="3"
-      destination="3000"
-      handler="collective.venue.upgrades.upgrade_resources"
-      sortkey="1"
-      profile="collective.venue:default"
-      />
-   <genericsetup:upgradeStep
-      title="Upgrade to version 2"
-      source="*"
-      destination="3000"
-      handler="collective.venue.upgrades.upgrade_to_plone_5"
-      sortkey="1"
+      destination="4"
+      handler="collective.venue.upgrades.upgrade_3_to_4"
       profile="collective.venue:default"
       />
 
