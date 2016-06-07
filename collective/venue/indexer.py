@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from collective.address.behaviors import searchable_text_indexer as address_idx

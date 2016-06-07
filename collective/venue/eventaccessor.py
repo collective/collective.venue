@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.CMFPlone.utils import safe_unicode
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
