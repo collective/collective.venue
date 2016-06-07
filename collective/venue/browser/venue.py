@@ -68,8 +68,8 @@ class VenueView(BrowserView):
             address_data['instagram'] = social.get('instagram_url', '')
 
         if geo:
-            latitude = geo.geolocation.get('latitude', '')
-            longitude = geo.geolocation.get('longitude', '')
+            latitude = geo.geolocation.latitude
+            longitude = geo.geolocation.longitude
             geo_json = json.dumps([{
                 'lat': latitude,
                 'lng': longitude,
