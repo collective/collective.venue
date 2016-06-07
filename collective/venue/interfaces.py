@@ -1,5 +1,10 @@
+# -*- coding: utf-8 -*-
 from collective.venue import messageFactory as _
+from collective.venue.utils import get_site
+from collective.venue.utils import get_base_path
 from plone.app.textfield import RichText
+from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
@@ -39,8 +44,18 @@ class IVenueSettings(Interface):
             u"folders. Keep empty to search anywhere."
         ),
         required=False,
-        vocabulary='collective.venue.SearchBaseVocabulary'
+        vocabulary='plone.app.vocabularies.Catalog',
     )
+    form.widget(
+        'search_base',
+        RelatedItemsFieldWidget,
+        ignoreContext=True,
+        pattern_options={
+            'selectableTypes': ['Folder'],
+            'basePath': get_site,
+        }
+    )
+
     default_venue = schema.Choice(
         title=_(
             u'label_default_venue',
@@ -50,7 +65,16 @@ class IVenueSettings(Interface):
             u'help_default_venue',
             u"Default location to be used in events."),
         required=False,
-        vocabulary='collective.venue.DefaultVenueVocabulary'
+        vocabulary='plone.app.vocabularies.Catalog',
+    )
+    form.widget(
+        'default_venue',
+        RelatedItemsFieldWidget,
+        ignoreContext=True,
+        pattern_options={
+            'selectableTypes': ['Venue'],
+            'basePath': get_base_path,
+        }
     )
 
 

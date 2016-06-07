@@ -44,7 +44,4 @@
         />
   </configure>
 
-  <adapter factory=".controlpanel.SearchBaseFieldWidget" />
-  <adapter factory=".controlpanel.DefaultVenueFieldWidget" />
-
 </configure>

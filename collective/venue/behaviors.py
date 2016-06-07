@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 from collective.venue import messageFactory as _
-from collective.venue.interfaces import IVenue
-from collective.venue.vocabularies import VenueSource
+from collective.venue.utils import get_base_path
 from plone import api
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
@@ -30,9 +30,16 @@ class ILocation(model.Schema):
         required=False,
         missing_value='',
         defaultFactory=default_location,
-        source=VenueSource(object_provides=IVenue.__identifier__),
+        vocabulary='plone.app.vocabularies.Catalog',
     )
-    form.widget('location_uid', RelatedItemsFieldWidget)
+    form.widget(
+        'location_uid',
+        RelatedItemsFieldWidget,
+        pattern_options={
+            'selectableTypes': ['Venue'],
+            'basePath': get_base_path
+        }
+    )
 
     location_notes = schema.Text(
         title=_(

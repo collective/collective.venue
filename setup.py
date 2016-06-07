@@ -31,6 +31,7 @@ setup(
         'plone.app.content',
         'plone.app.dexterity',
         'plone.app.event',
+        'plone.app.widgets >= 2.0.6.dev0',  # implicit dependency
         'plone.browserlayer',
         'plone.event',
         'Products.CMFPlone',
@@ -38,12 +39,6 @@ setup(
         'z3c.unconfigure < 1.1',
     ],
     extras_require={
-        'archetypes': [
-            'Products.ATContentTypes',
-            'plone.app.referenceablebehavior',
-            'archetypes.referencebrowserwidget',
-            'archetypes.schemaextender',
-        ],
         'geolocation': [
             'collective.geolocationbehavior',
             'plone.formwidget.geolocation',
