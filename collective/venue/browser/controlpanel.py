@@ -3,7 +3,7 @@ from .. import messageFactory as _
 from ..interfaces import IVenueLayer
 from ..interfaces import IVenueSettings
 from plone.app.registry.browser import controlpanel
-from plone.app.widgets.dx import AjaxSelectWidget
+from plone.app.z3cform.widget import AjaxSelectWidget
 from z3c.form.interfaces import IFieldWidget
 from z3c.form.util import getSpecification
 from z3c.form.widget import FieldWidget

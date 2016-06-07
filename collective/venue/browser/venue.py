@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from collective.address.behaviors import IAddress

@@ -21,7 +21,6 @@
       for="*"
       />
 
-  <!--adapter name="venue" factory=".indexer.venue_indexer"/-->
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
 
   <utility
@@ -39,21 +38,6 @@
       directory="profiles/default"
       description="Dexterity venue type extension."
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-
-  <genericsetup:registerProfile
-      name="plone4"
-      title="collective.venue plone4"
-      directory="profiles/plone4"
-      description="Installs plone4 specific collective.venue steps"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-  <genericsetup:registerProfile
-      name="plone5"
-      title="collective.venue plone5"
-      directory="profiles/plone5"
-      description="Installs plone5 specific collective.venue steps"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 

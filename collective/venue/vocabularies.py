@@ -2,7 +2,6 @@ from Products.CMFCore.utils import getToolByName
 from collective.venue.interfaces import IVenue
 from plone import api
 from plone.app.uuid.utils import uuidToPhysicalPath
-from plone.app.widgets.browser.vocabulary import _permissions
 from plone.uuid.interfaces import IUUID
 from zope.component.hooks import getSite
 from zope.interface import implementer
@@ -13,16 +12,12 @@ from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 
-_permissions['collective.venue.SearchBaseVocabulary'] = 'View'
-_permissions['collective.venue.DefaultVenueVocabulary'] = 'View'
-
-
 @provider(IVocabularyFactory)
 def SearchBaseVocabulary(context, query=None):
     """Vocabulary for venues.
     """
     cat = getToolByName(getSite(), 'portal_catalog')
-    res = cat(portal_type={'query': ['Plone Site', 'Folder']}, path='/')
+    res = cat(is_folderish=True, path='/')
     # TODO: implement batching
     items = [
         SimpleTerm(

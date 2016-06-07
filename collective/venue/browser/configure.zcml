@@ -27,16 +27,6 @@
       layer="..interfaces.IVenueLayer"
       />
 
-  <!-- BBB -->
-  <browser:page
-      for="collective.venue.interfaces.IVenue"
-      name="venue"
-      class=".venue.VenueView"
-      template="venue.pt"
-      permission="zope2.View"
-      layer="..interfaces.IVenueLayer"
-      />
-
   <browser:page
       name="venue-controlpanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"

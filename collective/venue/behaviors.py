@@ -23,10 +23,10 @@ def default_location(context):
 class ILocation(model.Schema):
 
     location_uid = schema.Choice(
-        title=_(u'label_event_location', default=u'Event Location'),
+        title=_(u'label_event_location', default=u'Location'),
         description=_(
             u'description_event_location',
-            default=u'Reference to an existing location.'),
+            default=u'Select a location.'),
         required=False,
         missing_value='',
         defaultFactory=default_location,
@@ -37,10 +37,10 @@ class ILocation(model.Schema):
     location_notes = schema.Text(
         title=_(
             u'label_event_location_notes',
-            default=u'Notes for the Venue'),
+            default=u'Location notes'),
         description=_(
             u'description_event_location_notes',
-            default=u'Additional Information for the Venue.'),
+            default=u'Additional Information for the Location.'),
         required=False,
         default=None,
     )
