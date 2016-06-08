@@ -15,24 +15,18 @@
     <value/>
   </record>
 
-<!-- Bundle resource. This is a file that will define a
-     require method(requirejs) and be built -->
-  <records prefix="plone.resources/collective-venue"
-            interface='Products.CMFPlone.interfaces.IResourceRegistry'>
-     <!-- <value key="js">++plone++plone5resources/bundle.js</value> -->
-     <value key="css">
-        <element>++resource++collective.venue/styles.less</element>
-     </value>
+  <records prefix="plone.resources/collective-venue" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="css">
+      <element>++plone++collective.venue/styles.less</element>
+    </value>
   </records>
 
-  <records prefix="plone.bundles/collective-venue-bundle"
-            interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+  <records prefix="plone.bundles/collective-venue-bundle" interface='Products.CMFPlone.interfaces.IBundleRegistry'>
     <value key="resources">
       <element>collective-venue</element>
     </value>
     <value key="enabled">True</value>
-    <!-- <value key="jscompilation">++plone++plone5resources/bundle.min.js</value> -->
-    <value key="csscompilation">++resource++collective.venue/bundle-compiled.css</value>
+    <value key="csscompilation">++plone++collective.venue/styles-compiled.css</value>
     <value key="last_compilation">2015-08-19 09:00:00</value>
   </records>
 

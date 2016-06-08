@@ -8,12 +8,15 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <include package="plone.browserlayer"/>
-  <include package="plone.app.event"/>
-  <include package="plone.app.registry"/>
-
-  <include package=".browser"/>
+  <includeDependencies package="." />
   <includeOverrides file="overrides.zcml"/>
+  <include package=".browser"/>
+
+  <plone:static
+      directory="resources"
+      name="collective.venue"
+      type="plone"
+      />
 
   <plone:behavior
       title="collective.venue event location"

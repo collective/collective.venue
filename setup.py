@@ -35,6 +35,7 @@ setup(
         'plone.app.widgets >= 2.0.6.dev0',  # implicit dependency
         'plone.browserlayer',
         'plone.event',
+        'plone.resource',
         'Products.CMFPlone',
         'Products.GenericSetup',
         'z3c.unconfigure < 1.1',
