@@ -24,7 +24,7 @@ class VenueEventAccessor(EventAccessor):
 
     @property
     def _location_link_template(self):
-        return u'<a class="venue_ref_popup" href="{url}" title="{address}">{title}</a>'  # noqa
+        return u'<a class="pat-plone-modal" href="{url}" title="{address}">{title}</a>'  # noqa
 
     @property
     def location(self):
