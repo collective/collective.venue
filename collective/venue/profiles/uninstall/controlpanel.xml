@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="portal_controlpanel" meta_type="Plone Control Panel Tool">
+  <configlet remove="True"
+      action_id="Venue"
+      appId="collective.venue"
+      category="Products"/>
+</object>
+

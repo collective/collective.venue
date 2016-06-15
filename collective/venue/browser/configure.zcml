@@ -4,11 +4,6 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.venue">
 
-  <browser:resourceDirectory
-      name="collective.venue"
-      directory="resources"
-      />
-
   <browser:page
       for="collective.venue.interfaces.IVenue"
       name="venue_view"

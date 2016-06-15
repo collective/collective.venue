@@ -6,6 +6,10 @@ Changelog
 
 Breaking changes:
 
+- Optional dependency on collective.geolocationbehavior.
+  If you want to use geolocation support, depend on the [geolocation] extra and add the ``geolocatable`` behavior from ``collective.geolocationbehavior``.
+  [agitator, thet]
+
 - Removed support for Plone < 5.
   [agitator, thet]
 

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <object name="Venue" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title" i18n:translate="">Venue</property>
@@ -23,7 +23,7 @@
   <element value="collective.address.behaviors.IAddress"/>
   <element value="collective.address.behaviors.IContact"/>
   <element value="collective.address.behaviors.ISocial"/>
-  <!-- <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/> -->
+  <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
  </property>
  <property name="schema">collective.venue.interfaces.IVenue</property>
  <property name="model_source"></property>
