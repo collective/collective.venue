@@ -30,7 +30,8 @@ New features:
 
 Bug fixes:
 
-- Nothing changed yet.
+- Hide uninstall profile from site setup and quickinstaller.
+  [thet]
 
 
 2.1.3 (2016-02-04)

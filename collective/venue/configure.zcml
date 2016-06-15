@@ -64,4 +64,9 @@
       profile="collective.venue:base"
       />
 
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="collective.venue-hiddenprofiles"
+      />
+
 </configure>
