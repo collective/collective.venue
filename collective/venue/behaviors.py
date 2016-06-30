@@ -52,17 +52,6 @@ class ILocation(model.Schema):
         default=None,
     )
 
-    location_url = schema.URI(
-        title=_(
-            u'label_event_location_url',
-            default=u'location URL'),
-        description=_(
-            u'description_event_location_url',
-            default=u'One-time location URL.'),
-        required=False,
-        default=None,
-    )
-
 
 @provider(IContextAwareDefaultFactory)
 def default_organizer(context):
@@ -101,17 +90,6 @@ class IOrganizer(model.Schema):
         description=_(
             u'description_event_organizer_notes',
             default=u'One-time organizer or additional Information.'),
-        required=False,
-        default=None,
-    )
-
-    organizer_url = schema.URI(
-        title=_(
-            u'label_event_organizer_url',
-            default=u'Organizer URL'),
-        description=_(
-            u'description_event_organizer_url',
-            default=u'One-time organizer URL.'),
         required=False,
         default=None,
     )
