@@ -32,6 +32,7 @@ class VenueEventAccessor(EventAccessor):
         location_ref = ILocation(context)
         location_uid = location_ref.location_uid
         location_notes = location_ref.location_notes
+        location_url = location_ref.location_url
         location = uuidToObject(location_uid)
 
         meta_basic = IBasic(location, None)
@@ -67,7 +68,9 @@ class VenueEventAccessor(EventAccessor):
 
         ret = safe_unicode(ret)
         location_notes = safe_unicode(location_notes)
-        ret = join_nonempty([ret, location_notes], u'. ')
+        if location_url:
+            location_url = u'<a href="{0}">{0}</a>'.format(location_url)
+        ret = join_nonempty([ret, location_notes, location_url], u'. ')
 
         return ret
 

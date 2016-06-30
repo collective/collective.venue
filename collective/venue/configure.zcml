@@ -19,9 +19,15 @@
       />
 
   <plone:behavior
+      name="venue.locationreference"
       title="collective.venue event location"
       provides=".behaviors.ILocation"
-      for="*"
+      />
+
+  <plone:behavior
+      name="venue.organizerreference"
+      title="collective.venue event organizer"
+      provides=".behaviors.IOrganizer"
       />
 
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>

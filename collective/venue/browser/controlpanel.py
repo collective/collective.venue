@@ -11,6 +11,7 @@ class VenueControlPanelForm(controlpanel.RegistryEditForm):
     description = _("Settings for venues, which are referenced by events.")
     schema = IVenueSettings
     schema_prefix = "collective.venue"
+    ignoreContext = True
 
 
 class VenueControlPanel(controlpanel.ControlPanelFormWrapper):

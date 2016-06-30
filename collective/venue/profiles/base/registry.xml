@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <registry>
 
-  <record name="collective.venue.search_base">
-    <field type="plone.registry.field.TextLine">
-      <title>Venue Search Base</title>
-    </field>
-    <value/>
-  </record>
-
-  <record name="collective.venue.default_venue">
-    <field type="plone.registry.field.TextLine">
-      <title>Default Venue</title>
-    </field>
-    <value/>
-  </record>
+  <records interface="collective.venue.interfaces.IVenueSettings"
+           prefix="collective.venue" />
 
   <records prefix="plone.resources/collective-venue" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
     <value key="css">

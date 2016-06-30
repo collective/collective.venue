@@ -15,6 +15,12 @@ Breaking changes:
 
 New features:
 
+- Add behavior shortnames ``venue.locationreference`` and ``vanue.organizerreference``.
+  [thet]
+
+- Add ``IOrganizer`` behavior additional to the ``ILocation`` behavior.
+  [thet]
+
 - Upgraded profiles for Plone 5 resource registries.
   Added setuphandlers and upgrade steps.
   [agitator]

@@ -44,14 +44,14 @@ class IVenueSettings(Interface):
             u"folders. Keep empty to search anywhere."
         ),
         required=False,
+        default='',
         vocabulary='plone.app.vocabularies.Catalog',
     )
     form.widget(
         'search_base',
         RelatedItemsFieldWidget,
-        ignoreContext=True,
         pattern_options={
-            'selectableTypes': ['Folder'],
+            'selectableTypes': ['Folder'],  # better: is_folderish
             'basePath': get_site,
         }
     )
@@ -65,12 +65,33 @@ class IVenueSettings(Interface):
             u'help_default_venue',
             u"Default location to be used in events."),
         required=False,
+        default='',
         vocabulary='plone.app.vocabularies.Catalog',
     )
     form.widget(
         'default_venue',
         RelatedItemsFieldWidget,
-        ignoreContext=True,
+        pattern_options={
+            'selectableTypes': ['Venue'],
+            'basePath': get_base_path,
+        }
+    )
+
+    default_organizer = schema.Choice(
+        title=_(
+            u'label_default_organizer',
+            default=u'Default Organizer'
+        ),
+        description=_(
+            u'help_default_organizer',
+            u"Default organizer to be used in events."),
+        required=False,
+        default='',
+        vocabulary='plone.app.vocabularies.Catalog',
+    )
+    form.widget(
+        'default_organizer',
+        RelatedItemsFieldWidget,
         pattern_options={
             'selectableTypes': ['Venue'],
             'basePath': get_base_path,
