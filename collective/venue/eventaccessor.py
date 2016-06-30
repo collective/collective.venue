@@ -59,8 +59,6 @@ class VenueEventAccessor(EventAccessor):
                 address=join_nonempty((
                     add.street,
                     join_nonempty((add.zip_code, add.city), sep=u' '),
-                    add.zip_code,
-                    add.city,
                     country
                 ), sep=u', '),
                 title=meta_basic.title,
