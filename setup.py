@@ -32,9 +32,9 @@ setup(
         'plone.app.content',
         'plone.app.dexterity',
         'plone.app.event',
-        'plone.app.widgets >= 2.0.6.dev0',  # implicit dependency
         'plone.browserlayer',
         'plone.event',
+        'plone.registry >= 1.1.0.dev0',  # implicit dependency, see PR #10
         'plone.resource',
         'Products.CMFPlone',
         'Products.GenericSetup',
