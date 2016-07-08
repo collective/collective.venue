@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.address.behaviors import IAddress
+from collective.address.behaviors import IContact
 from collective.address.behaviors import ISocial
 from collective.address.vocabulary import get_pycountry_name
 from plone.app.uuid.utils import uuidToObject
@@ -63,33 +64,46 @@ class VenueView(BrowserView):
     def data(self):
         context = self.context
 
-        address_data = {}
+        data = {}
 
-        address_data['title'] = self.title
-        address_data['description'] = self.description
-
-        add = IAddress(context, None)
-        if add:
-            address_data['street'] = add.street
-            address_data['zip_code'] = add.zip_code
-            address_data['city'] = add.city
-            address_data['country'] = get_pycountry_name(add.country) or ''
-            address_data['notes'] = add.notes and add.notes.output or ''
-
-        contact = IAddress(context, None)
-        if contact:
-            address_data['email'] = contact.email
-            address_data['web'] = contact.website
-            address_data['phone'] = contact.phone
-            address_data['mobile'] = contact.mobile
-            address_data['fax'] = contact.fax
+        data['title'] = self.title
+        data['description'] = self.description
 
         coordinates = self.data_coordinates
         if coordinates:
-            address_data['latitude'] = coordinates[0]
-            address_data['longitude'] = coordinates[1]
+            data['latitude'] = coordinates[0]
+            data['longitude'] = coordinates[1]
 
-        return address_data
+        acc = IAddress(context, None)
+        address = {}
+        if acc:
+            address['street'] = acc.street
+            address['zip_code'] = acc.zip_code
+            address['city'] = acc.city
+            address['country'] = get_pycountry_name(acc.country) or u''
+            address['notes'] = acc.notes and acc.notes.output or u''
+        data['address'] = address
+
+        acc = IContact(context, None)
+        contact = {}
+        if acc:
+            contact['email'] = acc.email
+            contact['web'] = acc.website
+            contact['phone'] = acc.phone
+            contact['mobile'] = acc.mobile
+            contact['fax'] = acc.fax
+        data['contact'] = contact
+
+        acc = ISocial(context, None)
+        social = {}
+        if acc:
+            social['facebook'] = acc.facebook_url
+            social['twitter'] = acc.twitter_url
+            social['google_plus'] = acc.google_plus_url
+            social['instagram'] = acc.instagram_url
+        data['social'] = social
+
+        return data
 
     @property
     def data_geojson(self):
@@ -114,8 +128,8 @@ class VenueView(BrowserView):
                     'geometry': {
                         'type': 'Point',
                         'coordinates': [
-                            coordinates[0],
-                            coordinates[1]
+                            coordinates[1],  # lng
+                            coordinates[0]   # lat
                         ]
                     }
                 },

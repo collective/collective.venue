@@ -8,110 +8,133 @@
 <body>
 
 <metal:content-core fill-slot="content-core">
-<metal:block define-macro="content-core" tal:define="data view/data">
+<metal:block define-macro="content-core"
+    tal:define="data view/data;
+                address data/address;
+                contact data/contact;
+                social data/social">
 
-<h3 i18n:translate="label_address">Address</h3>
-<p>
-<tal:cond condition="data/street">
-  <span
-      class="street"
-      i18n:attributes="title label_street"
-      i18n:domain="collective.address"
-      tal:content="data/street">Street</span><br/>
-</tal:cond>
-<tal:cond condition="data/zip_code">
-  <span
-      class="zip_code"
-      i18n:attributes="title label_zip_code"
-      i18n:domain="collective.address"
-      tal:content="data/zip_code">Zip Code</span>
-</tal:cond>
-<tal:cond condition="data/city">
-  <span
-      class="city"
-      i18n:attributes="title label_city"
-      i18n:domain="collective.address"
-      tal:content="data/city">City</span>
-</tal:cond>
-<tal:cond condition="data/country">
-  <br>
-  <span
-      class="country"
-      i18n:attributes="title label_country"
-      i18n:domain="collective.address"
-      tal:content="data/country">Country</span>
-</tal:cond>
-</p>
+<div class="venueview">
+<tal:if condition="address">
+  <h3 class="address" i18n:translate="label_address">Address</h3>
+  <address>
+    <dl class="address">
+      <tal:if condition="address/street">
+      <dt class="street" i18n:translate="label_street" i18n:domain="collective.address">Street</dt>
+      <dd class="street">${address/street}</dd>
+      </tal:if>
 
-<p class="contact" tal:condition="data/email | data/web | data/phone | data/mobile | data/fax | nothing">
-  <h3 i18n:translate="label_contact">Contact</h3>
-  <tal:cond condition="data/email">
-    E-Mail: <a href="mailto:${data/email}" class="email">${data/email}</a><br/>
-  </tal:cond>
-  <tal:cond condition="data/web">
-    Web: <a href="${data/web}" class="website">${data/web}</a><br/>
-  </tal:cond>
-  <tal:cond condition="data/phone">
-    Tel: <span class="phone">${data/phone}</span><br/>
-  </tal:cond>
-  <tal:cond condition="data/mobile">
-    Mobile: <span class="mobile">${data/mobile}</span><br/>
-  </tal:cond>
-  <tal:cond condition="data/fax">
-    Fax: <span class="fax">${data/fax}</span><br/>
-  </tal:cond>
-</p>
+      <tal:if condition="address/zip_code">
+      <dt class="zip_code" i18n:translate="label_zip_code" i18n:domain="collective.address">Zip</dt>
+      <dd class="zip_code">${address/zip_code}</dd>
+      </tal:if>
 
-<p class="socialmedia" tal:condition="data/facebook | data/twitter | data/google_plus | data/instagram | nothing">
-<tal:cond condition="data/facebook">
-  <a  class="facebook" title="Facebook"
-      tal:attributes="href data/facebook">
-      <img src="++resource++collective.venue/facebook.svg"
-        width="32" height="32" alt="Facebook"></a>
-</tal:cond>
-<tal:cond condition="data/twitter">
-  <a  class="twitter" title="Twitter"
-      tal:attributes="href data/twitter">
-      <img src="++resource++collective.venue/twitter.svg"
-        width="32" height="32" alt="Twitter"></a>
-</tal:cond>
-<tal:cond condition="data/google_plus">
-  <a  class="google_plus" title="Google Plus"
-      tal:attributes="href data/google_plus">
-      <img src="++resource++collective.venue/google-plus.svg"
-        width="32" height="32" alt="Google Plus"></a>
-</tal:cond>
-<tal:cond condition="python:data['instagram']">
-  <a  class="instagram" title="Instagram"
-      tal:attributes="href data/instagram">
-      <img src="++resource++collective.venue/instagram.svg"
-        width="32" height="32" alt="Instagram"></a>
-</tal:cond>
-</p>
+      <tal:if condition="address/city">
+      <dt class="city" i18n:translate="label_city" i18n:domain="collective.address">City</dt>
+      <dd class="city">${address/city}</dd>
+      </tal:if>
+
+      <tal:if condition="address/country">
+      <dt class="country" i18n:translate="label_country" i18n:domain="collective.address">Country</dt>
+      <dd class="country">${address/country}</dd>
+      </tal:if>
+    </dl>
+  </address>
+</tal:if>
+
+<tal:if condition="contact">
+  <h3 class="contact" i18n:translate="label_contact">Contact</h3>
+  <dl class="contact">
+    <tal:if condition="contact/email">
+    <dt class="email" i18n:translate="label_email" i18n:domain="collective.address">Email</dt>
+    <dd class="email"><a href="mailto:${contact/email}">${contact/email}</a></dd>
+    </tal:if>
+
+    <tal:if condition="contact/web">
+    <dt class="web" i18n:translate="label_web" i18n:domain="collective.address">Web</dt>
+    <dd class="web"><a href="${contact/web}">${contact/web}</a></dd>
+    </tal:if>
+
+    <tal:if condition="contact/phone">
+    <dt class="phone" i18n:translate="label_phone" i18n:domain="collective.address">Phone</dt>
+    <dd class="phone"><a href="tel:${contact/phone}">${contact/phone}</a></dd>
+    </tal:if>
+
+    <tal:if condition="contact/mobile">
+    <dt class="mobile" i18n:translate="label_mobile" i18n:domain="collective.address">Mobile</dt>
+    <dd class="mobile"><a href="tel:${contact/mobile}">${contact/mobile}</a></dd>
+    </tal:if>
+
+    <tal:if condition="contact/fax">
+    <dt class="fax" i18n:translate="label_fax" i18n:domain="collective.address">Fax</dt>
+    <dd class="fax">${contact/fax}</dd>
+    </tal:if>
+
+  </dl>
+</tal:if>
+
+<tal:if condition="social">
+  <h3 class="social" i18n:translate="label_social">Social Media</h3>
+  <dl class="social">
+    <tal:if condition="social/facebook">
+    <dt class="facebook">Facebook</dt>
+    <dd class="facebook">
+      <a href="${social/facebook}" class="facebook" title="Facebook">
+        <img src="++resource++collective.venue/facebook.svg" width="32" height="32" alt="Facebook" />
+      </a>
+    </dd>
+    </tal:if>
+
+    <tal:if condition="social/twitter">
+    <dt class="twitter">Twitter</dt>
+    <dd class="twitter">
+      <a href="${social/twitter}" class="twitter" title="Twitter">
+        <img src="++resource++collective.venue/twitter.svg" width="32" height="32" alt="Twitter" />
+      </a>
+    </dd>
+    </tal:if>
+
+    <tal:if condition="social/google_plus">
+    <dt class="google_plus">Google Plus</dt>
+    <dd class="google_plus">
+      <a href="${social/google_plus}" class="google_plus" title="Google Plus">
+        <img src="++resource++collective.venue/google-plus.svg" width="32" height="32" alt="Google Plus" />
+      </a>
+    </dd>
+    </tal:if>
+
+    <tal:if condition="social/instagram">
+    <dt class="instagram">Instagram</dt>
+    <dd class="instagram">
+      <a href="${social/instagram}" class="instagram" title="Instagram">
+        <img src="++resource++collective.venue/instagram.svg" width="32" height="32" alt="Instagram" />
+      </a>
+    </dd>
+    </tal:if>
+  </dl>
+</tal:if>
 
 <tal:geo tal:define="geojson view/data_geojson" tal:condition="geojson">
-<div class="geolocation_wrapper">
-  <div class="map pat-leaflet" tal:attributes="data-geojson geojson"></div>
-</div>
+  <div class="geolocation_wrapper">
+    <div class="map pat-leaflet" data-geojson='${geojson}'></div>
+  </div>
 
-<div class="documentByLine">
-  <dfn
-    i18n:domain="collective.geolocationbehavior"
-    i18n:translate="">Geolocation</dfn>
-  <span
-      class="latitude"
-      i18n:attributes="title label_latitude"
-      i18n:domain="plone.formwidget.geolocation"
-      tal:content="data/latitude">Latitude</span>
-  <span
-      class="longitude"
-      i18n:attributes="title label_longitude"
-      i18n:domain="plone.formwidget.geolocation"
-      tal:content="data/longitude">Longitude</span>
-</div>
+  <div class="documentByLine">
+    <dfn
+      i18n:domain="collective.geolocationbehavior"
+      i18n:translate="">Geolocation</dfn>
+    <span class="latitude">
+      <span i18n:translate="label_latitude" i18n:domain="plone.formwidget.geolocation">Latitude</span>: ${data/latitude}
+    </span>
+    <span class="longitude">
+      <span i18n:translate="label_longitude" i18n:domain="plone.formwidget.geolocation">Longitude</span>: ${data/longitude}
+    </span>
+  </div>
 </tal:geo>
 
-<p tal:condition="data/notes" tal:content="structure data/notes">Venue notes</p>
+  <p tal:condition="address/notes" tal:content="structure address/notes">Venue notes</p>
+
+</div>
 
 </metal:block>
 </metal:content-core>
