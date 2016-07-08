@@ -89,9 +89,9 @@
 </tal:cond>
 </p>
 
-<tal:geo tal:condition="python:data['latitude'] and data['longitude']">
+<tal:geo tal:define="geojson view/data_geojson" tal:condition="geojson">
 <div class="geolocation_wrapper">
-  <div class="map" tal:attributes="data-geopoints data/geopoints"></div>
+  <div class="map pat-leaflet" tal:attributes="data-geojson geojson"></div>
 </div>
 
 <div class="documentByLine">
