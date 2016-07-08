@@ -36,37 +36,33 @@ class VenueView(BrowserView):
     @property
     def data(self):
         context = self.context
-        address_data = {}
-        add = IAddress(context, None)
-        social = ISocial(context, None)
-        geo = None
-        if HAS_GEOLOCATION:
-            geo = IGeolocatable(context, None)
-
         title = safe_unicode(getattr(self.context, 'title', u''))
         description = safe_unicode(getattr(self.context, 'description', u''))
 
+        address_data = {}
+
         address_data['title'] = title
         address_data['description'] = description
-        address_data['street'] = add.street
-        address_data['zip_code'] = add.zip_code
-        address_data['city'] = add.city
-        address_data['country'] = get_pycountry_name(add.country) or ''
-        address_data['geopoints'] = ''
-        address_data['latitude'] = ''
-        address_data['longitude'] = ''
-        address_data['facebook'] = ''
-        address_data['twitter'] = ''
-        address_data['google_plus'] = ''
-        address_data['instagram'] = ''
-        address_data['notes'] = add.notes and add.notes.output or ''
 
-        if social:
-            address_data['facebook'] = social.get('facebook_url', '')
-            address_data['twitter'] = social.get('twitter_url', '')
-            address_data['google_plus'] = social.get('google_plus_url', '')
-            address_data['instagram'] = social.get('instagram_url', '')
+        add = IAddress(context, None)
+        if add:
+            address_data['street'] = add.street
+            address_data['zip_code'] = add.zip_code
+            address_data['city'] = add.city
+            address_data['country'] = get_pycountry_name(add.country) or ''
+            address_data['notes'] = add.notes and add.notes.output or ''
 
+        contact = IAddress(context, None)
+        if contact:
+            address_data['email'] = contact.email
+            address_data['web'] = contact.website
+            address_data['phone'] = contact.phone
+            address_data['mobile'] = contact.mobile
+            address_data['fax'] = contact.fax
+
+        geo = None
+        if HAS_GEOLOCATION:
+            geo = IGeolocatable(context, None)
         if geo:
             latitude = geo.geolocation.latitude
             longitude = geo.geolocation.longitude

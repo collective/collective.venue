@@ -43,7 +43,26 @@
 </tal:cond>
 </p>
 
-<p class="socialmedia" tal:condition="data/facebook | data/twitter | data/google_plus | data/instagram">
+<p class="contact" tal:condition="data/email | data/web | data/phone | data/mobile | data/fax | nothing">
+  <h3 i18n:translate="label_contact">Contact</h3>
+  <tal:cond condition="data/email">
+    E-Mail: <a href="mailto:${data/email}" class="email">${data/email}</a><br/>
+  </tal:cond>
+  <tal:cond condition="data/web">
+    Web: <a href="${data/web}" class="website">${data/web}</a><br/>
+  </tal:cond>
+  <tal:cond condition="data/phone">
+    Tel: <span class="phone">${data/phone}</span><br/>
+  </tal:cond>
+  <tal:cond condition="data/mobile">
+    Mobile: <span class="mobile">${data/mobile}</span><br/>
+  </tal:cond>
+  <tal:cond condition="data/fax">
+    Fax: <span class="fax">${data/fax}</span><br/>
+  </tal:cond>
+</p>
+
+<p class="socialmedia" tal:condition="data/facebook | data/twitter | data/google_plus | data/instagram | nothing">
 <tal:cond condition="data/facebook">
   <a  class="facebook" title="Facebook"
       tal:attributes="href data/facebook">
