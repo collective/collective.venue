@@ -10,9 +10,9 @@
 <metal:content-core fill-slot="content-core">
 <metal:block define-macro="content-core"
     tal:define="data view/data;
-                address data/address;
-                contact data/contact;
-                social data/social">
+                address data/address|nothing;
+                contact data/contact|nothing;
+                social data/social|nothing">
 
 <div class="venueview">
 
@@ -47,7 +47,7 @@
   </section>
 </tal:if>
 
-<tal:if condition="contact">
+<tal:if condition="contact|nothing">
   <section class="contact">
     <heading>
       <h3 i18n:translate="label_contact">Contact</h3>
@@ -144,7 +144,7 @@
   </section>
 </tal:geo>
 
-<section class="notes" tal:condition="address/notes">
+<section class="notes" tal:condition="address/notes|nothing">
   <heading>
     <h3 i18n:translate="label_notes">Notes</h3>
   </heading>
