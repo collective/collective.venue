@@ -29,9 +29,31 @@ body#visual-portal-wrapper.pat-plone #edit-zone {
 }
 
 .venueview {
+
+    section {
+        float: left;
+        padding: 0 1em 1em 0;
+
+        &.address,
+        &.contact,
+        &.social,
+        &.notes {
+            min-width: 33%;
+        }
+
+        &.map {
+            clear: left;
+            min-width: 66%;
+        }
+        &.notes:after {
+            content: '';
+            clear: left;
+        }
+    }
+
     dt {
         float: left;
-        min-width: 8em;
+        min-width: 7em;
         font-weight: bold;
     }
     dd:after {
