@@ -104,5 +104,6 @@ class IOrganizer(model.Schema):
     directives.fieldset(
         'venue',
         label=_(u'fieldset_venue'),
-        fields=['organizer_uid', 'organizer_notes']
+        fields=['organizer_uid', 'organizer_notes'],
+        order=10,
     )
