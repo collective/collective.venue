@@ -5,6 +5,7 @@ from plone import api
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel import directives
 from plone.supermodel import model
 from zope import schema
 from zope.interface import provider
@@ -51,13 +52,20 @@ class ILocation(model.Schema):
         required=False,
         default=None,
     )
+    directives.fieldset(
+        'venue',
+        label=_(u'fieldset_venue'),
+        fields=['location_uid', 'location_notes']
+    )
 
 
 @provider(IContextAwareDefaultFactory)
 def default_organizer(context):
     """Provide default organizer.
     """
-    default = api.portal.get_registry_record('collective.venue.default_organizer')  # noqa
+    default = api.portal.get_registry_record(
+        'collective.venue.default_organizer'
+    )
     return default or ''
 
 
@@ -92,4 +100,9 @@ class IOrganizer(model.Schema):
             default=u'One-time organizer or additional Information.'),
         required=False,
         default=None,
+    )
+    directives.fieldset(
+        'venue',
+        label=_(u'fieldset_venue'),
+        fields=['organizer_uid', 'organizer_notes']
     )

@@ -6,6 +6,9 @@ Changelog
 
 Breaking changes:
 
+- Put fields on own tab in order to reduce clutter on default tab.
+  [jensens]
+
 - Optional dependency on collective.geolocationbehavior.
   If you want to use geolocation support, depend on the [geolocation] extra and add the ``geolocatable`` behavior from ``collective.geolocationbehavior``.
   [agitator, thet]
