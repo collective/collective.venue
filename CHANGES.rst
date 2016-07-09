@@ -18,6 +18,9 @@ Breaking changes:
 
 New features:
 
+- Update pot/po files + German translations.
+  [jensens]
+
 - Add behavior shortnames ``venue.locationreference`` and ``vanue.organizerreference``.
   [thet]
 

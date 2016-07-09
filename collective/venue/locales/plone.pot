@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-06-18 12:33+0000\n"
+"POT-Creation-Date: 2016-07-09 16:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,12 +17,100 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-# TRANSLATE VIEW NAMES
-#
-msgid "venue"
+#: ../browser/controlpanel.py:10
+#: ../profiles/base/controlpanel.xml
+msgid "Event Venue Settings"
 msgstr ""
 
-# TRANSLATE TYPE
-#
+#: ../browser/controlpanel.py:11
+msgid "Settings for venues, which are referenced by events."
+msgstr ""
+
+#: ../profiles/base/types/Venue.xml
+#: ../profiles/uninstall/types/Venue.xml
 msgid "Venue"
+msgstr ""
+
+#. Default: "Select a location."
+#: ../behaviors.py:28
+msgid "description_event_location"
+msgstr ""
+
+#. Default: "One-time location or additional Information."
+#: ../behaviors.py:49
+msgid "description_event_location_notes"
+msgstr ""
+
+#. Default: "Select an organizer."
+#: ../behaviors.py:77
+msgid "description_event_organizer"
+msgstr ""
+
+#. Default: "One-time organizer or additional Information."
+#: ../behaviors.py:98
+msgid "description_event_organizer_notes"
+msgstr ""
+
+#: ../behaviors.py:57
+msgid "fieldset_venue"
+msgstr ""
+
+#. Default: "Default organizer to be used in events."
+#: ../interfaces.py:85
+msgid "help_default_organizer"
+msgstr ""
+
+#. Default: "Default location to be used in events."
+#: ../interfaces.py:64
+msgid "help_default_venue"
+msgstr ""
+
+#. Default: "Additional notes for the address."
+#: ../interfaces.py:23
+msgid "help_notes"
+msgstr ""
+
+#. Default: "Path, from which venue types should be searched. Useful for lineage multisites to seperate main from childsite venue folders. Keep empty to search anywhere."
+#: ../interfaces.py:40
+msgid "help_search_base"
+msgstr ""
+
+#. Default: "Default Organizer"
+#: ../interfaces.py:81
+msgid "label_default_organizer"
+msgstr ""
+
+#. Default: "Default Location"
+#: ../interfaces.py:60
+msgid "label_default_venue"
+msgstr ""
+
+#. Default: "Location"
+#: ../behaviors.py:27
+msgid "label_event_location"
+msgstr ""
+
+#. Default: "Location notes"
+#: ../behaviors.py:46
+msgid "label_event_location_notes"
+msgstr ""
+
+#. Default: "Organizer"
+#: ../behaviors.py:76
+msgid "label_event_organizer"
+msgstr ""
+
+#. Default: "Organizer notes"
+#: ../behaviors.py:95
+msgid "label_event_organizer_notes"
+msgstr ""
+
+#. Default: "Notes"
+#: ../interfaces.py:19
+msgid "label_notes"
+msgstr ""
+
+#. Default: "Location Search Base"
+#: ../interfaces.py:36
+msgid "label_search_base"
 msgstr ""
