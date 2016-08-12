@@ -18,6 +18,9 @@ Breaking changes:
 
 New features:
 
+- Clean up behavior forms a bit.
+  [thet]
+
 - Update pot/po files + German translations.
   [jensens]
 
