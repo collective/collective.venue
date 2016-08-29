@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from collective.venue import messageFactory as _
-from collective.venue.utils import get_site
 from collective.venue.utils import get_base_path
+from collective.venue.utils import get_site
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
+from plone.autoform.directives import order_after
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from zope import schema
@@ -26,6 +27,7 @@ class IVenue(model.Schema):
         ),
         required=False,
     )
+    order_after(notes='*')
 
 
 class IVenueSettings(Interface):
