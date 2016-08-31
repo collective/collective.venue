@@ -5,6 +5,8 @@
            prefix="collective.venue" />
 
   <records prefix="plone.resources/collective-venue" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++plone++collective.venue/locationsearch.js</value>
+    <value key="url">++plone++collective.venue</value>
     <value key="css">
       <element>++plone++collective.venue/styles.less</element>
     </value>

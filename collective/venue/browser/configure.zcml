@@ -23,6 +23,13 @@
       />
 
   <browser:page
+      for="*"
+      name="locationsearch"
+      class=".locationsearch.LocationSearch"
+      permission="cmf.AddPortalContent"
+      />
+
+  <browser:page
       name="venue-controlpanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".controlpanel.VenueControlPanel"
