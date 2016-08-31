@@ -16,6 +16,24 @@
 
 <div class="venueview">
 
+<tal:geo tal:define="geojson view/data_geojson" tal:condition="geojson">
+  <section class="map">
+    <div class="pat-leaflet" data-geojson='${geojson}'></div>
+
+    <div class="documentByLine">
+      <dfn
+        i18n:domain="collective.geolocationbehavior"
+        i18n:translate="">Geolocation</dfn>
+      <span class="latitude">
+        <span i18n:translate="label_latitude" i18n:domain="plone.formwidget.geolocation">Latitude</span>: ${data/latitude}
+      </span>
+      <span class="longitude">
+        <span i18n:translate="label_longitude" i18n:domain="plone.formwidget.geolocation">Longitude</span>: ${data/longitude}
+      </span>
+    </div>
+  </section>
+</tal:geo>
+
 <tal:if condition="address">
   <section class="address">
     <heading>
@@ -47,7 +65,7 @@
   </section>
 </tal:if>
 
-<tal:if condition="contact|nothing">
+<tal:if condition="contact">
   <section class="contact">
     <heading>
       <h3 i18n:translate="label_contact">Contact</h3>
@@ -125,24 +143,6 @@
     </dl>
   </section>
 </tal:if>
-
-<tal:geo tal:define="geojson view/data_geojson" tal:condition="geojson">
-  <section class="map">
-    <div class="pat-leaflet" data-geojson='${geojson}'></div>
-
-    <div class="documentByLine">
-      <dfn
-        i18n:domain="collective.geolocationbehavior"
-        i18n:translate="">Geolocation</dfn>
-      <span class="latitude">
-        <span i18n:translate="label_latitude" i18n:domain="plone.formwidget.geolocation">Latitude</span>: ${data/latitude}
-      </span>
-      <span class="longitude">
-        <span i18n:translate="label_longitude" i18n:domain="plone.formwidget.geolocation">Longitude</span>: ${data/longitude}
-      </span>
-    </div>
-  </section>
-</tal:geo>
 
 <section class="notes" tal:condition="address/notes|nothing">
   <heading>

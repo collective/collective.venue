@@ -31,21 +31,21 @@ body#visual-portal-wrapper.pat-plone #edit-zone {
 
 .venueview {
     section {
-        float: left;
         padding: 0 1em 1em 0;
+
+        &.map {
+            width: 100%;
+            min-height: 400px;
+        }
 
         &.address,
         &.contact,
-        &.social,
-        &.notes {
+        &.social {
+            float: left;
             min-width: 33%;
         }
 
-        &.map {
-            clear: left;
-            min-width: 66%;
-        }
-        &.notes:after {
+        &.notes:before {
             content: '';
             clear: left;
         }
@@ -61,7 +61,6 @@ body#visual-portal-wrapper.pat-plone #edit-zone {
         clear: left;
     }
 }
-
 
 // Input form
 #formfield-form-widgets-IAddress-zip_code {
