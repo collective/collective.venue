@@ -109,8 +109,10 @@ class VenueView(BrowserView):
             address['zip_code'] = acc.zip_code
             address['city'] = acc.city
             address['country'] = get_pycountry_name(acc.country) or u''
-            address['notes'] = acc.notes and acc.notes.output or u''
-        data['address'] = address
+            address['notes'] = acc.notes.output if acc.notes else u''
+        data['address'] = {
+            key: value for key, value in address.items() if value
+        }
 
         acc = IContact(context, None)
         contact = {}
@@ -120,7 +122,9 @@ class VenueView(BrowserView):
             contact['phone'] = acc.phone
             contact['mobile'] = acc.mobile
             contact['fax'] = acc.fax
-        data['contact'] = contact
+        data['contact'] = {
+            key: value for key, value in contact.items() if value
+        }
 
         acc = ISocial(context, None)
         social = {}
@@ -129,7 +133,9 @@ class VenueView(BrowserView):
             social['twitter'] = acc.twitter_url
             social['google_plus'] = acc.google_plus_url
             social['instagram'] = acc.instagram_url
-        data['social'] = social
+        data['social'] = {
+            key: value for key, value in social.items() if value
+        }
 
         return data
 
