@@ -18,6 +18,9 @@ Breaking changes:
 
 New features:
 
+- Provide a venue tile when ``plone.tiles`` is installed, which is basically like the venue view.
+  [thet]
+
 - Allow configuration of Google API key for searching geo coordinates, show link to Google maps, default map layer and available map layers.
   Upgrade step provided.
   [thet]
