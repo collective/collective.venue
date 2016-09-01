@@ -1,3 +1,4 @@
+from plone.api.portal import get_registry_record as getrec
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 
@@ -9,16 +10,16 @@ class LocationSearch(BrowserView):
 
     @property
     def google_api_key(self):
-        return None
+        return getrec('collective.venue.google_api_key')
 
     def get_location_info(self, address):
         location = None
         try:
-            geolocator = geopy.geocoders.Nominatim()
-            location = geolocator.geocode(address, exactly_one=True)
-            if not location and self.google_api_key:
-                geolocator = geopy.geocoders.GoogleV3(
-                    api_key=self.google_api_key)  # TODO: get API key from registry  # noqa
+            if self.google_api_key:
+                geolocator = geopy.geocoders.GoogleV3(api_key=self.google_api_key)  # noqa
+                location = geolocator.geocode(address, exactly_one=True)
+            else:
+                geolocator = geopy.geocoders.Nominatim()
                 location = geolocator.geocode(address, exactly_one=True)
         except:
             pass

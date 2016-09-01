@@ -2,6 +2,8 @@
 from collective.venue import messageFactory as _
 from collective.venue.utils import get_base_path
 from collective.venue.utils import get_site
+from collective.venue.vocabularies import default_map_layer
+from collective.venue.vocabularies import default_map_layers
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
@@ -99,6 +101,44 @@ class IVenueSettings(Interface):
             'basePath': get_base_path,
         }
     )
+
+    google_api_key = schema.TextLine(
+        title=_(u'label_google_api_key', default=u'Google maps API Key'),
+        description=_(u'help_google_api_key', default=u'If you want to use the Google Maps search API for higher accuracy, you have to provide a Google Maps API key here.'),  # noqa
+        required=False,
+        default=None
+    )
+
+    show_google_maps_link = schema.Bool(
+        title=_(u'label_google_maps_link', default=u'Show Google maps link.'),
+        description=_(u'help_google_api_key', default=u'Show a link to the Google Maps site, which can be used for further actions like routing.'),  # noqa
+        required=False,
+        default=False
+    )
+
+    default_map_layer = schema.Choice(
+        title=_(
+            u'default_map_layer',
+            u'Default map layer'
+        ),
+        description=_(
+            u'help_default_map_layer',
+            default=u'Set the default map layer'
+        ),
+        required=False,
+        default=default_map_layer,
+        vocabulary='collective.venue.map_layers'
+    )
+
+    map_layers = schema.List(
+        title=_(u'label_map_layers', u'Map Layers'),
+        description=_(
+            u'help_map_layers',
+            default=u'Set the available map layers'),
+        required=False,
+        default=default_map_layers,
+        missing_value=[],
+        value_type=schema.Choice(vocabulary='collective.venue.map_layers'))
 
 
 class IVenueLayer(Interface):

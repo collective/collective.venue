@@ -4,13 +4,18 @@ import logging
 
 
 logger = logging.getLogger('collective.venue upgrade')
-PROFILE_ID = 'profile-collective.venue:default'
+PROFILE_ID = 'profile-collective.venue:base'
 
 
 def unregister_resource(registry, resource):
     if registry and registry.getResource(resource):
         registry.unregisterResource(resource)
         logger.info("Removed {0} from {1}".format(resource, registry.id))
+
+
+def upgrade_registry(context):
+    setup = getToolByName(context, 'portal_setup')
+    setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.registry')
 
 
 def upgrade_3_to_4(context):
@@ -30,5 +35,4 @@ def upgrade_3_to_4(context):
         '++resource++collective.venue/styles.css'
     )
 
-    setup = getToolByName(context, 'portal_setup')
-    setup.runImportStepFromProfile(PROFILE_ID, 'plone.app.registry')
+    upgrade_registry(context)

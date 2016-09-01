@@ -31,6 +31,7 @@
       />
 
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
+  <utility component=".vocabularies.MapLayers" name="collective.venue.map_layers"/>
 
   <genericsetup:registerProfile
       name="base"

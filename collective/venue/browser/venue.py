@@ -3,6 +3,8 @@ from collective.address.behaviors import IAddress
 from collective.address.behaviors import IContact
 from collective.address.behaviors import ISocial
 from collective.address.vocabulary import get_pycountry_name
+from collective.venue import messageFactory as _
+from plone.api.portal import get_registry_record as getrec
 from plone.app.uuid.utils import uuidToObject
 from plone.uuid.interfaces import IUUID
 from Products.CMFPlone.utils import safe_unicode
@@ -50,11 +52,28 @@ class VenueView(BrowserView):
     @property
     def google_maps_link(self):
         coordinates = self.data_coordinates
-        maps_link = "https://www.google.com/maps/preview/@{0},{1},8z".format(
+        show_link = getrec('collective.venue.show_google_maps_link')
+        if not coordinates or not show_link:
+            return
+
+        maps_link = "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
             coordinates[0],
             coordinates[1]
         )
         return maps_link
+
+    @property
+    def map_configuration(self):
+        map_layers = getrec('collective.venue.map_layers') or []
+        config = {
+            "minimap": True,
+            "default_map_layer": getrec('collective.venue.default_map_layer'),
+            "map_layers": [
+                {"title": _(it), "id": it}
+                for it in map_layers
+            ],
+        }
+        return json.dumps(config)
 
     @property
     def data_coordinates(self):

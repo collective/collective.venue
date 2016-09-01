@@ -18,6 +18,10 @@ Breaking changes:
 
 New features:
 
+- Allow configuration of Google API key for searching geo coordinates, show link to Google maps, default map layer and available map layers.
+  Upgrade step provided.
+  [thet]
+
 - Add a link to Google Maps.
   [thet]
 
