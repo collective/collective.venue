@@ -18,6 +18,15 @@ Breaking changes:
 
 New features:
 
+- Add a link to Google Maps.
+  [thet]
+
+- Add possibility to search the geo coordinates for an address.
+  [thet]
+
+- Re-arrange Venue forms and put map to top.
+  [thet]
+
 - Clean up behavior forms a bit.
   [thet]
 

@@ -48,6 +48,15 @@ class VenueView(BrowserView):
         return description
 
     @property
+    def google_maps_link(self):
+        coordinates = self.data_coordinates
+        maps_link = "https://www.google.com/maps/preview/@{0},{1},8z".format(
+            coordinates[0],
+            coordinates[1]
+        )
+        return maps_link
+
+    @property
     def data_coordinates(self):
         if not HAS_GEOLOCATION:
             return

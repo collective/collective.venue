@@ -31,6 +31,10 @@
         <span i18n:translate="label_longitude" i18n:domain="plone.formwidget.geolocation">Longitude</span>: ${data/longitude}
       </span>
     </div>
+
+    <div class="documentByLine">
+      <a tal:attributes="href view/google_maps_link" i18n:translate="label_google_maps_link">Open in Google Maps</a>
+    </div>
   </section>
 </tal:geo>
 
