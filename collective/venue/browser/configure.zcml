@@ -36,12 +36,14 @@
     />
   </configure>
 
-  <browser:page
-      for="*"
-      name="locationsearch"
-      class=".locationsearch.LocationSearch"
-      permission="cmf.AddPortalContent"
-      />
+  <configure zcml:condition="installed plone.formwidget.geolocation">
+    <browser:page
+        for="*"
+        name="locationsearch"
+        class=".locationsearch.LocationSearch"
+        permission="cmf.AddPortalContent"
+        />
+  </configure>
 
   <browser:page
       name="venue-controlpanel"

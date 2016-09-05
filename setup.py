@@ -44,6 +44,7 @@ setup(
         'geolocation': [
             'collective.geolocationbehavior',
             'plone.formwidget.geolocation',
+            'geopy'
         ],
     },
     entry_points="""
