@@ -18,6 +18,12 @@ Breaking changes:
 
 New features:
 
+- Show the address in the marker popup.
+  [thet]
+
+- Provide a ``@@venue_overlay`` view for map overlays.
+  [thet]
+
 - Provide a venue tile when ``plone.tiles`` is installed, which is basically like the venue view.
   [thet]
 

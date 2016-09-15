@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="collective.venue">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+
+<div class="venue_overlay" tal:define="data view/data; geojson view/data_geojson" tal:condition="geojson">
+  <div class="pat-leaflet" data-geojson='${geojson}' data-pat-leaflet='${view/map_configuration}'></div>
+
+  <div class="documentByLine">
+    <tal:if tal:define="google_maps_link view/google_maps_link" tal:condition="google_maps_link">
+      <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Open in Google Maps</a>
+      —
+    </tal:if>
+    <dfn
+      i18n:domain="collective.geolocationbehavior"
+      i18n:translate="">Geolocation</dfn>
+    <span class="latitude">
+      <span i18n:translate="label_latitude" i18n:domain="plone.formwidget.geolocation">Latitude</span>: ${data/latitude}
+    </span>
+    <span class="longitude">
+      <span i18n:translate="label_longitude" i18n:domain="plone.formwidget.geolocation">Longitude</span>: ${data/longitude}
+    </span>
+  </div>
+</div>
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>

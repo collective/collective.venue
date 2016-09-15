@@ -90,6 +90,9 @@ class VenueView(BrowserView):
 
     @property
     def data(self):
+        if getattr(self, '_data', False):
+            return self._data
+
         context = self.context
 
         data = {}
@@ -137,15 +140,33 @@ class VenueView(BrowserView):
             key: value for key, value in social.items() if value
         }
 
+        self._data = data
         return data
 
     @property
     def data_geojson(self):
         """Return the geo location as GeoJSON string.
         """
-        coordinates = self.data_coordinates
-        if not coordinates:
-            return
+        data = self.data
+
+        address = data.get('address')
+        address_str = u', '.join([
+            it.strip() for it in
+            [
+                address.get('street'),
+                address.get('zip_code') + ' ' + address.get('city'),
+                address.get('country')
+            ] if it.strip()
+        ])
+
+        def _wrap_text(text):
+            return u'<p>{0}</p>'.format(text) if text else None
+
+        popup_text = u''.join([_wrap_text(it) for it in [
+            data.get('description'),
+            address_str
+        ] if it])
+        popup_text = u'<h3>' + data.get('title') + u'</h3>' + popup_text
 
         geo_json = json.dumps({
             'type': 'FeatureCollection',
@@ -153,17 +174,12 @@ class VenueView(BrowserView):
                 {
                     'type': 'Feature',
                     'id': IUUID(self.context),
-                    'properties': {
-                        'popup': u'<h3>{0}</h3><p>{1}</p>'.format(
-                            self.title,
-                            self.description
-                        )
-                    },
+                    'properties': {'popup': popup_text},
                     'geometry': {
                         'type': 'Point',
                         'coordinates': [
-                            coordinates[1],  # lng
-                            coordinates[0]   # lat
+                            data['longitude'],
+                            data['latitude']
                         ]
                     }
                 },
