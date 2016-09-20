@@ -154,9 +154,9 @@ class VenueView(BrowserView):
             it.strip() for it in
             [
                 address.get('street'),
-                address.get('zip_code') + ' ' + address.get('city'),
+                address.get('zip_code', '') + ' ' + address.get('city', ''),
                 address.get('country')
-            ] if it.strip()
+            ] if it
         ])
 
         def _wrap_text(text):
