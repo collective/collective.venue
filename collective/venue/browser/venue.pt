@@ -8,63 +8,9 @@
 <body>
 
 <metal:content-core fill-slot="content-core">
-<metal:block define-macro="content-core" tal:define="data view/data">
+<metal:block define-macro="content-core">
 
-<h3 i18n:translate="label_address">Address</h3>
-<p>
-<tal:cond condition="data/street">
-  <span
-      class="street"
-      i18n:attributes="title label_street"
-      i18n:domain="collective.address"
-      tal:content="data/street">Street</span><br/>
-</tal:cond>
-<tal:cond condition="data/zip_code">
-  <span
-      class="zip_code"
-      i18n:attributes="title label_zip_code"
-      i18n:domain="collective.address"
-      tal:content="data/zip_code">Zip Code</span>
-</tal:cond>
-<tal:cond condition="data/city">
-  <span
-      class="city"
-      i18n:attributes="title label_city"
-      i18n:domain="collective.address"
-      tal:content="data/city">City</span>
-</tal:cond>
-<tal:cond condition="data/country">
-  <span
-      class="country"
-      i18n:attributes="title label_country"
-      i18n:domain="collective.address"
-      tal:content="data/country">Country</span>
-</tal:cond>
-</p>
-
-<tal:geo tal:condition="python:data['latitude'] and data['longitude']">
-<div class="geolocation_wrapper">
-  <div class="map" tal:attributes="data-geopoints data/geopoints"></div>
-</div>
-
-<div class="documentByLine">
-  <dfn
-    i18n:domain="collective.geolocationbehavior"
-    i18n:translate="">Geolocation</dfn>
-  <span
-      class="latitude"
-      i18n:attributes="title label_latitude"
-      i18n:domain="plone.formwidget.geolocation"
-      tal:content="data/latitude">Latitude</span>
-  <span
-      class="longitude"
-      i18n:attributes="title label_longitude"
-      i18n:domain="plone.formwidget.geolocation"
-      tal:content="data/longitude">Longitude</span>
-</div>
-</tal:geo>
-
-<p tal:condition="data/notes" tal:content="structure data/notes">Venue notes</p>
+  <tal:venue replace="structure context/@@base_venue_view" />
 
 </metal:block>
 </metal:content-core>

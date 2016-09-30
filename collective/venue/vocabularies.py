@@ -1,95 +1,53 @@
-from Products.CMFCore.utils import getToolByName
-from collective.venue.interfaces import IVenue
-from plone import api
-from plone.app.uuid.utils import uuidToPhysicalPath
-from plone.app.widgets.browser.vocabulary import _permissions
-from plone.uuid.interfaces import IUUID
-from zope.component.hooks import getSite
-from zope.interface import implementer
+from collective.venue import messageFactory as _
 from zope.interface import provider
-from zope.schema.interfaces import ISource
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 
 
-_permissions['collective.venue.SearchBaseVocabulary'] = 'View'
-_permissions['collective.venue.DefaultVenueVocabulary'] = 'View'
+default_map_layer = 'OpenStreetMap.Mapnik'
+default_map_layers = [
+    'OpenStreetMap.Mapnik',
+    'Esri.WorldImagery',
+    'CartoDB.DarkMatter',
+]
 
 
 @provider(IVocabularyFactory)
-def SearchBaseVocabulary(context, query=None):
-    """Vocabulary for venues.
+def MapLayers(context):
+    """Vocabulary for available Leaflet map layers.
+    For a full list, see:
+    http://leaflet-extras.github.io/leaflet-providers/preview/
     """
-    cat = getToolByName(getSite(), 'portal_catalog')
-    res = cat(portal_type={'query': ['Plone Site', 'Folder']}, path='/')
-    # TODO: implement batching
     items = [
-        SimpleTerm(
-            title='{0} ({1})'.format(it.Title, it.getURL()),
-            value=it.UID
-        ) for it in res
-        if query is None or query.lower() in
-        '{0} ({1})'.format(it.Title, it.getURL()).lower()
+        (_('OpenStreetMap.Mapnik'),           'OpenStreetMap.Mapnik'),
+        (_('OpenStreetMap.BlackAndWhite'),    'OpenStreetMap.BlackAndWhite'),
+        (_('OpenStreetMap.DE'),               'OpenStreetMap.DE'),
+        (_('OpenStreetMap.France'),           'OpenStreetMap.France'),
+        (_('Thunderforest.OpenCycleMap'),     'Thunderforest.OpenCycleMap'),
+        (_('Thunderforest.Transport'),        'Thunderforest.Transport'),
+        (_('Thunderforest.TransportDark'),    'Thunderforest.TransportDark'),
+        (_('Thunderforest.Outdoors'),         'Thunderforest.Outdoors'),
+        (_('Stamen.Toner'),                   'Stamen.Toner'),
+        (_('Stamen.TonerBackground'),         'Stamen.TonerBackground'),
+        (_('Stamen.TonerLite'),               'Stamen.TonerLite'),
+        (_('Stamen.Watercolor'),              'Stamen.Watercolor'),
+        (_('Stamen.Terrain'),                 'Stamen.Terrain'),
+        (_('Stamen.TerrainBackground'),       'Stamen.TerrainBackground'),
+        (_('Stamen.TopOSMRelief'),            'Stamen.TopOSMRelief'),
+        (_('Esri.WorldStreetMap'),            'Esri.WorldStreetMap'),
+        (_('Esri.DeLorme'),                   'Esri.DeLorme'),
+        (_('Esri.WorldTopoMap'),              'Esri.WorldTopoMap'),
+        (_('Esri.WorldImagery'),              'Esri.WorldImagery'),
+        (_('Esri.WorldTerrain'),              'Esri.WorldTerrain'),
+        (_('Esri.WorldShadedRelief'),         'Esri.WorldShadedRelief'),
+        (_('Esri.WorldPhysical'),             'Esri.WorldPhysical'),
+        (_('Esri.OceanBasemap'),              'Esri.OceanBasemap'),
+        (_('Esri.NatGeoWorldMap'),            'Esri.NatGeoWorldMap'),
+        (_('Esri.WorldGrayCanvas'),           'Esri.WorldGrayCanvas'),
+        (_('CartoDB.DarkMatter'),             'CartoDB.DarkMatter'),
+        (_('CartoDB.DarkMatterNoLabels'),     'CartoDB.DarkMatterNoLabels'),
+        (_('NASAGIBS.ViirsEarthAtNight2012'), 'NASAGIBS.ViirsEarthAtNight2012'),  # noqa
     ]
+    items = [SimpleTerm(title=i[0], value=i[1]) for i in items]
     return SimpleVocabulary(items)
-
-
-@provider(IVocabularyFactory)
-def DefaultVenueVocabulary(context, query=None):
-    """Vocabulary for default venues.
-    """
-    search_base = api.portal.get_registry_record('collective.venue.search_base')  # noqa
-    cat_query = {'object_provides': IVenue.__identifier__, 'path': '/'}
-    if search_base:
-        path = uuidToPhysicalPath(search_base)
-        if path:
-            cat_query['path'] = path
-        # else - path might be deleted
-
-    cat = getToolByName(getSite(), 'portal_catalog')
-    res = cat(**cat_query)
-
-    items = [
-        SimpleTerm(
-            title='{0} ({1})'.format(it.Title, it.getURL()),
-            value=it.UID
-        ) for it in res
-        if query is None or query.lower() in
-        '{0} ({1})'.format(it.Title, it.getURL()).lower()
-    ]
-    return SimpleVocabulary(items)
-
-
-@implementer(ISource)
-class VenueSource(object):
-    """Catalog source for listing venues for use with Choice fields.
-    """
-
-    def __init__(self, context=None, **query):
-        self.query = query
-
-    def __contains__(self, value):
-        if isinstance(value, basestring):
-            uid = value
-        else:
-            uid = IUUID(value)
-        if self.search_catalog({'UID': uid}):
-            return True
-
-    def search_catalog(self, user_query):
-        site = getSite()
-        search_base = api.portal.get_registry_record('collective.venue.search_base')  # noqa
-        settings_query = {}
-        if search_base:
-            path = uuidToPhysicalPath(search_base)
-            if path:
-                settings_query['path'] = path
-            # else - path might be deleted
-
-        query = user_query.copy()
-        query.update(self.query)
-        query.update(settings_query)
-
-        catalog = getToolByName(site, 'portal_catalog')
-        return catalog(query)

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-09-25 08:59+0000\n"
+"POT-Creation-Date: 2016-07-09 16:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,66 +17,142 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.venue\n"
 
-#: collective/venue/browser/controlpanel.py:17
+#: ../configure.zcml:52
+msgid "Dexterity venue type extension with geolocation support."
+msgstr ""
+
+#: ../configure.zcml:62
+msgid "Dexterity venue type extension without geolocation support."
+msgstr ""
+
+#: ../configure.zcml:42
+msgid "Dexterity venue type extension."
+msgstr ""
+
+#: ../browser/controlpanel.py:10
 msgid "Event Venue Settings"
 msgstr ""
 
-#: collective/venue/browser/controlpanel.py:18
+#: ../browser/controlpanel.py:11
 msgid "Settings for venues, which are referenced by events."
 msgstr ""
 
-#. Default: "Reference to an existing location."
-#: collective/venue/behaviors.py:27
+#: ../configure.zcml:42
+msgid "collective.venue base profile"
+msgstr ""
+
+#: ../configure.zcml:25
+msgid "collective.venue event location"
+msgstr ""
+
+#: ../configure.zcml:31
+msgid "collective.venue event organizer"
+msgstr ""
+
+#: ../configure.zcml:52
+msgid "collective.venue with geolocation support"
+msgstr ""
+
+#: ../configure.zcml:62
+msgid "collective.venue without geolocation support"
+msgstr ""
+
+#. Default: "Select a location."
+#: ../behaviors.py:28
 msgid "description_event_location"
 msgstr ""
 
-#. Default: "Additional Information for the Venue."
-#: collective/venue/behaviors.py:41
+#. Default: "One-time location or additional Information."
+#: ../behaviors.py:49
 msgid "description_event_location_notes"
 msgstr ""
 
-#. Default: "Default venue to be used in events."
-#: collective/venue/interfaces.py:37
+#. Default: "Select an organizer."
+#: ../behaviors.py:77
+msgid "description_event_organizer"
+msgstr ""
+
+#. Default: "One-time organizer or additional Information."
+#: ../behaviors.py:98
+msgid "description_event_organizer_notes"
+msgstr ""
+
+#: ../behaviors.py:57
+msgid "fieldset_venue"
+msgstr ""
+
+#. Default: "Default organizer to be used in events."
+#: ../interfaces.py:85
+msgid "help_default_organizer"
+msgstr ""
+
+#. Default: "Default location to be used in events."
+#: ../interfaces.py:64
 msgid "help_default_venue"
 msgstr ""
 
 #. Default: "Additional notes for the address."
-#: collective/venue/interfaces.py:14
+#: ../interfaces.py:23
 msgid "help_notes"
 msgstr ""
 
 #. Default: "Path, from which venue types should be searched. Useful for lineage multisites to seperate main from childsite venue folders. Keep empty to search anywhere."
-#: collective/venue/interfaces.py:27
+#: ../interfaces.py:40
 msgid "help_search_base"
 msgstr ""
 
 #. Default: "Address"
-#: collective/venue/browser/venue.pt:13
+#: ../browser/venue.pt:22
 msgid "label_address"
 msgstr ""
 
-#. Default: "Default Venue"
-#: collective/venue/interfaces.py:36
+#. Default: "Contact"
+#: ../browser/venue.pt:53
+msgid "label_contact"
+msgstr ""
+
+#. Default: "Default Organizer"
+#: ../interfaces.py:81
+msgid "label_default_organizer"
+msgstr ""
+
+#. Default: "Default Location"
+#: ../interfaces.py:60
 msgid "label_default_venue"
 msgstr ""
 
-#. Default: "Event Location"
-#: collective/venue/behaviors.py:26
+#. Default: "Location"
+#: ../behaviors.py:27
 msgid "label_event_location"
 msgstr ""
 
-#. Default: "Notes for the Venue"
-#: collective/venue/behaviors.py:38
+#. Default: "Location notes"
+#: ../behaviors.py:46
 msgid "label_event_location_notes"
 msgstr ""
 
+#. Default: "Organizer"
+#: ../behaviors.py:76
+msgid "label_event_organizer"
+msgstr ""
+
+#. Default: "Organizer notes"
+#: ../behaviors.py:95
+msgid "label_event_organizer_notes"
+msgstr ""
+
 #. Default: "Notes"
-#: collective/venue/interfaces.py:13
+#: ../browser/venue.pt:149
+#: ../interfaces.py:19
 msgid "label_notes"
 msgstr ""
 
-#. Default: "Venue Search Base"
-#: collective/venue/interfaces.py:26
+#. Default: "Location Search Base"
+#: ../interfaces.py:36
 msgid "label_search_base"
 msgstr ""
 
+#. Default: "Social Media"
+#: ../browser/venue.pt:87
+msgid "label_social"
+msgstr ""

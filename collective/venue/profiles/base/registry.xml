@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry>
+
+  <records interface="collective.venue.interfaces.IVenueSettings"
+           prefix="collective.venue" />
+
+  <records prefix="plone.resources/collective-venue" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++plone++collective.venue/locationsearch.js</value>
+    <value key="url">++plone++collective.venue</value>
+    <value key="css">
+      <element>++plone++collective.venue/styles.less</element>
+    </value>
+  </records>
+
+  <records prefix="plone.bundles/collective-venue-bundle" interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources">
+      <element>collective-venue</element>
+    </value>
+    <value key="enabled">True</value>
+    <value key="csscompilation">++plone++collective.venue/styles-compiled.css</value>
+    <value key="last_compilation">2015-08-19 09:00:00</value>
+  </records>
+
+</registry>

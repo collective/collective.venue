@@ -1,15 +1,10 @@
+# -*- coding: utf-8 -*-
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 from collective.address.behaviors import searchable_text_indexer as address_idx
 from collective.venue.interfaces import IVenue
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.indexer import indexer
-# from collective.venue.behaviors import ILocation
-
-
-# @indexer(ILocation)
-# def venue_indexer(obj):
-#     return ILocation(obj).location
 
 
 def _concat_and_utf8(*args):

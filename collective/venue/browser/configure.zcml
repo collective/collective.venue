@@ -2,18 +2,14 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.venue">
 
-  <browser:resourceDirectory
-      name="collective.venue"
-      directory="resources"
-      />
-
   <browser:page
-      for="collective.venue.interfaces.IVenue"
-      name="venue_view"
+      for="*"
+      name="base_venue_view"
       class=".venue.VenueView"
-      template="venue.pt"
+      template="venue_base.pt"
       permission="zope2.View"
       layer="..interfaces.IVenueLayer"
       />
@@ -27,15 +23,36 @@
       layer="..interfaces.IVenueLayer"
       />
 
-  <!-- BBB -->
   <browser:page
-      for="collective.venue.interfaces.IVenue"
-      name="venue"
+      for="*"
+      name="venue_overlay"
       class=".venue.VenueView"
-      template="venue.pt"
+      template="venue_overlay.pt"
       permission="zope2.View"
       layer="..interfaces.IVenueLayer"
       />
+
+  <configure zcml:condition="installed plone.tiles">
+    <include package="plone.tiles" file="meta.zcml" />
+    <plone:tile
+        add_permission="cmf.ModifyPortalContent"
+        class=".venuetile.VenueTile"
+        for="*"
+        name="collective.venue.venuetile"
+        permission="zope2.View"
+        template="venue_base.pt"
+        title="Venue Display"
+    />
+  </configure>
+
+  <configure zcml:condition="installed plone.formwidget.geolocation">
+    <browser:page
+        for="*"
+        name="locationsearch"
+        class=".locationsearch.LocationSearch"
+        permission="cmf.AddPortalContent"
+        />
+  </configure>
 
   <browser:page
       name="venue-controlpanel"
@@ -53,8 +70,5 @@
         permission="plone.app.controlpanel.Site"
         />
   </configure>
-
-  <adapter factory=".controlpanel.SearchBaseFieldWidget" />
-  <adapter factory=".controlpanel.DefaultVenueFieldWidget" />
 
 </configure>

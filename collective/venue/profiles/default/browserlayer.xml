@@ -1,4 +1,0 @@
-<layers>
-  <layer name="collective.venue"
-      interface="collective.venue.interfaces.IVenueLayer" />
-</layers>

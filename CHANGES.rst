@@ -1,10 +1,74 @@
 Changelog
 =========
 
-2.1.4 (unreleased)
-------------------
+3.0 (unreleased)
+----------------
 
-- Nothing changed yet.
+Breaking changes:
+
+- Put fields on own tab in order to reduce clutter on default tab.
+  [jensens]
+
+- Optional dependency on collective.geolocationbehavior.
+  If you want to use geolocation support, depend on the [geolocation] extra and add the ``geolocatable`` behavior from ``collective.geolocationbehavior``.
+  [agitator, thet]
+
+- Removed support for Plone < 5.
+  [agitator, thet]
+
+New features:
+
+- Show the address in the marker popup.
+  [thet]
+
+- Provide a ``@@venue_overlay`` view for map overlays.
+  [thet]
+
+- Provide a venue tile when ``plone.tiles`` is installed, which is basically like the venue view.
+  [thet]
+
+- Allow configuration of Google API key for searching geo coordinates, show link to Google maps, default map layer and available map layers.
+  Upgrade step provided.
+  [thet]
+
+- Add a link to Google Maps.
+  [thet]
+
+- Add possibility to search the geo coordinates for an address.
+  [thet]
+
+- Re-arrange Venue forms and put map to top.
+  [thet]
+
+- Clean up behavior forms a bit.
+  [thet]
+
+- Update pot/po files + German translations.
+  [jensens]
+
+- Add behavior shortnames ``venue.locationreference`` and ``vanue.organizerreference``.
+  [thet]
+
+- Add ``IOrganizer`` behavior additional to the ``ILocation`` behavior.
+  [thet]
+
+- Upgraded profiles for Plone 5 resource registries.
+  Added setuphandlers and upgrade steps.
+  [agitator]
+
+- Added social media fields behavior from c.address.
+  [agitator]
+
+- Moved out geolocation support to extras (WIP).
+  [agitator]
+
+- Disable not working registry and adapter entries.
+  [agitator]
+
+Bug fixes:
+
+- Hide uninstall profile from site setup and quickinstaller.
+  [thet]
 
 
 2.1.3 (2016-02-04)

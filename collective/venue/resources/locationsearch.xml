@@ -1,0 +1,1 @@
+<button class="locationsearch btn btn-success"><%- _t("Search address in map") %></button>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object name="Venue" meta_type="Dexterity FTI" i18n:domain="plone"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title" i18n:translate="">Venue</property>
+ <property name="description" i18n:translate=""></property>
+ <property name="icon_expr"></property>
+ <property name="immediate_view">venue_view</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types"/>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">venue_view</property>
+ <property name="view_methods">
+  <element value="venue_view"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <property name="add_permission">cmf.AddPortalContent</property>
+ <property name="klass">plone.dexterity.content.Item</property>
+ <property name="behaviors">
+  <element value="plone.app.content.interfaces.INameFromTitle"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+  <element value="collective.address.behaviors.IAddress"/>
+  <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
+  <element value="collective.address.behaviors.IContact"/>
+  <element value="collective.address.behaviors.ISocial"/>
+ </property>
+ <property name="schema">collective.venue.interfaces.IVenue</property>
+ <property name="model_source"></property>
+ <property name="model_file"></property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="edit" to="@@edit"/>
+ <alias from="sharing" to="@@sharing"/>
+ <alias from="view" to="(selected layout)"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    description="" icon_expr="" link_target="" url_expr="string:${object_url}"
+    visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    description="" icon_expr="" link_target=""
+    url_expr="string:${object_url}/edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+</object>

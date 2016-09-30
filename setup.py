@@ -1,7 +1,8 @@
+# -*- coding: utf-8 -*-
 from setuptools import setup
 from setuptools import find_packages
 
-version = '2.1.4.dev0'
+version = '3.0.dev0'
 
 
 setup(
@@ -27,25 +28,23 @@ setup(
     install_requires=[
         'setuptools',
         'collective.address',
-        'collective.geolocationbehavior',
         'plone.api',
         'plone.app.content',
         'plone.app.dexterity',
         'plone.app.event',
-        'plone.app.widgets',
         'plone.browserlayer',
         'plone.event',
-        'plone.formwidget.geolocation',
+        'plone.registry >= 1.1.0.dev0',  # implicit dependency, see PR #10
+        'plone.resource',
         'Products.CMFPlone',
         'Products.GenericSetup',
         'z3c.unconfigure < 1.1',
     ],
     extras_require={
-        'archetypes': [
-            'Products.ATContentTypes',
-            'plone.app.referenceablebehavior',
-            'archetypes.referencebrowserwidget',
-            'archetypes.schemaextender',
+        'geolocation': [
+            'collective.geolocationbehavior',
+            'plone.formwidget.geolocation',
+            'geopy'
         ],
     },
     entry_points="""

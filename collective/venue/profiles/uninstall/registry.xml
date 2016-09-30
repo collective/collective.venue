@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry>
+
+  <record remove="True" name="collective.venue.search_base"/>
+  <record remove="True" name="collective.venue.default_venue"/>
+
+  <records remove="True" prefix="plone.resources/collective-venue" interface='Products.CMFPlone.interfaces.IResourceRegistry'/>
+  <records remove="True" prefix="plone.bundles/collective-venue-bundle" interface='Products.CMFPlone.interfaces.IBundleRegistry'/>
+
+</registry>
