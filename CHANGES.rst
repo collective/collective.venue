@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0 (unreleased)
+3.0 (2016-10-06)
 ----------------
 
 Breaking changes:
