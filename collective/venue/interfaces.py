@@ -111,7 +111,7 @@ class IVenueSettings(Interface):
 
     show_google_maps_link = schema.Bool(
         title=_(u'label_google_maps_link', default=u'Show Google maps link.'),
-        description=_(u'help_google_api_key', default=u'Show a link to the Google Maps site, which can be used for further actions like routing.'),  # noqa
+        description=_(u'help_google_maps_link', default=u'Show a link to the Google Maps site, which can be used for further actions like routing.'),  # noqa
         required=False,
         default=False
     )
