@@ -4,7 +4,8 @@ Changelog
 3.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- German locales update.
+  [thet]
 
 
 3.0 (2016-10-06)
