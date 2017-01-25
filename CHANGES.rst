@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.2 (unreleased)
+3.0.2 (2017-01-25)
 ------------------
 
 - Remove z3c.unconfigure version depenency.
