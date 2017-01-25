@@ -4,7 +4,9 @@ Changelog
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove z3c.unconfigure version depenency.
+  buildout.coredev 5.1 now depends on 1.1.
+  [thet]
 
 
 3.0.1 (2017-01-13)

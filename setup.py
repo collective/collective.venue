@@ -38,7 +38,7 @@ setup(
         'plone.resource',
         'Products.CMFPlone',
         'Products.GenericSetup',
-        'z3c.unconfigure < 1.1',
+        'z3c.unconfigure',
     ],
     extras_require={
         'geolocation': [
