@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.0.3 (unreleased)
+3.0.3 (2017-02-24)
 ------------------
 
 - Depend on z3c.unconfigure < 1.1 again.
