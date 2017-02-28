@@ -4,6 +4,10 @@ Changelog
 3.1 (unreleased)
 ----------------
 
+- Remove styles for latitude/longitude.
+  They are too unspecific and make Leaflet's layer selection very ugly and unusable.
+  [thet]
+
 - Improve bundle registration and include an upgrade step.
   [thet]
 
