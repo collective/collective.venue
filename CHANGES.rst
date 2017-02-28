@@ -1,10 +1,11 @@
 Changelog
 =========
 
-3.0.4 (unreleased)
-------------------
+3.1 (unreleased)
+----------------
 
-- Nothing changed yet.
+- Improve bundle registration and include an upgrade step.
+  [thet]
 
 
 3.0.3 (2017-02-24)

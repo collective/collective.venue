@@ -12,13 +12,31 @@
     </value>
   </records>
 
+  <records prefix="plone.resources/collective-venue-bundle" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++plone++collective.venue/collective-venue-bundle.js</value>
+    <value key="css">
+      <element>++plone++collective.venue/styles.less</element>
+    </value>
+  </records>
+
   <records prefix="plone.bundles/collective-venue-bundle" interface='Products.CMFPlone.interfaces.IBundleRegistry'>
     <value key="resources">
-      <element>collective-venue</element>
+      <element>collective-venue-bundle</element>
     </value>
     <value key="enabled">True</value>
-    <value key="csscompilation">++plone++collective.venue/styles-compiled.css</value>
-    <value key="last_compilation">2015-08-19 09:00:00</value>
+    <value key="jscompilation">++plone++collective.venue/collective-venue-bundle-compiled.js</value>
+    <value key="csscompilation">++plone++collective.venue/collective-venue-bundle-compiled.css</value>
+    <value key="last_compilation">2017-02-27 00:00:00</value>
+    <value key="stub_js_modules">
+      <element>jquery</element>
+      <element>pat-base</element>
+      <element>pat-compat</element>
+      <element>pat-logger</element>
+      <element>pat-mockup-parser</element>
+      <element>pat-registry</element>
+      <element>pat-utils</element>
+      <element>underscore</element>
+    </value>
   </records>
 
 </registry>

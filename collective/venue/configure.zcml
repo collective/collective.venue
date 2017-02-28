@@ -70,6 +70,15 @@
       handler="collective.venue.upgrades.upgrade_3_to_4"
       profile="collective.venue:base"
       />
+  <genericsetup:upgradeStep
+      title="Migrate resources"
+      description="Migrate resources to new version."
+      source="4"
+      destination="5"
+      handler="collective.venue.upgrades.upgrade_registry"
+      profile="collective.venue:base"
+      />
+
 
   <utility
       factory=".setuphandlers.HiddenProfiles"
