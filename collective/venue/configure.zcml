@@ -9,6 +9,9 @@
   <i18n:registerTranslations directory="locales" />
 
   <includeDependencies package="." />
+  <include package="collective.address"/>
+  <include package="collective.geolocationbehavior" zcml:condition="installed collective.geolocationbehavior"/>
+
   <includeOverrides file="overrides.zcml"/>
   <include package=".browser"/>
 
