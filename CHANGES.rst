@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.1.1 (unreleased)
+3.1.1 (2017-04-04)
 ------------------
 
 - Explicitly include necessary zcml dependencies to avoid having to explictly doing that in tests.
