@@ -4,6 +4,9 @@ Changelog
 3.1.2 (unreleased)
 ------------------
 
+- Only include the leaflet bundle where it is needed via ``add_bundle_on_request``.
+  [thet]
+
 - Adapt the ``contenttype-venue`` icon to recent changes in plonetheme.barceloneta 1.7.4.
   [thet]
 

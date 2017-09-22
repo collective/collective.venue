@@ -7,6 +7,8 @@ from collective.venue import messageFactory as _
 from plone.api.portal import get_registry_record as getrec
 from plone.app.uuid.utils import uuidToObject
 from plone.uuid.interfaces import IUUID
+from Products.CMFPlone.resources import add_bundle_on_request
+from Products.CMFPlone.utils import get_top_request
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 
@@ -35,6 +37,11 @@ class VenueView(BrowserView):
                 # subsite on any context. However, this might lead to broken
                 # urls in for the edit bar.
                 context = venue_obj
+
+        top_request = get_top_request(request)
+        # Just add the bundle from plone.patternslib.
+        # If it's not available, it wont't hurt.
+        add_bundle_on_request(top_request, 'bundle-leaflet')
 
         self.context = context
         self.request = request
