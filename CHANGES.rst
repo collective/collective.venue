@@ -4,7 +4,8 @@ Changelog
 3.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Adapt the ``contenttype-venue`` icon to recent changes in plonetheme.barceloneta 1.7.4.
+  [thet]
 
 
 3.1.1 (2017-04-04)

@@ -13,20 +13,9 @@
   font-style: normal;
 }
 
-body#visual-portal-wrapper.pat-plone .outer-wrapper {
-    a.contenttype-venue:before {
-        font-family:"venue";
-        content: '\e800';
-    }
-}
-
-//*// on right on toolbar
-body#visual-portal-wrapper.pat-plone #edit-zone {
-    a.contenttype-venue:after {
-        font-family:"venue";
-        content: '\e800'!important;
-        top: 5px;
-    }
+.contenttype-venue::before {
+    font-family:"venue";
+    content: '\e800';
 }
 
 .venueview {
