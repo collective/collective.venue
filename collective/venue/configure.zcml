@@ -9,6 +9,7 @@
   <i18n:registerTranslations directory="locales" />
 
   <includeDependencies package="." />
+  <include package="plone.app.event"/>
   <include package="collective.address"/>
   <include package="collective.geolocationbehavior" zcml:condition="installed collective.geolocationbehavior"/>
 
@@ -31,6 +32,14 @@
       name="venue.organizerreference"
       title="collective.venue event organizer"
       provides=".behaviors.IOrganizer"
+      />
+
+  <class class="plone.app.event.recurrence.Occurrence">
+    <implements interface=".interfaces.IVenueEnabled" />
+  </class>
+  <adapter
+      for=".interfaces.IVenueEnabled"
+      factory=".icalexporter.AAFICalendarEventComponent"
       />
 
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>

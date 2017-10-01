@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from collective.venue import messageFactory as _
+from collective.venue.interfaces import IVenueEnabled
 from collective.venue.utils import get_base_path
 from plone import api
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
@@ -8,6 +9,7 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import directives
 from plone.supermodel import model
 from zope import schema
+from zope.component import adapter
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
@@ -21,7 +23,7 @@ def default_location(context):
 
 
 @provider(IFormFieldProvider)
-class ILocation(model.Schema):
+class ILocation(model.Schema, IVenueEnabled):
 
     location_uid = schema.Choice(
         title=_(u'label_event_location', default=u'Location'),
@@ -70,7 +72,7 @@ def default_organizer(context):
 
 
 @provider(IFormFieldProvider)
-class IOrganizer(model.Schema):
+class IOrganizer(model.Schema, IVenueEnabled):
 
     organizer_uid = schema.Choice(
         title=_(u'label_event_organizer', default=u'Organizer'),

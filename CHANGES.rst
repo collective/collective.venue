@@ -4,6 +4,9 @@ Changelog
 3.1.2 (unreleased)
 ------------------
 
+- Add ``IICalendarEventComponent`` adapter to customize the ical export of ``location``, ``contact`` and ``geo`` properties.
+
+
 - Only include the leaflet bundle where it is needed via ``add_bundle_on_request``.
   [thet]
 
