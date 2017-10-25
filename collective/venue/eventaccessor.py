@@ -29,7 +29,9 @@ class VenueEventAccessor(EventAccessor):
     @property
     def location(self):
         context = self.context
-        location_ref = ILocation(context)
+        location_ref = ILocation(context, None)
+        if not location_ref:
+            return
         location_uid = location_ref.location_uid
         location_notes = location_ref.location_notes
         location = uuidToObject(location_uid)
