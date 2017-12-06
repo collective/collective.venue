@@ -145,3 +145,10 @@ class IVenueLayer(Interface):
     """A Browserlayer indicating that this product is actually installed via
     Generic Setup.
     """
+
+
+from plone.event.interfaces import IEvent
+class IVenueEnabled(IEvent):
+    """Marker interface for objects which provide the ILocation or IOrganizer
+    interfaces.
+    """
