@@ -1,7 +1,7 @@
 Changelog
 =========
 
-3.1.2 (unreleased)
+3.1.2 (2017-12-06)
 ------------------
 
 - Prevent ``ILocation`` behavior not adaptable in ``VenueEventAccessor``.
