@@ -1,9 +1,12 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="collective.venue">
+
+  <include package="plone.app.contentmenu" />
 
   <browser:page
       for="*"
@@ -31,6 +34,27 @@
       permission="zope2.View"
       layer="..interfaces.IVenueLayer"
       />
+
+  <browser:page
+      for="plone.app.contenttypes.interfaces.ICollection"
+      name="venue_collection_view"
+      class=".venue.VenueCollectionView"
+      template="venue_collection.pt"
+      permission="zope2.View"
+      layer="..interfaces.IVenueLayer"
+      />
+
+  <browser:menuItems
+      for="plone.app.contenttypes.interfaces.ICollection"
+      layer="..interfaces.IVenueLayer"
+      menu="plone_displayviews">
+
+    <browser:menuItem
+        title="Venue collection view"
+        action="venue_collection_view"
+        i18n:translate="title"
+        />
+  </browser:menuItems>
 
   <configure zcml:condition="installed plone.tiles">
     <include package="plone.tiles" file="meta.zcml" />

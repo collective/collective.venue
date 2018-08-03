@@ -11,6 +11,7 @@ from Products.CMFPlone.resources import add_bundle_on_request
 from Products.CMFPlone.utils import get_top_request
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
+from plone.app.contenttypes.browser.collection import CollectionView
 
 import json
 import pkg_resources
@@ -192,4 +193,63 @@ class VenueView(BrowserView):
                 },
             ]
         })
+        return geo_json
+
+
+class VenueCollectionView(CollectionView):
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        self.venues = [brain.getObject() for brain in self.context.results()]
+
+    def data_geojson(self):
+        """
+        Returns the geo locations as GeoJSON string.
+        """
+
+        features = []
+
+        for data in self.venues:
+            import pdb; pdb.set_trace()
+            address_str = u', '.join([
+                it.strip() for it in
+                [
+                    data.get('street', ''),
+                    data.get('zip_code', '') + ' ' + data.get('city', ''),
+                    data.get('country', '')
+                ] if it
+            ])
+
+            def _wrap_text(text):
+                return u'<p>{0}</p>'.format(text) if text else None
+
+            popup_text = u''.join([_wrap_text(it) for it in [
+                data.get('description', ''),
+                address_str
+            ] if it])
+            popup_text = u'<h3>' + data.get('title', '') + u'</h3>' + popup_text
+
+            features.append(json.dumps({
+                {
+                    'type': 'Feature',
+                    'id': data.get('_plone.uuid', ''),
+                    'properties': {'popup': popup_text},
+                    'geometry': {
+                        'type': 'Point',
+                        'coordinates': [
+                            data['longitude'],
+                            data['latitude']
+                        ]
+                    }
+                },
+            }))
+
+        geo_json = json.dumps({
+            'type': 'FeatureCollection',
+            'features': [
+                features
+            ]
+        })
+
         return geo_json

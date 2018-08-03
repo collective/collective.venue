@@ -1,0 +1,24 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="here/main_template/macros/master"
+  i18n:domain="plone">
+  <body>
+
+    <div metal:fill-slot="content-core">
+
+        <tal:map>
+            <div class="pat-leaflet leaflet-container leaflet-fade-anim"
+                 data-geojson="${view/data_geojson}"
+                 data-pat-leaflet="{&quot;minimap&quot;: true, &quot;default_map_layer&quot;: &quot;OpenStreetMap.Mapnik&quot;, &quot;map_layers&quot;: [{&quot;id&quot;: &quot;OpenStreetMap.Mapnik&quot;, &quot;title&quot;: &quot;OpenStreetMap.Mapnik&quot;}, {&quot;id&quot;: &quot;Esri.WorldImagery&quot;, &quot;title&quot;: &quot;Esri.WorldImagery&quot;}, {&quot;id&quot;: &quot;CartoDB.DarkMatter&quot;, &quot;title&quot;: &quot;CartoDB.DarkMatter&quot;}]}"
+                 />
+        </tal:map>
+
+    </div>
+
+  </body>
+</html>
