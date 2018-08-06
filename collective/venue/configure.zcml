@@ -55,6 +55,15 @@
       />
 
   <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.venue uninstall profile"
+      directory="profiles/uninstall"
+      description="Dexterity venue type extension."
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
       zcml:condition="installed collective.geolocationbehavior"
       name="default"
       title="collective.venue with geolocation support"
@@ -87,6 +96,14 @@
       description="Migrate resources to new version."
       source="4"
       destination="5"
+      handler="collective.venue.upgrades.upgrade_registry"
+      profile="collective.venue:base"
+      />
+  <genericsetup:upgradeStep
+      title="Added Collection views"
+      description="Added views for Collection in the profile"
+      source="5"
+      destination="6"
       handler="collective.venue.upgrades.upgrade_registry"
       profile="collective.venue:base"
       />
