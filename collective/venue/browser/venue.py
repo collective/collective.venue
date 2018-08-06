@@ -5,13 +5,13 @@ from collective.address.behaviors import ISocial
 from collective.address.vocabulary import get_pycountry_name
 from collective.venue import messageFactory as _
 from plone.api.portal import get_registry_record as getrec
+from plone.app.contenttypes.browser.collection import CollectionView
 from plone.app.uuid.utils import uuidToObject
 from plone.uuid.interfaces import IUUID
 from Products.CMFPlone.resources import add_bundle_on_request
 from Products.CMFPlone.utils import get_top_request
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
-from plone.app.contenttypes.browser.collection import CollectionView
 
 import json
 import pkg_resources
@@ -201,6 +201,12 @@ class VenueCollectionView(CollectionView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+
+        top_request = get_top_request(request)
+        # Just add the bundle from plone.patternslib.
+        # If it's not available, it wont't hurt.
+        add_bundle_on_request(top_request, 'bundle-leaflet')
+
         self.venues = [brain.getObject() for brain in self.context.results()]
 
     def data_geojson(self):
@@ -210,46 +216,81 @@ class VenueCollectionView(CollectionView):
 
         features = []
 
-        for data in self.venues:
-            import pdb; pdb.set_trace()
+        for item in self.venues:
             address_str = u', '.join([
                 it.strip() for it in
                 [
-                    data.get('street', ''),
-                    data.get('zip_code', '') + ' ' + data.get('city', ''),
-                    data.get('country', '')
+                    item.street or '',
+                    item.zip_code or '' + ' ' + item.city or '',
+                    get_pycountry_name(item.country) or u''
                 ] if it
             ])
 
             def _wrap_text(text):
                 return u'<p>{0}</p>'.format(text) if text else None
 
+            description = item.description or ''
             popup_text = u''.join([_wrap_text(it) for it in [
-                data.get('description', ''),
+                description,
                 address_str
             ] if it])
-            popup_text = u'<h3>' + data.get('title', '') + u'</h3>' + popup_text
+            title = u'<a href="' + item.absolute_url() + u'">' +\
+                    u'  <h3>' + (item.title or 'Venue details') + u'</h3>' +\
+                    u'</a>'
+            popup_text = title + popup_text
 
-            features.append(json.dumps({
-                {
-                    'type': 'Feature',
-                    'id': data.get('_plone.uuid', ''),
-                    'properties': {'popup': popup_text},
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [
-                            data['longitude'],
-                            data['latitude']
-                        ]
-                    }
+            feature = {
+                'type': 'Feature',
+                'id': item.UID() or '',
+                'properties': {'popup': popup_text},
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [
+                        item.geolocation and item.geolocation.longitude or u'',
+                        item.geolocation and item.geolocation.latitude or u'',
+                    ]
                 },
-            }))
+            }
+            features.append(feature)
 
         geo_json = json.dumps({
             'type': 'FeatureCollection',
-            'features': [
-                features
-            ]
+            'features': features
         })
 
         return geo_json
+
+    def collection_items(self):
+        items_info = []
+
+        for item in self.venues:
+            title = item.title or ''
+            description = item.description or ''
+            address_str = u', '.join([
+                it.strip() for it in
+                [
+                    item.street or '',
+                    item.zip_code or '' + ' ' + item.city or '',
+                    get_pycountry_name(item.country) or u''
+                ] if it
+            ])
+            items_info.append({
+                'title': title,
+                'description': description,
+                'address': address_str,
+                'url': item.absolute_url()
+            })
+
+        return items_info
+
+    def map_configuration(self):
+        map_layers = getrec('collective.venue.map_layers') or []
+        config = {
+            "minimap": True,
+            "default_map_layer": getrec('collective.venue.default_map_layer'),
+            "map_layers": [
+                {"title": _(it), "id": it}
+                for it in map_layers
+            ],
+        }
+        return json.dumps(config)
