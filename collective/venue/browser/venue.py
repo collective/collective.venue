@@ -207,7 +207,9 @@ class VenueCollectionView(CollectionView):
         # If it's not available, it wont't hurt.
         add_bundle_on_request(top_request, 'bundle-leaflet')
 
-        self.venues = [brain.getObject() for brain in self.context.results()]
+        self.venues = [
+            brain.getObject() for brain in self.context.results(batch=False)
+        ]
 
     def data_geojson(self):
         """
@@ -225,6 +227,7 @@ class VenueCollectionView(CollectionView):
                     get_pycountry_name(item.country) or u''
                 ] if it
             ])
+            categories = [x for x in item.subject]
 
             def _wrap_text(text):
                 return u'<p>{0}</p>'.format(text) if text else None
@@ -242,7 +245,7 @@ class VenueCollectionView(CollectionView):
             feature = {
                 'type': 'Feature',
                 'id': item.UID() or '',
-                'properties': {'popup': popup_text},
+                'properties': {'popup': popup_text, 'categories': categories},
                 'geometry': {
                     'type': 'Point',
                     'coordinates': [

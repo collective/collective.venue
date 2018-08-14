@@ -11,12 +11,19 @@
 
     <div metal:fill-slot="content-core">
 
-        <tal:map>
-            <div class="pat-leaflet"
+        <div class="content-text"
+          tal:condition="context/text"
+          tal:content="structure python:context.text.output_relative_to(view.context)"/>
+
+        <div class="leaflet-wrapper">
+            <div class="leaflet-map"
                  data-geojson='${view/data_geojson}'
                  data-pat-leaflet='${view/map_configuration}'
                  />
-        </tal:map>
+
+            <div class="leaflet-filters">
+            </div>
+        </div>
 
     </div>
 
