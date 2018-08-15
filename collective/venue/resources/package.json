@@ -1,0 +1,11 @@
+{
+  "name": "collective.venue",
+  "version": "1.0.0",
+  "dependencies": {
+    "leaflet": "^1.3.3"
+  },
+  "scripts": {
+    "postinstall": "cp node_modules/leaflet/dist/leaflet.js . && cp node_modules/leaflet/dist/leaflet.css ."
+  }
+}
+

@@ -202,10 +202,10 @@ class VenueCollectionView(CollectionView):
         self.context = context
         self.request = request
 
-        top_request = get_top_request(request)
+        #  top_request = get_top_request(request)
         # Just add the bundle from plone.patternslib.
         # If it's not available, it wont't hurt.
-        add_bundle_on_request(top_request, 'bundle-leaflet')
+        #  add_bundle_on_request(top_request, 'bundle-leaflet')
 
         self.venues = [
             brain.getObject() for brain in self.context.results(batch=False)
