@@ -8,24 +8,17 @@
   metal:use-macro="here/main_template/macros/master"
   i18n:domain="plone">
 
-  <head>
-    <!-- <div metal:fill-slot="javascript_head_slot"> -->
-    <!--   <script type="text/javascript" src="/++plone++collective.venue/leaflet.js"></script> -->
-    <!--   <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script> -->
-    <!-- </div> -->
-
-    <!-- <div metal:fill-slot="style_slot"> -->
-    <!--   <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/leaflet.css"> -->
-    <!--   <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css"> -->
-    <!-- </div> -->
-  </head>
   <body>
-    <div metal:fill-slot="content-core">
-      <script type="text/javascript" src="/++plone++collective.venue/leaflet.js"></script>
-      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
-      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/leaflet.css">
-      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
 
+    <metal:stylesheets fill-slot="style_slot">
+      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
+    </metal:stylesheets>
+
+    <metal:javascripts fill-slot="javascript_head_slot">
+      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
+    </metal:javascripts>
+
+    <metal:content fill-slot="content-core">
       <div class="content-text"
         tal:condition="context/text"
         tal:content="structure python:context.text.output_relative_to(view.context)"/>
@@ -33,7 +26,7 @@
       <div class="leaflet-wrapper">
         <div class="collection-leaflet-map" data-geojson='${view/data_geojson}' />
       </div>
+    </metal:content>
 
-    </div>
   </body>
 </html>
