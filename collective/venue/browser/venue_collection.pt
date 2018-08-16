@@ -7,29 +7,33 @@
   lang="en"
   metal:use-macro="here/main_template/macros/master"
   i18n:domain="plone">
+
+  <head>
+    <!-- <div metal:fill-slot="javascript_head_slot"> -->
+    <!--   <script type="text/javascript" src="/++plone++collective.venue/leaflet.js"></script> -->
+    <!--   <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script> -->
+    <!-- </div> -->
+
+    <!-- <div metal:fill-slot="style_slot"> -->
+    <!--   <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/leaflet.css"> -->
+    <!--   <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css"> -->
+    <!-- </div> -->
+  </head>
   <body>
-
     <div metal:fill-slot="content-core">
+      <script type="text/javascript" src="/++plone++collective.venue/leaflet.js"></script>
+      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
+      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/leaflet.css">
+      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
 
-        <div class="content-text"
-          tal:condition="context/text"
-          tal:content="structure python:context.text.output_relative_to(view.context)"/>
+      <div class="content-text"
+        tal:condition="context/text"
+        tal:content="structure python:context.text.output_relative_to(view.context)"/>
 
-        <script type="text/javascript" src="/++plone++collective.venue/leaflet.js"></script>
-        <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/leaflet.css">
-        <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
-
-        <div class="leaflet-wrapper">
-            <div class="leaflet-map"
-                 data-geojson='${view/data_geojson}'
-                 data-pat-leaflet='${view/map_configuration}'
-                 />
-
-            <div class="leaflet-filters">
-            </div>
-        </div>
+      <div class="leaflet-wrapper">
+        <div class="collection-leaflet-map" data-geojson='${view/data_geojson}' />
+      </div>
 
     </div>
-
   </body>
 </html>
