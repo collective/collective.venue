@@ -47,5 +47,7 @@ $(function() {
   markerCluster.addLayer(markerLayer);
   map.fitBounds(markerCluster.getBounds());
 
-  L.control.layers({}, categoriesLayers, { collapsed: false }).addTo(map);
+  if (Object.values(categoriesLayers).length > 0) {
+    L.control.layers({}, categoriesLayers, { collapsed: false }).addTo(map);
+  }
 });
