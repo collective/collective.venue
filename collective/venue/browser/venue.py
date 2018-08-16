@@ -4,6 +4,7 @@ from collective.address.behaviors import IContact
 from collective.address.behaviors import ISocial
 from collective.address.vocabulary import get_pycountry_name
 from collective.venue import messageFactory as _
+from plone.api.content import get_view
 from plone.api.portal import get_registry_record as getrec
 from plone.app.contenttypes.browser.collection import CollectionView
 from plone.app.uuid.utils import uuidToObject
@@ -197,28 +198,33 @@ class VenueView(BrowserView):
 
 
 class VenueCollectionView(CollectionView):
-
     def __init__(self, context, request):
         self.context = context
         self.request = request
-
-        #  top_request = get_top_request(request)
-        # Just add the bundle from plone.patternslib.
-        # If it's not available, it wont't hurt.
-        #  add_bundle_on_request(top_request, 'bundle-leaflet')
-
-        self.venues = [
-            brain.getObject() for brain in self.context.results(batch=False)
-        ]
 
     def data_geojson(self):
         """
         Returns the geo locations as GeoJSON string.
         """
+        return get_view(
+            name='venue_collection_geojson',
+            context=self.context,
+            request=self.request
+        )()
 
+
+class VenueCollectionGeoJSON(BrowserView):
+    def __call__(self):
+        """
+        Returns the geo locations as GeoJSON string.
+        """
+
+        venues = [
+            brain.getObject() for brain in self.context.results(batch=False)
+        ]
         features = []
 
-        for item in self.venues:
+        for item in venues:
             address_str = u', '.join([
                 it.strip() for it in
                 [
@@ -262,38 +268,3 @@ class VenueCollectionView(CollectionView):
         })
 
         return geo_json
-
-    def collection_items(self):
-        items_info = []
-
-        for item in self.venues:
-            title = item.title or ''
-            description = item.description or ''
-            address_str = u', '.join([
-                it.strip() for it in
-                [
-                    item.street or '',
-                    item.zip_code or '' + ' ' + item.city or '',
-                    get_pycountry_name(item.country) or u''
-                ] if it
-            ])
-            items_info.append({
-                'title': title,
-                'description': description,
-                'address': address_str,
-                'url': item.absolute_url()
-            })
-
-        return items_info
-
-    def map_configuration(self):
-        map_layers = getrec('collective.venue.map_layers') or []
-        config = {
-            "minimap": True,
-            "default_map_layer": getrec('collective.venue.default_map_layer'),
-            "map_layers": [
-                {"title": _(it), "id": it}
-                for it in map_layers
-            ],
-        }
-        return json.dumps(config)

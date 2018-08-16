@@ -1,0 +1,27 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xml:lang="en"
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  lang="en"
+  metal:use-macro="here/main_template/macros/master"
+  i18n:domain="plone">
+
+  <body>
+
+    <metal:stylesheets fill-slot="style_slot">
+      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
+    </metal:stylesheets>
+
+    <metal:javascripts fill-slot="javascript_head_slot">
+      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
+    </metal:javascripts>
+
+    <metal:macro define-macro="collection-tile-macro"
+                 tal:define="geojson context/@@venue_collection_geojson">
+      <div class="collection-leaflet-map" data-geojson='${geojson}' />
+    </metal:macro>
+
+  </body>
+</html>

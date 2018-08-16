@@ -44,6 +44,22 @@
       layer="..interfaces.IVenueLayer"
       />
 
+  <browser:page
+      for="plone.app.contenttypes.interfaces.ICollection"
+      name="venue_collection_geojson"
+      class=".venue.VenueCollectionGeoJSON"
+      permission="zope2.View"
+      layer="..interfaces.IVenueLayer"
+      />
+
+  <browser:page
+      name="venue_collection_tile_view"
+      for="*"
+      permission="zope2.View"
+      class=".venuetile.VenueCollectionTileView"
+      template="venue_collection_tile.pt"
+      />
+
   <browser:menuItems
       for="plone.app.contenttypes.interfaces.ICollection"
       layer="..interfaces.IVenueLayer"
