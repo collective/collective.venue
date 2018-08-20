@@ -10,17 +10,12 @@
 
   <body>
 
-    <metal:stylesheets fill-slot="style_slot">
-      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
-    </metal:stylesheets>
-
-    <metal:javascripts fill-slot="javascript_head_slot">
-      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
-    </metal:javascripts>
-
     <metal:macro define-macro="collection-tile-macro"
-                 tal:define="geojson context/@@venue_collection_geojson">
+                 tal:define="collection nocall:view/collection;
+                             geojson collection/@@venue_collection_geojson">
       <div class="collection-leaflet-map" data-geojson='${geojson}' />
+      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
+      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
     </metal:macro>
 
   </body>
