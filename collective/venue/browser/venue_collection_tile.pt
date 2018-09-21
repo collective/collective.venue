@@ -14,8 +14,8 @@
                  tal:define="collection nocall:view/collection;
                              geojson collection/@@venue_collection_geojson">
       <div class="collection-leaflet-map" data-geojson='${geojson}' />
-      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
-      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
+      <script type="text/javascript" src="${context/portal_url}/++plone++collective.venue/venue-collection.js"></script>
+      <link rel="stylesheet" type="text/css" href="${context/portal_url}/++plone++collective.venue/venue-collection.css">
     </metal:macro>
 
   </body>

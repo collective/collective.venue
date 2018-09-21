@@ -11,11 +11,11 @@
   <body>
 
     <metal:stylesheets fill-slot="style_slot">
-      <link rel="stylesheet" type="text/css" href="/++plone++collective.venue/venue-collection.css">
+      <link rel="stylesheet" type="text/css" href="${context/portal_url}/++plone++collective.venue/venue-collection.css">
     </metal:stylesheets>
 
     <metal:javascripts fill-slot="javascript_head_slot">
-      <script type="text/javascript" src="/++plone++collective.venue/venue-collection.js"></script>
+      <script type="text/javascript" src="${context/portal_url}/++plone++collective.venue/venue-collection.js"></script>
     </metal:javascripts>
 
     <metal:content fill-slot="content-core">
