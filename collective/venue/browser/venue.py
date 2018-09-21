@@ -4,6 +4,7 @@ from collective.address.behaviors import IContact
 from collective.address.behaviors import ISocial
 from collective.address.vocabulary import get_pycountry_name
 from collective.venue import messageFactory as _
+from collective.venue.utils import get_venue_address_string
 from plone.api.content import get_view
 from plone.api.portal import get_registry_record as getrec
 from plone.app.contenttypes.browser.collection import CollectionView
@@ -225,14 +226,7 @@ class VenueCollectionGeoJSON(BrowserView):
         features = []
 
         for item in venues:
-            address_str = u', '.join([
-                it.strip() for it in
-                [
-                    item.street or '',
-                    item.zip_code or '' + ' ' + item.city or '',
-                    get_pycountry_name(item.country) or u''
-                ] if it
-            ])
+            address_str = get_venue_address_string(item)
             categories = [x for x in item.subject]
 
             def _wrap_text(text):
