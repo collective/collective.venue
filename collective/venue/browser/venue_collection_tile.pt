@@ -13,6 +13,9 @@
     <metal:macro define-macro="collection-tile-macro"
                  tal:define="collection nocall:view/collection;
                              geojson collection/@@venue_collection_geojson">
+      <h2 tal:define="title view/data/title|nothing;"
+          class="tileTitle"
+          tal:condition="title">${title}</h2>
       <div class="collection-leaflet-map" data-geojson='${geojson}' />
       <script type="text/javascript" src="${context/portal_url}/++plone++collective.venue/venue-collection.js"></script>
       <link rel="stylesheet" type="text/css" href="${context/portal_url}/++plone++collective.venue/venue-collection.css">
