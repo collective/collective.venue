@@ -1,19 +1,16 @@
-# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
-# Deutsche Übersetzung.
-# Johannes Raggam <raggam-nl@adm.at>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 2018-10-10 12:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: Johannes Raggam <raggam-nl@adm.at>\n"
+"Last-Translator: Giacomo Monari <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: de\n"
-"Language-Name: Deutsch\n"
+"Language-Code: it\n"
+"Language-Name: Italiano\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.venue\n"
 
@@ -79,7 +76,7 @@ msgstr ""
 
 #: ../browser/controlpanel.py:10
 msgid "Event Venue Settings"
-msgstr "Veranstaltungsort Einstellungen"
+msgstr ""
 
 #: ../vocabularies.py:50
 msgid "NASAGIBS.ViirsEarthAtNight2012"
@@ -103,7 +100,7 @@ msgstr ""
 
 #: ../browser/controlpanel.py:11
 msgid "Settings for venues, which are referenced by events."
-msgstr "Einstellungen für Veranstaltungsorte."
+msgstr "Setting per i luoghi, i quali sono referenziati dagli eventi."
 
 #: ../vocabularies.py:35
 msgid "Stamen.Terrain"
@@ -155,162 +152,162 @@ msgstr ""
 
 #: ../configure.zcml:55
 msgid "collective.venue base profile"
-msgstr ""
+msgstr "collective.venue profilo base"
 
 #: ../configure.zcml:29
 msgid "collective.venue event location"
-msgstr ""
+msgstr "collective.venue location dell'evento"
 
 #: ../configure.zcml:35
 msgid "collective.venue event organizer"
-msgstr ""
+msgstr "collective.venue organizzatore dell'evento"
 
 #: ../configure.zcml:65
 msgid "collective.venue with geolocation support"
-msgstr ""
+msgstr "collective.venue con supporto alla geolocalizzazione"
 
 #: ../configure.zcml:75
 msgid "collective.venue without geolocation support"
-msgstr ""
+msgstr "collective.venue senza supporto alla geolocalizzazione"
 
 #. Default: "Default map layer"
 #: ../interfaces.py:120
 msgid "default_map_layer"
-msgstr "Standard Karte"
+msgstr "Layer di default per la mappa"
 
 #. Default: "Select a location."
 #: ../behaviors.py:30
 msgid "description_event_location"
-msgstr "Wählen Sie einen einen Ort"
+msgstr "Seleziona un luogo."
 
 #. Default: "One-time location or additional Information."
 #: ../behaviors.py:51
 msgid "description_event_location_notes"
-msgstr "Ort zur einmaligen Verwendung oder Zusatzinformation"
+msgstr ""
 
 #. Default: "Select an organizer."
 #: ../behaviors.py:79
 msgid "description_event_organizer"
-msgstr "Wählen Sie einen Veranstalter"
+msgstr "Seleziona un organizzatore."
 
 #. Default: "One-time organizer or additional Information."
 #: ../behaviors.py:100
 msgid "description_event_organizer_notes"
-msgstr "Veranstalter zur einmaligen Verwendung oder Zusatzinformation."
+msgstr ""
 
 #: ../behaviors.py:59
 msgid "fieldset_venue"
-msgstr "Ort / Veranstalter"
+msgstr "Luogo"
 
 #. Default: "Set the default map layer"
 #: ../interfaces.py:124
 msgid "help_default_map_layer"
-msgstr "Wählen sie den Karten-Layer aus, der standardmäßig angezeigt werden soll."
+msgstr "Imposta il layer di default per la mappa"
 
 #. Default: "Default organizer to be used in events."
 #: ../interfaces.py:89
 msgid "help_default_organizer"
-msgstr "Veranstalter, der als Standardwert verwendet werden soll."
+msgstr "Organizzatore di default da usare negli eventi."
 
 #. Default: "Default location to be used in events."
 #: ../interfaces.py:68
 msgid "help_default_venue"
-msgstr "Ort, der als Standardwert verwendet werden soll."
+msgstr "Luogo di default da usare negli eventi."
 
 #. Default: "If you want to use the Google Maps search API for higher accuracy, you have to provide a Google Maps API key here."
 #: ../interfaces.py:107
 msgid "help_google_api_key"
-msgstr "Wenn Sie die Google Maps Suche verwenden wollen, müssen sie hier einen Google Maps API Key eintragen."
+msgstr ""
 
 #. Default: "Show a link to the Google Maps site, which can be used for further actions like routing."
 #: ../interfaces.py:114
 msgid "help_google_maps_link"
-msgstr "Den Link zu Google Maps anzeigen lassen."
+msgstr ""
 
 #. Default: "Set the available map layers"
 #: ../interfaces.py:135
 msgid "help_map_layers"
-msgstr "Setze die verfügbaren Karten Layer, die auf der Karte auswählbar sind."
+msgstr "Imposta i possibili layer delle mappe"
 
 #. Default: "Additional notes for the address."
 #: ../interfaces.py:26
 msgid "help_notes"
-msgstr "Zusatzinformation zur Adresse"
+msgstr "Note addizionali per l'indirizzo"
 
 #. Default: "Path, from which venue types should be searched. Useful for lineage multisites to seperate main from childsite venue folders. Keep empty to search anywhere."
 #: ../interfaces.py:44
 msgid "help_search_base"
-msgstr "Pfad, in dem die Ort/ Veranstalter Inhaltstypen gesucht werden sollen. Dies ist brauchbar für Lineage Multis-Webseiten um die Veranstalter und Orte der Seiten zu trennen. Leer lassen um überall zu suchen."
+msgstr ""
 
 #. Default: "Address"
 #: ../browser/venue_base.pt:41
 msgid "label_address"
-msgstr "Adresse"
+msgstr "Indirizzo"
 
 #. Default: "Contact"
 #: ../browser/venue_base.pt:72
 msgid "label_contact"
-msgstr "Kontakt"
+msgstr "Contatti"
 
 #. Default: "Default Organizer"
 #: ../interfaces.py:85
 msgid "label_default_organizer"
-msgstr "Standardwert Veranstalter"
+msgstr "Organizzatore di default"
 
 #. Default: "Default Location"
 #: ../interfaces.py:64
 msgid "label_default_venue"
-msgstr "Standardwert Ort"
+msgstr ""
 
 #. Default: "Location"
 #: ../behaviors.py:29
 msgid "label_event_location"
-msgstr "Ort"
+msgstr ""
 
 #. Default: "Location notes"
 #: ../behaviors.py:48
 msgid "label_event_location_notes"
-msgstr "Zusatzinformation zum Ort"
+msgstr ""
 
 #. Default: "Organizer"
 #: ../behaviors.py:78
 msgid "label_event_organizer"
-msgstr "Veranstalter"
+msgstr "Organizzatore"
 
 #. Default: "Organizer notes"
 #: ../behaviors.py:97
 msgid "label_event_organizer_notes"
-msgstr "Zusatzinformation zum Veranstalter"
+msgstr "Note per l'organizzatore"
 
 #. Default: "Google maps API Key"
 #: ../interfaces.py:106
 msgid "label_google_api_key"
-msgstr "Google Maps API Key"
+msgstr ""
 
 #. Default: "Open in Google Maps"
 #: ../browser/venue_base.pt:22
 #: ../browser/venue_overlay.pt:18
 #: ../interfaces.py:113
 msgid "label_google_maps_link"
-msgstr "Mit Google Maps öffnen"
+msgstr "Apri in Google Maps"
 
 #. Default: "Map Layers"
 #: ../interfaces.py:134
 msgid "label_map_layers"
-msgstr "Karten"
+msgstr ""
 
 #. Default: "Notes"
 #: ../browser/venue_base.pt:150
 #: ../interfaces.py:22
 msgid "label_notes"
-msgstr "Zusatzinformation"
+msgstr "Note"
 
 #. Default: "Location Search Base"
 #: ../interfaces.py:40
 msgid "label_search_base"
-msgstr "Ort Suchbasis"
+msgstr ""
 
 #. Default: "Social Media"
 #: ../browser/venue_base.pt:106
 msgid "label_social"
-msgstr "Social Media"
+msgstr ""
