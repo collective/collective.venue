@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-11-10 20:56+0000\n"
+"POT-Creation-Date: 2018-10-10 12:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Johannes Raggam <raggam-nl@adm.at>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,15 +25,15 @@ msgstr ""
 msgid "CartoDB.DarkMatterNoLabels"
 msgstr ""
 
-#: ../configure.zcml:53
+#: ../configure.zcml:65
 msgid "Dexterity venue type extension with geolocation support."
 msgstr ""
 
-#: ../configure.zcml:63
+#: ../configure.zcml:75
 msgid "Dexterity venue type extension without geolocation support."
 msgstr ""
 
-#: ../configure.zcml:43
+#: ../configure.zcml:55
 msgid "Dexterity venue type extension."
 msgstr ""
 
@@ -153,23 +153,23 @@ msgstr ""
 msgid "Venue Display"
 msgstr ""
 
-#: ../configure.zcml:43
+#: ../configure.zcml:55
 msgid "collective.venue base profile"
 msgstr ""
 
-#: ../configure.zcml:25
+#: ../configure.zcml:29
 msgid "collective.venue event location"
 msgstr ""
 
-#: ../configure.zcml:31
+#: ../configure.zcml:35
 msgid "collective.venue event organizer"
 msgstr ""
 
-#: ../configure.zcml:53
+#: ../configure.zcml:65
 msgid "collective.venue with geolocation support"
 msgstr ""
 
-#: ../configure.zcml:63
+#: ../configure.zcml:75
 msgid "collective.venue without geolocation support"
 msgstr ""
 
@@ -179,26 +179,26 @@ msgid "default_map_layer"
 msgstr "Standard Karte"
 
 #. Default: "Select a location."
-#: ../behaviors.py:28
+#: ../behaviors.py:30
 msgid "description_event_location"
 msgstr "Wählen Sie einen einen Ort"
 
 #. Default: "One-time location or additional Information."
-#: ../behaviors.py:49
+#: ../behaviors.py:51
 msgid "description_event_location_notes"
 msgstr "Ort zur einmaligen Verwendung oder Zusatzinformation"
 
 #. Default: "Select an organizer."
-#: ../behaviors.py:77
+#: ../behaviors.py:79
 msgid "description_event_organizer"
 msgstr "Wählen Sie einen Veranstalter"
 
 #. Default: "One-time organizer or additional Information."
-#: ../behaviors.py:98
+#: ../behaviors.py:100
 msgid "description_event_organizer_notes"
 msgstr "Veranstalter zur einmaligen Verwendung oder Zusatzinformation."
 
-#: ../behaviors.py:57
+#: ../behaviors.py:59
 msgid "fieldset_venue"
 msgstr "Ort / Veranstalter"
 
@@ -263,22 +263,22 @@ msgid "label_default_venue"
 msgstr "Standardwert Ort"
 
 #. Default: "Location"
-#: ../behaviors.py:27
+#: ../behaviors.py:29
 msgid "label_event_location"
 msgstr "Ort"
 
 #. Default: "Location notes"
-#: ../behaviors.py:46
+#: ../behaviors.py:48
 msgid "label_event_location_notes"
 msgstr "Zusatzinformation zum Ort"
 
 #. Default: "Organizer"
-#: ../behaviors.py:76
+#: ../behaviors.py:78
 msgid "label_event_organizer"
 msgstr "Veranstalter"
 
 #. Default: "Organizer notes"
-#: ../behaviors.py:95
+#: ../behaviors.py:97
 msgid "label_event_organizer_notes"
 msgstr "Zusatzinformation zum Veranstalter"
 
