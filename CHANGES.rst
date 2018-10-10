@@ -1,10 +1,22 @@
 Changelog
 =========
 
-3.1.3 (unreleased)
-------------------
+4.0 (unreleased)
+----------------
 
-- Nothing changed yet.
+Breaking changes:
+
+    - Remove version constraint of z3c.unconfigure.
+      Since Plone 5.1 z3c.unconfigure is pinned to 1.1.
+      [arsenico13, thet]
+
+New features:
+
+    - add item here
+
+Bug fixes:
+
+    - add item here
 
 
 3.1.2 (2017-12-06)

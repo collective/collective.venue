@@ -2,7 +2,7 @@
 from setuptools import setup
 from setuptools import find_packages
 
-version = '3.1.3.dev0'
+version = '4.0.dev0'
 
 
 setup(
@@ -38,7 +38,7 @@ setup(
         'plone.resource',
         'Products.CMFPlone',
         'Products.GenericSetup',
-        'z3c.unconfigure <= 1.1',
+        'z3c.unconfigure',
     ],
     extras_require={
         'geolocation': [
