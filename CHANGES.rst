@@ -16,7 +16,8 @@ New features:
 
 Bug fixes:
 
-    - add item here
+    - Remove registry initialization in bundle.
+      [cekk]
 
 
 3.1.2 (2017-12-06)
