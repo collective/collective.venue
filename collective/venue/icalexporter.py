@@ -46,7 +46,7 @@ class AAFICalendarEventComponent(ICalendarEventComponent):
     @property
     def contact(self):
         if not IOrganizer.providedBy(self.context):
-            return super(AAFICalendarEventComponent, self).organizer
+            return super(AAFICalendarEventComponent, self).contact
 
         ref = IOrganizer(self.context)
         item = uuidToObject(ref.organizer_uid)

@@ -17,6 +17,9 @@ New features:
 
 Bug fixes:
 
+    - ical export: Fix contact getter if IOrganizer behavior is not enabled.
+      [cekk]
+
     - Remove registry initialization in bundle.
       [cekk]
 
