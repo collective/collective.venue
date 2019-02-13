@@ -10,12 +10,9 @@ setup(
     version=version,
     description="Dexterity venue type for use with events.",
     long_description=open("README.rst").read()
-    + "\n" +
-    open("CHANGES.rst").read(),
-    classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-    ],
+    + "\n"
+    + open("CHANGES.rst").read(),
+    classifiers=["Framework :: Plone", "Programming Language :: Python"],
     keywords='plone collective event geo location',
     author='Johannes Raggam',
     author_email='raggam-nl@adm.at',
@@ -38,17 +35,16 @@ setup(
         'plone.resource',
         'Products.CMFPlone',
         'Products.GenericSetup',
-        'z3c.unconfigure',
     ],
     extras_require={
         'geolocation': [
             'collective.geolocationbehavior',
             'plone.formwidget.geolocation',
-            'geopy'
-        ],
+            'geopy',
+        ]
     },
     entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
-      """
+      """,
 )

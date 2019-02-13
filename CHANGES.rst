@@ -6,13 +6,14 @@ Changelog
 
 Breaking changes:
 
-    - Remove version constraint of z3c.unconfigure.
-      Since Plone 5.1 z3c.unconfigure is pinned to 1.1.
-      [arsenico13, thet]
+    - Event accessor is now registered with ILocation behavior.
+      With this change we don't need to override p.a.event accessor anymore.
+      [cekk]
 
 New features:
 
-    - add item here
+    - Customize event_summary view and portlet event renderer to properly show location info.
+      [cekk]
 
 Bug fixes:
 
