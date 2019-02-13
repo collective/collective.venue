@@ -38,7 +38,6 @@
         class="plone.app.event.browser.event_summary.EventSummaryView"
         template="event_summary.pt"
         permission="zope2.View"
-        layer="..interfaces.IVenueLayer"
         />
   
   <plone:portletRenderer
