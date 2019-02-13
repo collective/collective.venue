@@ -3,13 +3,13 @@ from collective.venue import messageFactory as _
 from collective.venue.interfaces import IVenueEnabled
 from collective.venue.utils import get_base_path
 from plone import api
+from plone.app.event.dx.interfaces import IDXEvent
 from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import directives
 from plone.supermodel import model
 from zope import schema
-from zope.component import adapter
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
 
@@ -23,13 +23,13 @@ def default_location(context):
 
 
 @provider(IFormFieldProvider)
-class ILocation(model.Schema, IVenueEnabled):
+class ILocation(model.Schema, IVenueEnabled, IDXEvent):
 
     location_uid = schema.Choice(
         title=_(u'label_event_location', default=u'Location'),
         description=_(
-            u'description_event_location',
-            default=u'Select a location.'),
+            u'description_event_location', default=u'Select a location.'
+        ),
         required=False,
         missing_value='',
         defaultFactory=default_location,
@@ -40,24 +40,23 @@ class ILocation(model.Schema, IVenueEnabled):
         RelatedItemsFieldWidget,
         pattern_options={
             'selectableTypes': ['Venue'],
-            'basePath': get_base_path
-        }
+            'basePath': get_base_path,
+        },
     )
 
     location_notes = schema.Text(
-        title=_(
-            u'label_event_location_notes',
-            default=u'Location notes'),
+        title=_(u'label_event_location_notes', default=u'Location notes'),
         description=_(
             u'description_event_location_notes',
-            default=u'One-time location or additional Information.'),
+            default=u'One-time location or additional Information.',
+        ),
         required=False,
         default=None,
     )
     directives.fieldset(
         'venue',
         label=_(u'fieldset_venue'),
-        fields=['location_uid', 'location_notes']
+        fields=['location_uid', 'location_notes'],
     )
 
 
@@ -77,8 +76,8 @@ class IOrganizer(model.Schema, IVenueEnabled):
     organizer_uid = schema.Choice(
         title=_(u'label_event_organizer', default=u'Organizer'),
         description=_(
-            u'description_event_organizer',
-            default=u'Select an organizer.'),
+            u'description_event_organizer', default=u'Select an organizer.'
+        ),
         required=False,
         missing_value='',
         defaultFactory=default_organizer,
@@ -89,17 +88,16 @@ class IOrganizer(model.Schema, IVenueEnabled):
         RelatedItemsFieldWidget,
         pattern_options={
             'selectableTypes': ['Venue'],
-            'basePath': get_base_path
-        }
+            'basePath': get_base_path,
+        },
     )
 
     organizer_notes = schema.Text(
-        title=_(
-            u'label_event_organizer_notes',
-            default=u'Organizer notes'),
+        title=_(u'label_event_organizer_notes', default=u'Organizer notes'),
         description=_(
             u'description_event_organizer_notes',
-            default=u'One-time organizer or additional Information.'),
+            default=u'One-time organizer or additional Information.',
+        ),
         required=False,
         default=None,
     )

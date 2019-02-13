@@ -31,7 +31,22 @@
       permission="zope2.View"
       layer="..interfaces.IVenueLayer"
       />
-
+  
+  <browser:page
+        for="collective.venue.behaviors.ILocation"
+        name="event_summary"
+        class="plone.app.event.browser.event_summary.EventSummaryView"
+        template="event_summary.pt"
+        permission="zope2.View"
+        layer="..interfaces.IVenueLayer"
+        />
+  
+  <plone:portletRenderer
+    portlet="plone.app.event.portlets.portlet_events.IEventsPortlet"
+    template="portlet_events.pt"
+    layer="..interfaces.IVenueLayer"
+    />
+  
   <configure zcml:condition="installed plone.tiles">
     <include package="plone.tiles" file="meta.zcml" />
     <plone:tile
