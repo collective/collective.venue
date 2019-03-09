@@ -1,23 +1,21 @@
 # -*- coding: utf-8 -*-
-from Products.CMFPlone.utils import safe_unicode
+from .utils import join_nonempty
 from collective.address.behaviors import IAddress
 from collective.address.vocabulary import get_pycountry_name
 from collective.venue.behaviors import ILocation
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.event.dx.behaviors import EventAccessor
-from plone.app.event.dx.interfaces import IDXEvent
 from plone.app.uuid.utils import uuidToObject
 from plone.event.interfaces import IEventAccessor
+from Products.CMFPlone.utils import safe_unicode
 from zope.component import adapter
 from zope.component.hooks import getSite
 from zope.interface import implementer
-from .utils import join_nonempty
 
 
-@adapter(IDXEvent)
+@adapter(ILocation)
 @implementer(IEventAccessor)
 class VenueEventAccessor(EventAccessor):
-
     def __init__(self, context):
         super(VenueEventAccessor, self).__init__(context)
         del self._behavior_map['location']
@@ -53,24 +51,27 @@ class VenueEventAccessor(EventAccessor):
             if site_path not in location_path:
                 # location in different site - cannot directly open it
                 location_url = u'{0}/@@venue_view?uid={1}'.format(
-                    site.absolute_url(), location_uid)
+                    site.absolute_url(), location_uid
+                )
 
             country = get_pycountry_name(add.country)
             ret = self._location_link_template.format(  # noqa
                 url=location_url,
-                address=join_nonempty((
-                    add.street,
-                    join_nonempty((add.zip_code, add.city), sep=u' '),
-                    country
-                ), sep=u', '),
+                address=join_nonempty(
+                    (
+                        add.street,
+                        join_nonempty((add.zip_code, add.city), sep=u' '),
+                        country,
+                    ),
+                    sep=u', ',
+                ),
                 title=meta_basic.title,
             )
 
         ret = safe_unicode(ret)
         location_notes = safe_unicode(location_notes)
-        if location_url:
-            location_url = u'<a href="{0}">{0}</a>'.format(location_url)
-        ret = join_nonempty([ret, location_notes, location_url], u'. ')
+
+        ret = join_nonempty([ret, location_notes], u'. ')
 
         return ret
 
