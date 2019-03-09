@@ -17,6 +17,9 @@ New features:
 
 Bug fixes:
 
+    - Controlpanel: Fix problem where always only default values were shown but no already stored values.
+      [thet]
+
     - ical export: Fix contact getter if IOrganizer behavior is not enabled.
       [cekk]
 
