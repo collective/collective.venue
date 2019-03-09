@@ -7,11 +7,11 @@ from plone.app.registry.browser import controlpanel
 class VenueControlPanelForm(controlpanel.RegistryEditForm):
 
     id = "VenueControlPanel"
-    label = _(u"Event Venue Settings")
-    description = _("Settings for venues, which are referenced by events.")
     schema = IVenueSettings
     schema_prefix = "collective.venue"
-    ignoreContext = True
+
+    label = _(u"Event Venue Settings")
+    description = _("Settings for venues, which are referenced by events.")
 
 
 class VenueControlPanel(controlpanel.ControlPanelFormWrapper):
