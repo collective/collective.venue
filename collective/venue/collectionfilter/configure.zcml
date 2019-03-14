@@ -6,6 +6,16 @@
 
     <include package="collective.collectionfilter"/>
 
+    <!-- indexer -->
+    <adapter
+        factory=".indexer.latitude"
+        name="latitude"
+        />
+    <adapter
+        factory=".indexer.longitude"
+        name="longitude"
+        />
+
     <plone:tile
         name="collective.venue.collectionfilter.tiles.maps"
         title="Collection Maps Tile"
