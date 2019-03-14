@@ -11,7 +11,11 @@
   <includeDependencies package="." />
   <include package="plone.app.event"/>
   <include package="collective.address"/>
-  <include package="collective.geolocationbehavior" zcml:condition="installed collective.geolocationbehavior"/>
+
+  <configure zcml:condition="installed collective.geolocationbehavior">
+    <include package="collective.geolocationbehavior"/>
+    <include package=".collectionfilter" zcml:condition="installed collective.collectionfilter"/>
+  </configure>
 
   <include package=".browser"/>
 

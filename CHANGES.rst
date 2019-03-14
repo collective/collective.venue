@@ -12,6 +12,10 @@ Breaking changes:
 
 New features:
 
+    - Add an optional map tile for use with collective.collectionfilter.
+      The tile displays all events which have a geolocated venue set and is updated when collecitonfilter criteria are changed.
+      [thet]
+
     - Customize event_summary view and portlet event renderer to properly show location info.
       [cekk]
 
