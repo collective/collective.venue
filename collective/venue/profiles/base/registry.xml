@@ -26,7 +26,7 @@
     <value key="enabled">True</value>
     <value key="jscompilation">++plone++collective.venue/collective-venue-bundle-compiled.js</value>
     <value key="csscompilation">++plone++collective.venue/collective-venue-bundle-compiled.css</value>
-    <value key="last_compilation">2017-02-27 00:00:00</value>
+    <value key="last_compilation">2019-03-09 00:00:00</value>
     <value key="stub_js_modules">
       <element>jquery</element>
       <element>pat-base</element>
