@@ -4,7 +4,8 @@ Changelog
 4.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fallback to default event field value in accessor, if location reference is not set.
+  [cekk]
 
 
 4.1 (2020-07-10)
