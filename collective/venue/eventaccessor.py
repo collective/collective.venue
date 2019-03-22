@@ -25,12 +25,21 @@ class VenueEventAccessor(EventAccessor):
         return u'<a class="pat-plone-modal" href="{url}" title="{address}">{title}</a>'  # noqa
 
     @property
+    def default_location(self):
+        location = getattr(self.context, 'location', '')
+        if not location:
+            return ''
+        return u'<span>{0}</span>'.format(location)
+
+    @property
     def location(self):
         context = self.context
         location_ref = ILocation(context, None)
         if not location_ref:
-            return
+            return self.default_location
         location_uid = location_ref.location_uid
+        if not location_uid:
+            return self.default_location
         location_notes = location_ref.location_notes
         location = uuidToObject(location_uid)
 

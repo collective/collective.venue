@@ -33,6 +33,7 @@ New features:
 
     - Customize event_summary view and portlet event renderer to properly show location info.
       [cekk]
+    - Fallback to default event field value in accessor, if location reference is not set.
 
 Bug fixes:
 
