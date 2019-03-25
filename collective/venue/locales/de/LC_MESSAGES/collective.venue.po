@@ -314,3 +314,20 @@ msgstr "Ort Suchbasis"
 #: ../browser/venue_base.pt:106
 msgid "label_social"
 msgstr "Social Media"
+
+# Map tiles
+msgid " OpenStreetMap.DE"
+msgstr "Karte"
+
+msgid " Stamen.TonerLite"
+msgstr "Outline"
+
+msgid " Stamen.Terrain"
+msgstr "Karte"
+
+msgid " Esri.WorldTopoMap"
+msgstr "Karte"
+
+msgid " Esri.WorldImagery"
+msgstr "Satellit"
+

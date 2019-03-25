@@ -9,6 +9,7 @@ from plone.app.z3cform.widget import RelatedItemsFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.directives import order_after
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.event.interfaces import IEvent
 from plone.supermodel import model
 from zope import schema
 from zope.interface import Interface
@@ -147,7 +148,6 @@ class IVenueLayer(Interface):
     """
 
 
-from plone.event.interfaces import IEvent
 class IVenueEnabled(IEvent):
     """Marker interface for objects which provide the ILocation or IOrganizer
     interfaces.
