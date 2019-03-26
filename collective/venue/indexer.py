@@ -6,6 +6,8 @@ from collective.venue.interfaces import IVenue
 from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.indexer import indexer
 
+import six
+
 
 def _concat_and_utf8(*args):
     """Concats args with spaces between and returns utf-8 string, it does not
@@ -14,7 +16,7 @@ def _concat_and_utf8(*args):
     """
     result = ''
     for value in args:
-        if isinstance(value, unicode):
+        if six.PY2 and isinstance(value, six.text_type):
             value = value.encode('utf-8', 'replace')
         if value:
             result = ' '.join((result, value))
