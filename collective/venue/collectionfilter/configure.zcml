@@ -30,7 +30,7 @@
 
     <genericsetup:registerProfile
         name="default"
-        title="collective.collectionfilter tiles"
+        title="collective.venue collectionfilter tiles"
         directory="profiles/default"
         description='Extension profile for Plone.'
         provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -38,7 +38,7 @@
 
     <genericsetup:registerProfile
         name="uninstall"
-        title="collective.collectionfilter tiles uninstall"
+        title="collective.venue collectionfilter tiles uninstall"
         directory="profiles/uninstall"
         description='Extension profile for Plone.'
         provides="Products.GenericSetup.interfaces.EXTENSION"
