@@ -5,4 +5,5 @@
 *.wpr
 .*
 !.gitignore
+!.travis.yml
 dist/

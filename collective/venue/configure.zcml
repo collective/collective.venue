@@ -14,7 +14,7 @@
 
   <configure zcml:condition="installed collective.geolocationbehavior">
     <include package="collective.geolocationbehavior"/>
-    <include package=".collectionfilter" zcml:condition="installed collective.collectionfilter"/>
+    <adapter factory=".geolocation.GeoJSONProperties" />
   </configure>
 
   <include package=".browser"/>
@@ -46,7 +46,6 @@
       />
 
   <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
-  <utility component=".vocabularies.MapLayers" name="collective.venue.map_layers"/>
 
   <genericsetup:registerProfile
       name="base"
@@ -57,25 +56,62 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <genericsetup:registerProfile
-      zcml:condition="installed collective.geolocationbehavior"
-      name="default"
-      title="collective.venue with geolocation support"
-      directory="profiles/default-geolocation"
-      description="Dexterity venue type extension with geolocation support."
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+  <configure zcml:condition="installed collective.geolocationbehavior">
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.venue with geolocation support"
+        directory="profiles/default-geolocation"
+        description="Dexterity venue type extension with geolocation support."
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
-  <genericsetup:registerProfile
-      zcml:condition="not-installed collective.geolocationbehavior"
-      name="default"
-      title="collective.venue without geolocation support"
-      directory="profiles/default-nogeolocation"
-      description="Dexterity venue type extension without geolocation support."
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="collective.venue with geolocation support - uninstall"
+        directory="profiles/uninstall"
+        description="Dexterity venue type extension with geolocation support."
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:registerProfile
+        name="geolocation_to_2"
+        title="refactor geolocation settings"
+        directory="profiles/geolocation_to_2"
+        description="Dexterity venue type extension with geolocation support."
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:upgradeDepends
+        title="Refactor geolocation settings"
+        description=""
+        source="1"
+        destination="2"
+        profile="collective.venue:default"
+        import_profile="collective.venue:geolocation_to_2"
+        />
+  </configure>
+
+  <configure zcml:condition="not-installed collective.geolocationbehavior">
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.venue without geolocation support"
+        directory="profiles/default-nogeolocation"
+        description="Dexterity venue type extension without geolocation support."
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="collective.venue without geolocation support - uninstall"
+        directory="profiles/uninstall"
+        description="Dexterity venue type extension with geolocation support."
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+  </configure>
 
   <genericsetup:upgradeStep
       title="Upgrade to Plone 5"
@@ -101,5 +137,5 @@
       />
 
     <adapter factory=".eventaccessor.VenueEventAccessor" />
-    
+
 </configure>

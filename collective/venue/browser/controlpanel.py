@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from .. import messageFactory as _
-from ..interfaces import IVenueSettings
+from collective.venue import messageFactory as _
+from collective.venue.interfaces import IVenueSettings
 from plone.app.registry.browser import controlpanel
 
 

@@ -5,14 +5,28 @@ from setuptools import find_packages
 version = '4.0.dev0'
 
 
+def read(fname):
+    with open(fname) as f:
+        return f.read()
+
+
 setup(
     name='collective.venue',
     version=version,
     description="Dexterity venue type for use with events.",
-    long_description=open("README.rst").read()
+    long_description=read("README.rst")
     + "\n"
-    + open("CHANGES.rst").read(),
-    classifiers=["Framework :: Plone", "Programming Language :: Python"],
+    + read("CHANGES.rst"),
+    classifiers=[
+        "Framework :: Plone",
+        "Framework :: Plone :: 5.1",
+        "Framework :: Plone :: 5.2",
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+    ],
     keywords='plone collective event geo location',
     author='Johannes Raggam',
     author_email='raggam-nl@adm.at',
