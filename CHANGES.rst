@@ -6,6 +6,10 @@ Changelog
 
 Breaking changes:
 
+    - Rename ``collective.venue.icalexporter.AAFICalendarEventComponent`` to  ``collective.venue.icalexporter.VenueICalendarEventComponent``.
+      The ``AAF`` name was a leftover from a client project.
+      [thet]
+
     - Event accessor is now registered with ILocation behavior.
       With this change we don't need to override p.a.event accessor anymore.
       [cekk]

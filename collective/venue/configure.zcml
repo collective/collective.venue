@@ -42,7 +42,7 @@
   </class>
   <adapter
       for=".interfaces.IVenueEnabled"
-      factory=".icalexporter.AAFICalendarEventComponent"
+      factory=".icalexporter.VenueICalendarEventComponent"
       />
 
 
