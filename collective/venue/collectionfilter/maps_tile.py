@@ -127,6 +127,7 @@ class MapsTile(PersistentTile, BaseFilterView):
     def map_configuration(self):
         map_layers = plone.api.portal.get_registry_record('collective.venue.map_layers') or []
         config = {
+            "maxClusterRadius": 40,
             "default_map_layer": plone.api.portal.get_registry_record('collective.venue.default_map_layer'),
             "map_layers": [
                 {"title": _(it), "id": it}
