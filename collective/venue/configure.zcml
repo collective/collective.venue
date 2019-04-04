@@ -45,7 +45,21 @@
       factory=".icalexporter.AAFICalendarEventComponent"
       />
 
-  <adapter name="SearchableText" factory=".indexer.searchable_text_indexer"/>
+
+  <!-- indexer -->
+  <adapter
+      name="SearchableText"
+      factory=".indexer.searchable_text_indexer"
+      />
+  <adapter
+      name="latitude"
+      factory=".indexer.latitude"
+      />
+  <adapter
+      name="longitude"
+      factory=".indexer.longitude"
+      />
+
 
   <genericsetup:registerProfile
       name="base"
