@@ -107,7 +107,10 @@ class MapsTile(PersistentTile, BaseFilterView):
             features.append({
                 'type': 'Feature',
                 'id': IUUID(ob),
-                'properties': {'popup': self.popup_text(ob, location)},
+                'properties': {
+                    'popup': self.popup_text(ob, location),
+                    'color': 'green'
+                },
                 'geometry': {
                     'type': 'Point',
                     'coordinates': [
