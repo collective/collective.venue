@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry>
+
+  <record name="collective.venue.default_map_layer" remove="true" />
+  <record name="collective.venue.google_api_key" remove="true" />
+  <record name="collective.venue.map_layers" remove="true" />
+  <record name="collective.venue.show_google_maps_link" remove="true" />
+
+</registry>

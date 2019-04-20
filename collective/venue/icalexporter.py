@@ -15,14 +15,14 @@ except ImportError:
 
 
 @implementer(IICalendarEventComponent)
-class AAFICalendarEventComponent(ICalendarEventComponent):
+class VenueICalendarEventComponent(ICalendarEventComponent):
     """Returns an icalendar object of the event.
     """
 
     @property
     def location(self):
         if not ILocation.providedBy(self.context):
-            return super(AAFICalendarEventComponent, self).location
+            return super(VenueICalendarEventComponent, self).location
 
         ref = ILocation(self.context)
         item = uuidToObject(ref.location_uid)
@@ -46,7 +46,7 @@ class AAFICalendarEventComponent(ICalendarEventComponent):
     @property
     def contact(self):
         if not IOrganizer.providedBy(self.context):
-            return super(AAFICalendarEventComponent, self).contact
+            return super(VenueICalendarEventComponent, self).contact
 
         ref = IOrganizer(self.context)
         item = uuidToObject(ref.organizer_uid)
@@ -67,13 +67,13 @@ class AAFICalendarEventComponent(ICalendarEventComponent):
     @property
     def geo(self):
         if not ILocation.providedBy(self.context):
-            return super(AAFICalendarEventComponent, self).geo
+            return super(VenueICalendarEventComponent, self).geo
 
         ref = ILocation(self.context)
         item = uuidToObject(ref.location_uid)
 
         if not IGeolocatable.providedBy(item):
-            return super(AAFICalendarEventComponent, self).geo
+            return super(VenueICalendarEventComponent, self).geo
 
         geo = IGeolocatable(item, None)
         ret = (

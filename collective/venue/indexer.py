@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
 from collective.address.behaviors import searchable_text_indexer as address_idx
+from collective.venue.behaviors import ILocation
 from collective.venue.interfaces import IVenue
 from plone.app.dexterity.behaviors.metadata import IBasic
+from plone.app.uuid.utils import uuidToObject
 from plone.indexer import indexer
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
+
+import six
 
 
 def _concat_and_utf8(*args):
@@ -14,11 +18,27 @@ def _concat_and_utf8(*args):
     """
     result = ''
     for value in args:
-        if isinstance(value, unicode):
+        if six.PY2 and isinstance(value, six.text_type):
             value = value.encode('utf-8', 'replace')
         if value:
             result = ' '.join((result, value))
     return result
+
+
+# Index lat/lng of ILocation behavior providing objects like Events.
+# IGeolocatable (which venue objects provide) are already indexed in
+# collective.geolocationbehavior
+
+@indexer(ILocation)
+def latitude(obj):
+    venue = uuidToObject(obj.location_uid)
+    return venue.geolocation.latitude
+
+
+@indexer(ILocation)
+def longitude(obj):
+    venue = uuidToObject(obj.location_uid)
+    return venue.geolocation.longitude
 
 
 # Text indexing
