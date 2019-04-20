@@ -71,10 +71,10 @@ class VenueView(BrowserView):
 
     @property
     def map_configuration(self):
-        map_layers = getrec('collective.venue.map_layers') or []
+        map_layers = getrec('geolocation.map_layers') or []
         config = {
             "minimap": True,
-            "default_map_layer": getrec('collective.venue.default_map_layer'),
+            "default_map_layer": getrec('geolocation.default_map_layer'),
             "map_layers": [
                 {"title": _(it), "id": it}
                 for it in map_layers
