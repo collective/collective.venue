@@ -6,6 +6,8 @@ Changelog
 
 Breaking changes:
 
+    - The following settings are now handled by ``plone.formwidget.geolocation`` and have changed their prefix to ``geolocation``. They need to be upgraded manually: ``collective.venue.default_map_layer``, ``collective.venue.google_api_key``, ``collective.venue.map_layers``, ``collective.venue.show_google_maps_link``.
+
     - Rename ``collective.venue.icalexporter.AAFICalendarEventComponent`` to  ``collective.venue.icalexporter.VenueICalendarEventComponent``.
       The ``AAF`` name was a leftover from a client project.
       [thet]
