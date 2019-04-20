@@ -3,6 +3,7 @@ from collective.geolocationbehavior.interfaces import IGeoJSONProperties
 from collective.venue.behaviors import ILocation
 from plone.app.uuid.utils import uuidToObject
 from plone.indexer.decorator import indexer
+from plone.uuid.interfaces import IUUID
 from zope.component import adapter
 from zope.interface import implementer
 
@@ -47,3 +48,7 @@ class GeoJSONProperties(object):
             self.context.title,
             location.title,
         )
+
+    @property
+    def extraClasses(self):
+        return 'uuid-{0}'.format(IUUID(self.context))
