@@ -59,7 +59,7 @@ class VenueView(BrowserView):
     @property
     def google_maps_link(self):
         coordinates = self.data_coordinates
-        show_link = getrec('collective.venue.show_google_maps_link')
+        show_link = getrec('geolocation.show_google_maps_link')
         if not coordinates or not show_link:
             return
 
