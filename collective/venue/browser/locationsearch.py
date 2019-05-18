@@ -10,7 +10,7 @@ class LocationSearch(BrowserView):
 
     @property
     def google_api_key(self):
-        return getrec('collective.venue.google_api_key')
+        return getrec('geolocation.google_api_key')
 
     def get_location_info(self, address):
         location = None
