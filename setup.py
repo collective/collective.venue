@@ -2,7 +2,7 @@
 from setuptools import setup
 from setuptools import find_packages
 
-version = '4.0.dev0'
+version = '4.0'
 
 
 def read(fname):
