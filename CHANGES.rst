@@ -30,6 +30,10 @@ New features:
 
 Bug fixes:
 
+    - Make the registration of the ``@@locationsearch`` view dependend on the availability of ``geopy``.
+      Fixes #15.
+      [thet]
+
     - Controlpanel: Fix problem where always only default values were shown but no already stored values.
       [thet]
 

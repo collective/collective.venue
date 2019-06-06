@@ -33,12 +33,12 @@
       />
   
   <browser:page
-        for="collective.venue.behaviors.ILocation"
-        name="event_summary"
-        class="plone.app.event.browser.event_summary.EventSummaryView"
-        template="event_summary.pt"
-        permission="zope2.View"
-        />
+      for="collective.venue.behaviors.ILocation"
+      name="event_summary"
+      class="plone.app.event.browser.event_summary.EventSummaryView"
+      template="event_summary.pt"
+      permission="zope2.View"
+      />
   
   <plone:portletRenderer
     portlet="plone.app.event.portlets.portlet_events.IEventsPortlet"
@@ -59,7 +59,7 @@
     />
   </configure>
 
-  <configure zcml:condition="installed plone.formwidget.geolocation">
+  <configure zcml:condition="installed geopy">
     <browser:page
         for="*"
         name="locationsearch"
