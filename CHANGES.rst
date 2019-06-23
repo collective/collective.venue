@@ -42,8 +42,6 @@ New features:
 - uninstall profiles
   [petschki]
 
-- Customize event_summary view and portlet event renderer to properly show location info.
-  [cekk]
 
 Bug fixes:
 
