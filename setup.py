@@ -1,30 +1,33 @@
 # -*- coding: utf-8 -*-
-from setuptools import setup
+"""Installer for the collective.venue package."""
+
 from setuptools import find_packages
+from setuptools import setup
 
-version = '4.1.dev0'
 
-
-def read(fname):
-    with open(fname) as f:
-        return f.read()
+long_description = '\n\n'.join(
+    [open('README.rst').read(), open('CHANGES.rst').read()]
+)
 
 
 setup(
     name='collective.venue',
-    version=version,
-    description="Dexterity venue type for use with events.",
-    long_description=read("README.rst")
-    + "\n"
-    + read("CHANGES.rst"),
+    version='1.0a1',
+    description="An add-on for Plone",
+    long_description=long_description,
+    # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
+        "Environment :: Web Environment",
         "Framework :: Plone",
+        "Framework :: Plone :: Addon",
         "Framework :: Plone :: 5.1",
         "Framework :: Plone :: 5.2",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Operating System :: OS Independent",
+        "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
         "Topic :: Software Development :: Libraries :: Python Modules",
     ],
     keywords='plone collective event geo location',
@@ -56,10 +59,21 @@ setup(
             'plone.formwidget.geolocation',
             'geopy',
             'six',
-        ]
+        ],
+        'test': [
+            'plone.app.testing',
+            # Plone KGS does not use this version, because it would break
+            # Remove if your package shall be part of coredev.
+            # plone_coredev tests as of 2016-04-01.
+            'plone.testing>=5.0.0',
+            'plone.app.contenttypes',
+            'plone.app.robotframework[debug]',
+        ],
     },
     entry_points="""
-      [z3c.autoinclude.plugin]
-      target = plone
-      """,
+    [z3c.autoinclude.plugin]
+    target = plone
+    [console_scripts]
+    update_locale = collective.venue.locales.update:update_locale
+    """,
 )
