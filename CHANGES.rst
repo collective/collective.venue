@@ -7,6 +7,9 @@ Changelog
 - Fallback to default event field value in accessor, if location reference is not set.
   [cekk]
 
+- Change field in behaviors: they are now relation fields to be correctly serialized in plone.restapi.
+  [cekk]
+
 
 4.1 (2020-07-10)
 ----------------

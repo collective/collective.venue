@@ -16,12 +16,12 @@ def _concat_and_utf8(*args):
     matter if input was unicode or str.
     Taken from ``plone.app.contenttypes.indexers``
     """
-    result = ''
+    result = ""
     for value in args:
         if six.PY2 and isinstance(value, six.text_type):
-            value = value.encode('utf-8', 'replace')
+            value = value.encode("utf-8", "replace")
         if value:
-            result = ' '.join((result, value))
+            result = " ".join((result, value))
     return result
 
 
@@ -29,19 +29,28 @@ def _concat_and_utf8(*args):
 # IGeolocatable (which venue objects provide) are already indexed in
 # collective.geolocationbehavior
 
+
 @indexer(ILocation)
 def latitude(obj):
-    if not obj.location_uid:
-        raise AttributeError('no location')
-    venue = uuidToObject(obj.location_uid)
+    location_behavior = ILocation(obj)
+    location_ref = location_behavior.location_ref
+    if not location_ref:
+        raise AttributeError("no location")
+    venue = location_ref.to_object
+    if not venue:
+        raise AttributeError("no location")
     return venue.geolocation.latitude
 
 
 @indexer(ILocation)
 def longitude(obj):
-    if not obj.location_uid:
-        raise AttributeError('no location')
-    venue = uuidToObject(obj.location_uid)
+    location_behavior = ILocation(obj)
+    location_ref = location_behavior.location_ref
+    if not location_ref:
+        raise AttributeError("no location")
+    venue = location_ref.to_object
+    if not venue:
+        raise AttributeError("no location")
     return venue.geolocation.longitude
 
 
@@ -51,20 +60,20 @@ def searchable_text_indexer(obj):
     address = address_idx(obj)()  # returns DelegatingIndexer callable
     meta_basic = IBasic(obj)
     venue = IVenue(obj)
-    notes = venue.notes and venue.notes.output_relative_to(obj) or u''
+    notes = venue.notes and venue.notes.output_relative_to(obj) or u""
     if notes:
-        transforms = getToolByName(obj, 'portal_transforms')
-        body_plain = transforms.convertTo(
-            'text/plain',
-            notes,
-            mimetype='text/html',
-        ).getData().strip()
+        transforms = getToolByName(obj, "portal_transforms")
+        body_plain = (
+            transforms.convertTo("text/plain", notes, mimetype="text/html")
+            .getData()
+            .strip()
+        )
         notes = body_plain
     parts = [
         safe_unicode(address),
         safe_unicode(meta_basic.title),
         safe_unicode(meta_basic.description),
-        safe_unicode(notes)
+        safe_unicode(notes),
     ]
     ret = _concat_and_utf8(*parts)
     return ret
