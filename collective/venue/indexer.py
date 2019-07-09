@@ -29,15 +29,28 @@ def _concat_and_utf8(*args):
 # IGeolocatable (which venue objects provide) are already indexed in
 # collective.geolocationbehavior
 
+
 @indexer(ILocation)
 def latitude(obj):
-    venue = uuidToObject(obj.location_uid)
+    location_behavior = ILocation(obj)
+    location_ref = location_behavior.location_ref
+    if not location_ref:
+        return None
+    venue = location_ref.to_object
+    if not venue:
+        return None
     return venue.geolocation.latitude
 
 
 @indexer(ILocation)
 def longitude(obj):
-    venue = uuidToObject(obj.location_uid)
+    location_behavior = ILocation(obj)
+    location_ref = location_behavior.location_ref
+    if not location_ref:
+        return None
+    venue = location_ref.to_object
+    if not venue:
+        return None
     return venue.geolocation.longitude
 
 
@@ -50,17 +63,17 @@ def searchable_text_indexer(obj):
     notes = venue.notes and venue.notes.output_relative_to(obj) or u''
     if notes:
         transforms = getToolByName(obj, 'portal_transforms')
-        body_plain = transforms.convertTo(
-            'text/plain',
-            notes,
-            mimetype='text/html',
-        ).getData().strip()
+        body_plain = (
+            transforms.convertTo('text/plain', notes, mimetype='text/html')
+            .getData()
+            .strip()
+        )
         notes = body_plain
     parts = [
         safe_unicode(address),
         safe_unicode(meta_basic.title),
         safe_unicode(meta_basic.description),
-        safe_unicode(notes)
+        safe_unicode(notes),
     ]
     ret = _concat_and_utf8(*parts)
     return ret

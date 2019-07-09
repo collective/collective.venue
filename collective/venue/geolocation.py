@@ -9,10 +9,12 @@ from zope.interface import implementer
 
 
 def get_location_ref(obj):
-    location_ref = ILocation(obj, None)
-    if location_ref:
-        location_uid = location_ref.location_uid
-        return uuidToObject(location_uid)
+    location_behavior = ILocation(obj, None)
+    if location_behavior:
+        location_ref = location_behavior.location_ref
+        if location_ref:
+            return location_ref.to_object
+        return None
 
 
 @indexer(ILocation)
@@ -30,7 +32,6 @@ def longitude(obj):
 @adapter(ILocation)
 @implementer(IGeoJSONProperties)
 class GeoJSONProperties(object):
-
     def __init__(self, context):
         self.context = context
 
@@ -44,9 +45,7 @@ class GeoJSONProperties(object):
 <header><a href="{0}">{1}</a></header>
 <p>{2}</p>
             """.format(
-            self.context.absolute_url(),
-            self.context.title,
-            location.title,
+            self.context.absolute_url(), self.context.title, location.title
         )
 
     @property
