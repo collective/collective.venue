@@ -4,7 +4,8 @@ Changelog
 4.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Load dependent ZCML explicit. 
+  [jensens]
 
 
 4.0 (2019-06-06)

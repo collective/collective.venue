@@ -8,7 +8,6 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <includeDependencies package="." />
   <include package="plone.app.event"/>
   <include package="collective.address"/>
 
