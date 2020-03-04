@@ -31,12 +31,16 @@ def _concat_and_utf8(*args):
 
 @indexer(ILocation)
 def latitude(obj):
+    if not obj.location_uid:
+        raise AttributeError('no location')
     venue = uuidToObject(obj.location_uid)
     return venue.geolocation.latitude
 
 
 @indexer(ILocation)
 def longitude(obj):
+    if not obj.location_uid:
+        raise AttributeError('no location')
     venue = uuidToObject(obj.location_uid)
     return venue.geolocation.longitude
 

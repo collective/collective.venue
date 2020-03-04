@@ -4,6 +4,9 @@ Changelog
 4.1 (unreleased)
 ----------------
 
+- fix indexer to work on Zope 4/Python 3. 
+  [jensens]
+
 - Load dependent ZCML explicit. 
   [jensens]
 
