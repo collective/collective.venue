@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.1 (unreleased)
+4.1 (2020-07-10)
 ----------------
 
 - fix indexer to work on Zope 4/Python 3. 
