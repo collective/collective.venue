@@ -16,42 +16,42 @@ Changelog
 
 Breaking changes:
 
-    - The following settings are now handled by ``plone.formwidget.geolocation`` and have changed their prefix to ``geolocation``. They need to be upgraded manually: ``collective.venue.default_map_layer``, ``collective.venue.google_api_key``, ``collective.venue.map_layers``, ``collective.venue.show_google_maps_link``.
+- The following settings are now handled by ``plone.formwidget.geolocation`` and have changed their prefix to ``geolocation``. They need to be upgraded manually: ``collective.venue.default_map_layer``, ``collective.venue.google_api_key``, ``collective.venue.map_layers``, ``collective.venue.show_google_maps_link``.
 
-    - Rename ``collective.venue.icalexporter.AAFICalendarEventComponent`` to  ``collective.venue.icalexporter.VenueICalendarEventComponent``.
-      The ``AAF`` name was a leftover from a client project.
-      [thet]
+- Rename ``collective.venue.icalexporter.AAFICalendarEventComponent`` to  ``collective.venue.icalexporter.VenueICalendarEventComponent``.
+  The ``AAF`` name was a leftover from a client project.
+  [thet]
 
-    - Event accessor is now registered with ILocation behavior.
-      With this change we don't need to override p.a.event accessor anymore.
-      [cekk]
+- Event accessor is now registered with ILocation behavior.
+  With this change we don't need to override p.a.event accessor anymore.
+  [cekk]
 
 New features:
 
-    - Refactor maps settings and indexer -> moved to ``plone.app.formwidget``
-      and ``collective.geolocationbehavior``
-      [petschki, thet]
+- Refactor maps settings and indexer -> moved to ``plone.app.formwidget``
+  and ``collective.geolocationbehavior``
+  [petschki, thet]
 
-    - uninstall profiles
-      [petschki]
+- uninstall profiles
+  [petschki]
 
-    - Customize event_summary view and portlet event renderer to properly show location info.
-      [cekk]
+- Customize event_summary view and portlet event renderer to properly show location info.
+  [cekk]
 
 Bug fixes:
 
-    - Make the registration of the ``@@locationsearch`` view dependend on the availability of ``geopy``.
-      Fixes #15.
-      [thet]
+- Make the registration of the ``@@locationsearch`` view dependend on the availability of ``geopy``.
+  Fixes #15.
+  [thet]
 
-    - Controlpanel: Fix problem where always only default values were shown but no already stored values.
-      [thet]
+- Controlpanel: Fix problem where always only default values were shown but no already stored values.
+  [thet]
 
-    - ical export: Fix contact getter if IOrganizer behavior is not enabled.
-      [cekk]
+- ical export: Fix contact getter if IOrganizer behavior is not enabled.
+  [cekk]
 
-    - Remove registry initialization in bundle.
-      [cekk]
+- Remove registry initialization in bundle.
+  [cekk]
 
 
 3.1.2 (2017-12-06)
