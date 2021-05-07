@@ -24,22 +24,25 @@ class VenueICalendarEventComponent(ICalendarEventComponent):
         if not ILocation.providedBy(self.context):
             return super(VenueICalendarEventComponent, self).location
 
-        ref = ILocation(self.context)
-        item = uuidToObject(ref.location_uid)
+        location_behavior = ILocation(self.context)
+        location_ref = location_behavior.location_ref
+        if location_ref:
+            item = location_ref.to_object
+        else:
+            item = None
 
         ret = None
         if item:
             basic = IBasic(item, None)
-            locationstring =  utils.join_nonempty([
-                basic.title,
-                utils.get_venue_address_string(item)
-            ], sep=u', ')
+            locationstring = utils.join_nonempty(
+                [basic.title, utils.get_venue_address_string(item)], sep=u', '
+            )
             ret = {
                 'value': locationstring,
-                'parameters': {'altrep': item.absolute_url()}
+                'parameters': {'altrep': item.absolute_url()},
             }
         else:
-            ret = {'value': ref.location_notes}
+            ret = {'value': location_behavior.location_notes}
 
         return ret
 
@@ -48,19 +51,21 @@ class VenueICalendarEventComponent(ICalendarEventComponent):
         if not IOrganizer.providedBy(self.context):
             return super(VenueICalendarEventComponent, self).contact
 
-        ref = IOrganizer(self.context)
-        item = uuidToObject(ref.organizer_uid)
+        organizer_behavior = IOrganizer(self.context)
+        organizer_ref = organizer_behavior.organizer_ref
+        if not organizer_ref:
+            return None
+        item = organizer_ref.to_object
 
         ret = None
         if item:
             basic = IBasic(item, None)
-            retstring =  utils.join_nonempty([
-                basic.title,
-                utils.get_venue_contact_string(item)
-            ], sep=u', ')
+            retstring = utils.join_nonempty(
+                [basic.title, utils.get_venue_contact_string(item)], sep=u', '
+            )
             ret = {'value': retstring}
         else:
-            ret = {'value': ref.organizer_notes}
+            ret = {'value': organizer_behavior.organizer_notes}
 
         return ret
 
@@ -69,15 +74,16 @@ class VenueICalendarEventComponent(ICalendarEventComponent):
         if not ILocation.providedBy(self.context):
             return super(VenueICalendarEventComponent, self).geo
 
-        ref = ILocation(self.context)
-        item = uuidToObject(ref.location_uid)
+        location_behavior = ILocation(self.context)
+        location_ref = location_behavior.location_ref
+        if location_ref:
+            item = location_ref.to_object
+        else:
+            item = None
 
         if not IGeolocatable.providedBy(item):
             return super(VenueICalendarEventComponent, self).geo
 
         geo = IGeolocatable(item, None)
-        ret = (
-            geo.geolocation.latitude,
-            geo.geolocation.longitude
-        )
+        ret = (geo.geolocation.latitude, geo.geolocation.longitude)
         return {'value': ret}

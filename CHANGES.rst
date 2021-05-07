@@ -4,7 +4,11 @@ Changelog
 4.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fallback to default event field value in accessor, if location reference is not set.
+  [cekk]
+
+- Change field in behaviors: they are now relation fields to be correctly serialized in plone.restapi.
+  [cekk]
 
 
 4.1 (2020-07-10)
@@ -41,8 +45,6 @@ New features:
 - uninstall profiles
   [petschki]
 
-- Customize event_summary view and portlet event renderer to properly show location info.
-  [cekk]
 
 Bug fixes:
 

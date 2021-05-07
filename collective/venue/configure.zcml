@@ -142,7 +142,15 @@
       handler="collective.venue.upgrades.upgrade_registry"
       profile="collective.venue:base"
       />
-
+  
+  <genericsetup:upgradeStep
+      title="Migrate fields"
+      description="Migrate reference fields."
+      source="5"
+      destination="6"
+      handler="collective.venue.upgrades.upgrade_5_to_6"
+      profile="collective.venue:base"
+      />
 
   <utility
       factory=".setuphandlers.HiddenProfiles"

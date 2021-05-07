@@ -25,14 +25,29 @@ class VenueEventAccessor(EventAccessor):
         return u'<a class="pat-plone-modal" href="{url}" title="{address}">{title}</a>'  # noqa
 
     @property
+    def _default_location_template(self):
+        return u'<span>{location}</span>'
+
+    @property
+    def default_location(self):
+        location = getattr(self.context, 'location', '')
+        if not location:
+            return ''
+        return self._default_location_template.format(location=location)
+
+    @property
     def location(self):
         context = self.context
-        location_ref = ILocation(context, None)
+        location_behavior = ILocation(context, None)
+        if not location_behavior:
+            return self.default_location
+        location_ref = location_behavior.location_ref
         if not location_ref:
-            return
-        location_uid = location_ref.location_uid
-        location_notes = location_ref.location_notes
-        location = uuidToObject(location_uid)
+            return self.default_location
+        location_notes = location_behavior.location_notes
+        location = location_ref.to_object
+        if not location:
+            return self.default_location
 
         meta_basic = IBasic(location, None)
         add = IAddress(location, None)
@@ -51,7 +66,7 @@ class VenueEventAccessor(EventAccessor):
             if site_path not in location_path:
                 # location in different site - cannot directly open it
                 location_url = u'{0}/@@venue_view?uid={1}'.format(
-                    site.absolute_url(), location_uid
+                    site.absolute_url(), location.UID()
                 )
 
             country = get_pycountry_name(add.country)
