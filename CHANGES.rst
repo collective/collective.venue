@@ -4,6 +4,9 @@ Changelog
 4.2 (unreleased)
 ----------------
 
+- Added Spanish translations.
+  [macagua]
+
 - Added more improvements about the i18n support.
   [macagua]
 
