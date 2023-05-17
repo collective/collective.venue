@@ -107,37 +107,37 @@
     </heading>
     <dl>
       <tal:if condition="social/facebook|nothing">
-      <dt class="facebook">Facebook</dt>
+      <dt class="facebook" i18n:translate="">Facebook</dt>
       <dd class="facebook">
-        <a href="${social/facebook}" class="facebook" title="Facebook">
-          <img src="++resource++collective.venue/facebook.svg" width="32" height="32" alt="Facebook" />
+        <a href="${social/facebook}" class="facebook" title="Facebook" i18n:attributes="title">
+          <img src="++resource++collective.venue/facebook.svg" width="32" height="32" alt="Facebook" i18n:attributes="alt" />
         </a>
       </dd>
       </tal:if>
 
       <tal:if condition="social/twitter|nothing">
-      <dt class="twitter">Twitter</dt>
+      <dt class="twitter" i18n:translate="">Twitter</dt>
       <dd class="twitter">
-        <a href="${social/twitter}" class="twitter" title="Twitter">
-          <img src="++resource++collective.venue/twitter.svg" width="32" height="32" alt="Twitter" />
+        <a href="${social/twitter}" class="twitter" title="Twitter" i18n:attributes="title">
+          <img src="++resource++collective.venue/twitter.svg" width="32" height="32" alt="Twitter" i18n:attributes="alt" />
         </a>
       </dd>
       </tal:if>
 
       <tal:if condition="social/google_plus|nothing">
-      <dt class="google_plus">Google Plus</dt>
+      <dt class="google_plus" i18n:translate="">Google Plus</dt>
       <dd class="google_plus">
-        <a href="${social/google_plus}" class="google_plus" title="Google Plus">
-          <img src="++resource++collective.venue/google-plus.svg" width="32" height="32" alt="Google Plus" />
+        <a href="${social/google_plus}" class="google_plus" title="Google Plus" i18n:attributes="title">
+          <img src="++resource++collective.venue/google-plus.svg" width="32" height="32" alt="Google Plus" i18n:attributes="alt" />
         </a>
       </dd>
       </tal:if>
 
       <tal:if condition="social/instagram|nothing">
-      <dt class="instagram">Instagram</dt>
+      <dt class="instagram" i18n:translate="">Instagram</dt>
       <dd class="instagram">
-        <a href="${social/instagram}" class="instagram" title="Instagram">
-          <img src="++resource++collective.venue/instagram.svg" width="32" height="32" alt="Instagram" />
+        <a href="${social/instagram}" class="instagram" title="Instagram" i18n:attributes="title">
+          <img src="++resource++collective.venue/instagram.svg" width="32" height="32" alt="Instagram" i18n:attributes="alt" />
         </a>
       </dd>
       </tal:if>

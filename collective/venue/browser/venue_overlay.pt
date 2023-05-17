@@ -15,7 +15,7 @@
 
   <div class="documentByLine">
     <tal:if tal:define="google_maps_link view/google_maps_link" tal:condition="google_maps_link">
-      <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" target="_blank">Open in Google Maps</a>
+      <a tal:attributes="href google_maps_link" i18n:translate="label_google_maps_link" title="Open in Google Maps" i18n:attributes="title" target="_blank">Open in Google Maps</a>
       —
     </tal:if>
     <dfn

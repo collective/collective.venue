@@ -4,7 +4,8 @@ Changelog
 4.2 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added more improvements about the i18n support.
+  [macagua]
 
 
 4.1 (2020-07-10)
