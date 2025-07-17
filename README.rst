@@ -1,8 +1,17 @@
 collective.venue
 ================
 
-This package provides an Dexterity Venue type with geolocation support
+This package provides an Dexterity content type for Venue with `geolocation <https://en.wikipedia.org/wiki/Geolocation>`_ support
 for use with events or any other location specific content.
+
+
+Features
+========
+
+- Event Venue Settings Control panel.
+- Event location `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_venue`.
+- Event organizer `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_organizer`.
+- Venue Display `Tile <https://pypi.org/project/plone.tiles/>`_.
 
 
 Translations
