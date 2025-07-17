@@ -1,3 +1,6 @@
 # -*- coding: utf-8 -*-
 from zope.i18nmessageid import MessageFactory
-messageFactory = MessageFactory('collective.venue')
+
+PACKAGE_NAME = "collective.venue"
+
+_ = MessageFactory(PACKAGE_NAME)

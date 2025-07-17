@@ -3,7 +3,7 @@ from collective.address.behaviors import IAddress
 from collective.address.behaviors import IContact
 from collective.address.behaviors import ISocial
 from collective.address.vocabulary import get_pycountry_name
-from collective.venue import messageFactory as _
+from collective.venue import _
 from plone.api.portal import get_registry_record as getrec
 from plone.app.uuid.utils import uuidToObject
 from plone.uuid.interfaces import IUUID

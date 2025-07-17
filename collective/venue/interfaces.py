@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from collective.venue import messageFactory as _
+from collective.venue import _
 from collective.venue.utils import get_base_path
 from collective.venue.utils import get_site
 from plone.app.textfield import RichText
