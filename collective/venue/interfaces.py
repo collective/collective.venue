@@ -43,7 +43,7 @@ class IVenueSettings(Interface):
         description=_(
             u'help_search_base',
             u"Path, from which venue types should be searched. Useful for "
-            u"lineage multisites to seperate main from childsite venue "
+            u"lineage multi sites to separate main from child site venue "
             u"folders. Keep empty to search anywhere."
         ),
         required=False,

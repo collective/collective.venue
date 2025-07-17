@@ -237,7 +237,7 @@ msgstr "Setze die verfügbaren Karten Layer, die auf der Karte auswählbar sind.
 msgid "help_notes"
 msgstr "Zusatzinformation zur Adresse"
 
-#. Default: "Path, from which venue types should be searched. Useful for lineage multisites to seperate main from childsite venue folders. Keep empty to search anywhere."
+#. Default: "Path, from which venue types should be searched. Useful for lineage multi sites to separate main from child site venue folders. Keep empty to search anywhere."
 #: ../interfaces.py:44
 msgid "help_search_base"
 msgstr "Pfad, in dem die Ort/ Veranstalter Inhaltstypen gesucht werden sollen. Dies ist brauchbar für Lineage Multis-Webseiten um die Veranstalter und Orte der Seiten zu trennen. Leer lassen um überall zu suchen."
