@@ -1,5 +1,6 @@
 i18ndude rebuild-pot --pot ./collective.venue.pot --create collective.venue ../ || exit 1
-i18ndude rebuild-pot --pot ./plone.pot --create plone ../ || exit 1
+i18ndude rebuild-pot --pot ./plone.pot --create plone ../profiles/ || exit 1
+i18ndude merge --pot ./plone.pot --merge ./merge-plone.pot || exit 1
 i18ndude sync --pot ./collective.venue.pot ./*/LC_MESSAGES/collective.venue.po
 i18ndude sync --pot ./plone.pot ./*/LC_MESSAGES/plone.po
 

@@ -22,10 +22,10 @@
       i18n:domain="collective.geolocationbehavior"
       i18n:translate="">Geolocation</dfn>
     <span class="latitude">
-      <span i18n:translate="label_latitude" i18n:domain="plone.formwidget.geolocation">Latitude</span>: ${data/latitude}
+      <span i18n:translate="label_latitude" i18n:domain="plone.formwidget.geolocation">Latitude</span>: <span i18n:ignore="">${data/latitude}</span>
     </span>
     <span class="longitude">
-      <span i18n:translate="label_longitude" i18n:domain="plone.formwidget.geolocation">Longitude</span>: ${data/longitude}
+      <span i18n:translate="label_longitude" i18n:domain="plone.formwidget.geolocation">Longitude</span>: <span i18n:ignore="">${data/longitude}</span>
     </span>
   </div>
 </div>

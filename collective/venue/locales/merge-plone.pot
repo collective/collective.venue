@@ -17,16 +17,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: plone\n"
 
-
-# TRANSLATE VIEW NAMES
-#
-msgid "venue"
+#: ../../resources/locationsearch.js
+msgid "Could not find an address."
 msgstr ""
 
-# TRANSLATE TYPE
-#
-msgid "title_venue"
-msgstr ""
-
-msgid "description_venue"
+#: ../../resources/locationsearch.xml
+msgid "Search address in map"
 msgstr ""

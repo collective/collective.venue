@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: collective.venue\n"
 "POT-Creation-Date: 2018-10-10 12:56+0000\n"
-"PO-Revision-Date: 2023-05-17 14:55-0400\n"
+"PO-Revision-Date: 2025-11-18 12:13+0100\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: ES <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,14 +18,15 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "Language: es\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 3.8\n"
 
 #: ../vocabularies.py:48
 msgid "CartoDB.DarkMatter"
-msgstr ""
+msgstr "CartoDB - Materia oscura"
 
 #: ../vocabularies.py:49
 msgid "CartoDB.DarkMatterNoLabels"
-msgstr ""
+msgstr "CartoDB - Materia oscura sin etiquetas"
 
 #: ../configure.zcml:65
 msgid "Dexterity venue type extension with geolocation support."
@@ -41,43 +42,43 @@ msgstr "Extensión de tipo Dexterity de lugar."
 
 #: ../vocabularies.py:39
 msgid "Esri.DeLorme"
-msgstr ""
+msgstr "Esri - DeLorme"
 
 #: ../vocabularies.py:46
 msgid "Esri.NatGeoWorldMap"
-msgstr ""
+msgstr "Esri - Mapa mundial de NatGeo"
 
 #: ../vocabularies.py:45
 msgid "Esri.OceanBasemap"
-msgstr ""
+msgstr "Esri - Mapa base oceánico"
 
 #: ../vocabularies.py:47
 msgid "Esri.WorldGrayCanvas"
-msgstr ""
+msgstr "Esri - Lienzo gris mundial"
 
 #: ../vocabularies.py:41
 msgid "Esri.WorldImagery"
-msgstr ""
+msgstr "Esri - Imágenes del mundo"
 
 #: ../vocabularies.py:44
 msgid "Esri.WorldPhysical"
-msgstr ""
+msgstr "Esri - Físico mundial"
 
 #: ../vocabularies.py:43
 msgid "Esri.WorldShadedRelief"
-msgstr ""
+msgstr "Esri - Relieve sombreado mundial"
 
 #: ../vocabularies.py:38
 msgid "Esri.WorldStreetMap"
-msgstr ""
+msgstr "Esri - Mapa mundial de calles"
 
 #: ../vocabularies.py:42
 msgid "Esri.WorldTerrain"
-msgstr ""
+msgstr "Esri - Terreno mundial"
 
 #: ../vocabularies.py:40
 msgid "Esri.WorldTopoMap"
-msgstr ""
+msgstr "Esri - Mapa topográfico mundial"
 
 #: ../browser/controlpanel.py:10
 msgid "Event Venue Settings"
@@ -85,23 +86,23 @@ msgstr "Configuración del lugar del evento"
 
 #: ../vocabularies.py:50
 msgid "NASAGIBS.ViirsEarthAtNight2012"
-msgstr ""
+msgstr "NASAGIBS - Viirs La Tierra de noche 2012"
 
 #: ../vocabularies.py:24
 msgid "OpenStreetMap.BlackAndWhite"
-msgstr ""
+msgstr "OpenStreetMap - Blanco y negro"
 
 #: ../vocabularies.py:25
 msgid "OpenStreetMap.DE"
-msgstr ""
+msgstr "OpenStreetMap - Aleman"
 
 #: ../vocabularies.py:26
 msgid "OpenStreetMap.France"
-msgstr ""
+msgstr "OpenStreetMap - Francia"
 
 #: ../vocabularies.py:23
 msgid "OpenStreetMap.Mapnik"
-msgstr ""
+msgstr "OpenStreetMap - Mapnik"
 
 #: ../browser/controlpanel.py:11
 msgid "Settings for venues, which are referenced by events."
@@ -109,63 +110,63 @@ msgstr "Configuración de lugares, a los que hacen referencia los eventos."
 
 #: ../vocabularies.py:35
 msgid "Stamen.Terrain"
-msgstr ""
+msgstr "Stamen - Terreno"
 
 #: ../vocabularies.py:36
 msgid "Stamen.TerrainBackground"
-msgstr ""
+msgstr "Stamen - Fondo del terreno"
 
 #: ../vocabularies.py:31
 msgid "Stamen.Toner"
-msgstr ""
+msgstr "Stamen - Tóner"
 
 #: ../vocabularies.py:32
 msgid "Stamen.TonerBackground"
-msgstr ""
+msgstr "Stamen - Fondo de Tóner"
 
 #: ../vocabularies.py:33
 msgid "Stamen.TonerLite"
-msgstr ""
+msgstr "Stamen - Tóner Lite"
 
 #: ../vocabularies.py:37
 msgid "Stamen.TopOSMRelief"
-msgstr ""
+msgstr "Stamen - Relieve Top OSM"
 
 #: ../vocabularies.py:34
 msgid "Stamen.Watercolor"
-msgstr ""
+msgstr "Stamen - Acuarela"
 
 #: ../vocabularies.py:27
 msgid "Thunderforest.OpenCycleMap"
-msgstr ""
+msgstr "Thunderforest - Mapa de ciclismo abrierto"
 
 #: ../vocabularies.py:30
 msgid "Thunderforest.Outdoors"
-msgstr ""
+msgstr "Thunderforest - Al aire libre"
 
 #: ../vocabularies.py:28
 msgid "Thunderforest.Transport"
-msgstr ""
+msgstr "Thunderforest - Transporte"
 
 #: ../vocabularies.py:29
 msgid "Thunderforest.TransportDark"
-msgstr ""
+msgstr "Thunderforest - Transporte Oscuro"
 
 #: ../browser/configure.zcml:45
 msgid "Venue Display"
-msgstr ""
+msgstr "Mostrar Lugar"
 
 #: ../configure.zcml:55
 msgid "collective.venue base profile"
-msgstr "collective.venue profilo base"
+msgstr "collective.venue: perfil base"
 
 #: ../configure.zcml:29
 msgid "collective.venue event location"
-msgstr "collective.venue ubicación del evento"
+msgstr "collective.venue: ubicación del evento"
 
 #: ../configure.zcml:35
 msgid "collective.venue event organizer"
-msgstr "collective.venue organizador de eventos"
+msgstr "collective.venue: organizador de eventos"
 
 #: ../configure.zcml:65
 msgid "collective.venue with geolocation support"

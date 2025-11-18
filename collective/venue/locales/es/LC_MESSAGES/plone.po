@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2016-11-10 20:56+0000\n"
-"PO-Revision-Date: 2023-05-17 13:48-0400\n"
+"POT-Creation-Date: 2025-11-18 11:23+0000\n"
+"PO-Revision-Date: 2025-11-18 11:38+0100\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: ES <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,253 +18,21 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "Language: es\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 3.8\n"
 
-#: ../vocabularies.py:48
-msgid "CartoDB.DarkMatter"
-msgstr ""
+#: ../../resources/locationsearch.js
+msgid "Could not find an address."
+msgstr "No se ha encontrado ninguna dirección."
 
-#: ../vocabularies.py:49
-msgid "CartoDB.DarkMatterNoLabels"
-msgstr ""
-
-#: ../vocabularies.py:39
-msgid "Esri.DeLorme"
-msgstr ""
-
-#: ../vocabularies.py:46
-msgid "Esri.NatGeoWorldMap"
-msgstr ""
-
-#: ../vocabularies.py:45
-msgid "Esri.OceanBasemap"
-msgstr ""
-
-#: ../vocabularies.py:47
-msgid "Esri.WorldGrayCanvas"
-msgstr ""
-
-#: ../vocabularies.py:41
-msgid "Esri.WorldImagery"
-msgstr ""
-
-#: ../vocabularies.py:44
-msgid "Esri.WorldPhysical"
-msgstr ""
-
-#: ../vocabularies.py:43
-msgid "Esri.WorldShadedRelief"
-msgstr ""
-
-#: ../vocabularies.py:38
-msgid "Esri.WorldStreetMap"
-msgstr ""
-
-#: ../vocabularies.py:42
-msgid "Esri.WorldTerrain"
-msgstr ""
-
-#: ../vocabularies.py:40
-msgid "Esri.WorldTopoMap"
-msgstr ""
-
-#: ../browser/controlpanel.py:10
 #: ../profiles/base/controlpanel.xml
 msgid "Event Venue Settings"
 msgstr "Configuración del lugar del evento"
 
-#: ../vocabularies.py:50
-msgid "NASAGIBS.ViirsEarthAtNight2012"
-msgstr ""
-
-#: ../vocabularies.py:24
-msgid "OpenStreetMap.BlackAndWhite"
-msgstr ""
-
-#: ../vocabularies.py:25
-msgid "OpenStreetMap.DE"
-msgstr ""
-
-#: ../vocabularies.py:26
-msgid "OpenStreetMap.France"
-msgstr ""
-
-#: ../vocabularies.py:23
-msgid "OpenStreetMap.Mapnik"
-msgstr ""
-
-#: ../browser/controlpanel.py:11
-msgid "Settings for venues, which are referenced by events."
-msgstr "Configuración de lugares, a los que hacen referencia los eventos."
-
-#: ../vocabularies.py:35
-msgid "Stamen.Terrain"
-msgstr ""
-
-#: ../vocabularies.py:36
-msgid "Stamen.TerrainBackground"
-msgstr ""
-
-#: ../vocabularies.py:31
-msgid "Stamen.Toner"
-msgstr ""
-
-#: ../vocabularies.py:32
-msgid "Stamen.TonerBackground"
-msgstr ""
-
-#: ../vocabularies.py:33
-msgid "Stamen.TonerLite"
-msgstr ""
-
-#: ../vocabularies.py:37
-msgid "Stamen.TopOSMRelief"
-msgstr ""
-
-#: ../vocabularies.py:34
-msgid "Stamen.Watercolor"
-msgstr ""
-
-#: ../vocabularies.py:27
-msgid "Thunderforest.OpenCycleMap"
-msgstr ""
-
-#: ../vocabularies.py:30
-msgid "Thunderforest.Outdoors"
-msgstr ""
-
-#: ../vocabularies.py:28
-msgid "Thunderforest.Transport"
-msgstr ""
-
-#: ../vocabularies.py:29
-msgid "Thunderforest.TransportDark"
-msgstr ""
+#: ../../resources/locationsearch.xml
+msgid "Search address in map"
+msgstr "Buscar dirección en el mapa"
 
 #: ../profiles/base/types/Venue.xml
 #: ../profiles/uninstall/types/Venue.xml
 msgid "Venue"
 msgstr "Lugar"
-
-#. Default: "Default map layer"
-#: ../interfaces.py:120
-msgid "default_map_layer"
-msgstr "Capa predeterminada para el mapa"
-
-#. Default: "Select a location."
-#: ../behaviors.py:28
-msgid "description_event_location"
-msgstr "Seleccione un lugar."
-
-#. Default: "One-time location or additional Information."
-#: ../behaviors.py:49
-msgid "description_event_location_notes"
-msgstr "Ubicación única o información adicional."
-
-#. Default: "Select an organizer."
-#: ../behaviors.py:77
-msgid "description_event_organizer"
-msgstr "Seleccione un organizador."
-
-#. Default: "One-time organizer or additional Information."
-#: ../behaviors.py:98
-msgid "description_event_organizer_notes"
-msgstr "Organizador único o información adicional."
-
-#: ../behaviors.py:57
-msgid "fieldset_venue"
-msgstr "Lugar"
-
-#. Default: "Set the default map layer"
-#: ../interfaces.py:124
-msgid "help_default_map_layer"
-msgstr "Establecer la capa predeterminada para el mapa"
-
-#. Default: "Default organizer to be used in events."
-#: ../interfaces.py:89
-msgid "help_default_organizer"
-msgstr "Organizador predeterminado para usar en eventos."
-
-#. Default: "Default location to be used in events."
-#: ../interfaces.py:68
-msgid "help_default_venue"
-msgstr "Lugar predeterminado para usar en eventos."
-
-#. Default: "If you want to use the Google Maps search API for higher accuracy, you have to provide a Google Maps API key here."
-#: ../interfaces.py:107
-msgid "help_google_api_key"
-msgstr "Si desea utilizar la API de búsqueda de Google Maps para obtener una mayor precisión, debe proporcionar una clave API de Google Maps aquí."
-
-#. Default: "Show a link to the Google Maps site, which can be used for further actions like routing."
-#: ../interfaces.py:114
-msgid "help_google_maps_link"
-msgstr "Muestre un enlace al sitio de Google Maps, que se puede utilizar para otras acciones, como el enrutamiento."
-
-#. Default: "Set the available map layers"
-#: ../interfaces.py:135
-msgid "help_map_layers"
-msgstr "Establecer posibles capas de mapa"
-
-#. Default: "Additional notes for the address."
-#: ../interfaces.py:26
-msgid "help_notes"
-msgstr "Notas adicionales para la dirección"
-
-#. Default: "Path, from which venue types should be searched. Useful for lineage multi sites to separate main from child site venue folders. Keep empty to search anywhere."
-#: ../interfaces.py:44
-msgid "help_search_base"
-msgstr "Ruta, a partir de la cual se deben buscar los tipos de lugares. Útil para sitios múltiples lineage para separar las carpetas principales de los sitios secundarios. Mantenga vacío para buscar en cualquier lugar."
-
-#. Default: "Default Organizer"
-#: ../interfaces.py:85
-msgid "label_default_organizer"
-msgstr "Organizador predeterminado"
-
-#. Default: "Default Location"
-#: ../interfaces.py:64
-msgid "label_default_venue"
-msgstr "Ubicación predeterminada"
-
-#. Default: "Location"
-#: ../behaviors.py:27
-msgid "label_event_location"
-msgstr "Ubicación"
-
-#. Default: "Location notes"
-#: ../behaviors.py:46
-msgid "label_event_location_notes"
-msgstr "Notas de ubicación"
-
-#. Default: "Organizer"
-#: ../behaviors.py:76
-msgid "label_event_organizer"
-msgstr "Organizador"
-
-#. Default: "Organizer notes"
-#: ../behaviors.py:95
-msgid "label_event_organizer_notes"
-msgstr "Notas para el organizador"
-
-#. Default: "Google maps API Key"
-#: ../interfaces.py:106
-msgid "label_google_api_key"
-msgstr "API Key de Google Maps"
-
-#. Default: "Show Google maps link."
-#: ../interfaces.py:113
-msgid "label_google_maps_link"
-msgstr "Mostrar en Google Maps"
-
-#. Default: "Map Layers"
-#: ../interfaces.py:134
-msgid "label_map_layers"
-msgstr "Capas de mapa"
-
-#. Default: "Notes"
-#: ../interfaces.py:22
-msgid "label_notes"
-msgstr "Notas"
-
-#. Default: "Location Search Base"
-#: ../interfaces.py:40
-msgid "label_search_base"
-msgstr "Base de búsqueda de ubicación"
