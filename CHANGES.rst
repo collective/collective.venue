@@ -4,6 +4,9 @@ Changelog
 4.2 (unreleased)
 ----------------
 
+- Changed the control panel icon.
+  [macagua]
+
 - Added Spanish translations.
   [macagua]
 

@@ -6,11 +6,10 @@
       appId="collective.venue"
       category="Products" 
       condition_expr=""
-      icon_expr="string:${portal_url}/logoIcon.png"
+      icon_expr="string:pin-map"
       url_expr="string:${portal_url}/@@venue-controlpanel"
       visible="True"
       i18n:attributes="title">
     <permission>Plone Site Setup: Site</permission>
   </configlet>
 </object>
-
