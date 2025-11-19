@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-11-18 11:23+0000\n"
+"POT-Creation-Date: 2025-11-19 12:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Johannes Raggam <raggam-nl@adm.at>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,8 +29,6 @@ msgstr ""
 msgid "Search address in map"
 msgstr ""
 
-# TRANSLATE TYPE
-#
 #: ../profiles/base/types/Venue.xml
 #: ../profiles/uninstall/types/Venue.xml
 msgid "Venue"

@@ -64,9 +64,10 @@
       name="base"
       title="collective.venue base profile"
       directory="profiles/base"
-      description="Dexterity venue type extension."
+      description="Install profile for Dexterity content type called Venue."
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       provides="Products.GenericSetup.interfaces.EXTENSION"
+      i18n:attributes="title description"
       />
 
   <configure zcml:condition="installed collective.geolocationbehavior">
@@ -74,27 +75,30 @@
         name="default"
         title="collective.venue with geolocation support"
         directory="profiles/default-geolocation"
-        description="Dexterity venue type extension with geolocation support."
+        description="Install profile for Dexterity content type called Venue with geolocation support."
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        i18n:attributes="title description"
         />
 
     <genericsetup:registerProfile
         name="uninstall"
         title="collective.venue with geolocation support - uninstall"
         directory="profiles/uninstall"
-        description="Dexterity venue type extension with geolocation support."
+        description="Uninstall profile for Dexterity content type called Venue with geolocation support."
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        i18n:attributes="title description"
         />
 
     <genericsetup:registerProfile
         name="geolocation_to_2"
-        title="refactor geolocation settings"
+        title="collective.venue: refactor geolocation settings"
         directory="profiles/geolocation_to_2"
-        description="Dexterity venue type extension with geolocation support."
+        description="Install profile for refactor geolocation settings."
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        i18n:attributes="title description"
         />
 
     <genericsetup:upgradeDepends
@@ -112,17 +116,19 @@
         name="default"
         title="collective.venue without geolocation support"
         directory="profiles/default-nogeolocation"
-        description="Dexterity venue type extension without geolocation support."
+        description="Install profile for Dexterity content type called Venue without geolocation support."
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        i18n:attributes="title description"
         />
     <genericsetup:registerProfile
         name="uninstall"
         title="collective.venue without geolocation support - uninstall"
         directory="profiles/uninstall"
-        description="Dexterity venue type extension with geolocation support."
+        description="Uninstall profile for Dexterity content type called Venue without geolocation support."
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
+        i18n:attributes="title description"
         />
   </configure>
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-10-10 12:56+0000\n"
+"POT-Creation-Date: 2025-11-19 12:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Giacomo Monari <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,166 +14,93 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.venue\n"
 
-#: ../vocabularies.py:48
-msgid "CartoDB.DarkMatter"
-msgstr ""
-
-#: ../vocabularies.py:49
-msgid "CartoDB.DarkMatterNoLabels"
-msgstr ""
-
-#: ../configure.zcml:65
-msgid "Dexterity venue type extension with geolocation support."
-msgstr ""
-
-#: ../configure.zcml:75
-msgid "Dexterity venue type extension without geolocation support."
-msgstr ""
-
-#: ../configure.zcml:55
-msgid "Dexterity venue type extension."
-msgstr ""
-
-#: ../vocabularies.py:39
-msgid "Esri.DeLorme"
-msgstr ""
-
-#: ../vocabularies.py:46
-msgid "Esri.NatGeoWorldMap"
-msgstr ""
-
-#: ../vocabularies.py:45
-msgid "Esri.OceanBasemap"
-msgstr ""
-
-#: ../vocabularies.py:47
-msgid "Esri.WorldGrayCanvas"
-msgstr ""
-
-#: ../vocabularies.py:41
-msgid "Esri.WorldImagery"
-msgstr ""
-
-#: ../vocabularies.py:44
-msgid "Esri.WorldPhysical"
-msgstr ""
-
-#: ../vocabularies.py:43
-msgid "Esri.WorldShadedRelief"
-msgstr ""
-
-#: ../vocabularies.py:38
-msgid "Esri.WorldStreetMap"
-msgstr ""
-
-#: ../vocabularies.py:42
-msgid "Esri.WorldTerrain"
-msgstr ""
-
-#: ../vocabularies.py:40
-msgid "Esri.WorldTopoMap"
-msgstr ""
-
-#: ../browser/controlpanel.py:10
+#: ../browser/controlpanel.py:13
 msgid "Event Venue Settings"
 msgstr ""
 
-#: ../vocabularies.py:50
-msgid "NASAGIBS.ViirsEarthAtNight2012"
+#: ../browser/venue_base.pt:110
+msgid "Facebook"
 msgstr ""
 
-#: ../vocabularies.py:24
-msgid "OpenStreetMap.BlackAndWhite"
+#: ../browser/venue_base.pt:128
+msgid "Google Plus"
 msgstr ""
 
-#: ../vocabularies.py:25
-msgid "OpenStreetMap.DE"
+#: ../browser/venue_base.pt:137
+msgid "Instagram"
 msgstr ""
 
-#: ../vocabularies.py:26
-msgid "OpenStreetMap.France"
+#: ../configure.zcml:82
+msgid "Install profile for Dexterity content type called Venue with geolocation support."
 msgstr ""
 
-#: ../vocabularies.py:23
-msgid "OpenStreetMap.Mapnik"
+#: ../configure.zcml:123
+msgid "Install profile for Dexterity content type called Venue without geolocation support."
 msgstr ""
 
-#: ../browser/controlpanel.py:11
+#: ../configure.zcml:71
+msgid "Install profile for Dexterity content type called Venue."
+msgstr ""
+
+#: ../configure.zcml:102
+msgid "Install profile for refactor geolocation settings."
+msgstr ""
+
+#: ../browser/venue_overlay.pt:18
+msgid "Open in Google Maps"
+msgstr ""
+
+#: ../browser/controlpanel.py:14
 msgid "Settings for venues, which are referenced by events."
 msgstr "Setting per i luoghi, i quali sono referenziati dagli eventi."
 
-#: ../vocabularies.py:35
-msgid "Stamen.Terrain"
+#: ../browser/venue_base.pt:119
+msgid "Twitter"
 msgstr ""
 
-#: ../vocabularies.py:36
-msgid "Stamen.TerrainBackground"
+#: ../configure.zcml:92
+msgid "Uninstall profile for Dexterity content type called Venue with geolocation support."
 msgstr ""
 
-#: ../vocabularies.py:31
-msgid "Stamen.Toner"
+#: ../configure.zcml:132
+msgid "Uninstall profile for Dexterity content type called Venue without geolocation support."
 msgstr ""
 
-#: ../vocabularies.py:32
-msgid "Stamen.TonerBackground"
-msgstr ""
-
-#: ../vocabularies.py:33
-msgid "Stamen.TonerLite"
-msgstr ""
-
-#: ../vocabularies.py:37
-msgid "Stamen.TopOSMRelief"
-msgstr ""
-
-#: ../vocabularies.py:34
-msgid "Stamen.Watercolor"
-msgstr ""
-
-#: ../vocabularies.py:27
-msgid "Thunderforest.OpenCycleMap"
-msgstr ""
-
-#: ../vocabularies.py:30
-msgid "Thunderforest.Outdoors"
-msgstr ""
-
-#: ../vocabularies.py:28
-msgid "Thunderforest.Transport"
-msgstr ""
-
-#: ../vocabularies.py:29
-msgid "Thunderforest.TransportDark"
-msgstr ""
-
-#: ../browser/configure.zcml:45
+#: ../browser/configure.zcml:59
 msgid "Venue Display"
 msgstr ""
 
-#: ../configure.zcml:55
+#: ../configure.zcml:71
 msgid "collective.venue base profile"
 msgstr "collective.venue profilo base"
 
-#: ../configure.zcml:29
+#: ../configure.zcml:31
 msgid "collective.venue event location"
 msgstr "collective.venue location dell'evento"
 
-#: ../configure.zcml:35
+#: ../configure.zcml:37
 msgid "collective.venue event organizer"
 msgstr "collective.venue organizzatore dell'evento"
 
-#: ../configure.zcml:65
+#: ../configure.zcml:82
 msgid "collective.venue with geolocation support"
 msgstr "collective.venue con supporto alla geolocalizzazione"
 
-#: ../configure.zcml:75
+#: ../configure.zcml:92
+msgid "collective.venue with geolocation support - uninstall"
+msgstr ""
+
+#: ../configure.zcml:123
 msgid "collective.venue without geolocation support"
 msgstr "collective.venue senza supporto alla geolocalizzazione"
 
-#. Default: "Default map layer"
-#: ../interfaces.py:120
-msgid "default_map_layer"
-msgstr "Layer di default per la mappa"
+#: ../configure.zcml:132
+msgid "collective.venue without geolocation support - uninstall"
+msgstr ""
+
+#: ../configure.zcml:102
+msgid "collective.venue: refactor geolocation settings"
+msgstr ""
 
 #. Default: "Select a location."
 #: ../behaviors.py:30
@@ -181,61 +108,41 @@ msgid "description_event_location"
 msgstr "Seleziona un luogo."
 
 #. Default: "One-time location or additional Information."
-#: ../behaviors.py:51
+#: ../behaviors.py:49
 msgid "description_event_location_notes"
 msgstr ""
 
 #. Default: "Select an organizer."
-#: ../behaviors.py:79
+#: ../behaviors.py:78
 msgid "description_event_organizer"
 msgstr "Seleziona un organizzatore."
 
 #. Default: "One-time organizer or additional Information."
-#: ../behaviors.py:100
+#: ../behaviors.py:97
 msgid "description_event_organizer_notes"
 msgstr ""
 
-#: ../behaviors.py:59
+#: ../behaviors.py:58
 msgid "fieldset_venue"
 msgstr "Luogo"
 
-#. Default: "Set the default map layer"
-#: ../interfaces.py:124
-msgid "help_default_map_layer"
-msgstr "Imposta il layer di default per la mappa"
-
 #. Default: "Default organizer to be used in events."
-#: ../interfaces.py:89
+#: ../interfaces.py:88
 msgid "help_default_organizer"
 msgstr "Organizzatore di default da usare negli eventi."
 
 #. Default: "Default location to be used in events."
-#: ../interfaces.py:68
+#: ../interfaces.py:67
 msgid "help_default_venue"
 msgstr "Luogo di default da usare negli eventi."
 
-#. Default: "If you want to use the Google Maps search API for higher accuracy, you have to provide a Google Maps API key here."
-#: ../interfaces.py:107
-msgid "help_google_api_key"
-msgstr ""
-
-#. Default: "Show a link to the Google Maps site, which can be used for further actions like routing."
-#: ../interfaces.py:114
-msgid "help_google_maps_link"
-msgstr ""
-
-#. Default: "Set the available map layers"
-#: ../interfaces.py:135
-msgid "help_map_layers"
-msgstr "Imposta i possibili layer delle mappe"
-
 #. Default: "Additional notes for the address."
-#: ../interfaces.py:26
+#: ../interfaces.py:25
 msgid "help_notes"
 msgstr "Note addizionali per l'indirizzo"
 
 #. Default: "Path, from which venue types should be searched. Useful for lineage multi sites to separate main from child site venue folders. Keep empty to search anywhere."
-#: ../interfaces.py:44
+#: ../interfaces.py:43
 msgid "help_search_base"
 msgstr ""
 
@@ -250,12 +157,12 @@ msgid "label_contact"
 msgstr "Contatti"
 
 #. Default: "Default Organizer"
-#: ../interfaces.py:85
+#: ../interfaces.py:84
 msgid "label_default_organizer"
 msgstr "Organizzatore di default"
 
 #. Default: "Default Location"
-#: ../interfaces.py:64
+#: ../interfaces.py:63
 msgid "label_default_venue"
 msgstr ""
 
@@ -270,40 +177,29 @@ msgid "label_event_location_notes"
 msgstr ""
 
 #. Default: "Organizer"
-#: ../behaviors.py:78
+#: ../behaviors.py:77
 msgid "label_event_organizer"
 msgstr "Organizzatore"
 
 #. Default: "Organizer notes"
-#: ../behaviors.py:97
+#: ../behaviors.py:96
 msgid "label_event_organizer_notes"
 msgstr "Note per l'organizzatore"
-
-#. Default: "Google maps API Key"
-#: ../interfaces.py:106
-msgid "label_google_api_key"
-msgstr ""
 
 #. Default: "Open in Google Maps"
 #: ../browser/venue_base.pt:22
 #: ../browser/venue_overlay.pt:18
-#: ../interfaces.py:113
 msgid "label_google_maps_link"
 msgstr "Apri in Google Maps"
 
-#. Default: "Map Layers"
-#: ../interfaces.py:134
-msgid "label_map_layers"
-msgstr ""
-
 #. Default: "Notes"
 #: ../browser/venue_base.pt:150
-#: ../interfaces.py:22
+#: ../interfaces.py:21
 msgid "label_notes"
 msgstr "Note"
 
 #. Default: "Location Search Base"
-#: ../interfaces.py:40
+#: ../interfaces.py:39
 msgid "label_search_base"
 msgstr ""
 

@@ -1,12 +1,14 @@
 # Translation of collective.venue.pot to Spanish
-# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2023.
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.venue\n"
-"POT-Creation-Date: 2018-10-10 12:56+0000\n"
-"PO-Revision-Date: 2025-11-18 12:13+0100\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-19 12:47+0000\n"
+"PO-Revision-Date: 2025-11-19 13:49+0100\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: ES <LL@li.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,235 +17,140 @@ msgstr ""
 "Language-Name: Español\n"
 "Preferred-Encodings: utf-8\n"
 "Domain: collective.venue\n"
-"Report-Msgid-Bugs-To: \n"
-"Language: es\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 "X-Generator: Poedit 3.8\n"
 
-#: ../vocabularies.py:48
-msgid "CartoDB.DarkMatter"
-msgstr "CartoDB - Materia oscura"
-
-#: ../vocabularies.py:49
-msgid "CartoDB.DarkMatterNoLabels"
-msgstr "CartoDB - Materia oscura sin etiquetas"
-
-#: ../configure.zcml:65
-msgid "Dexterity venue type extension with geolocation support."
-msgstr "Extensión de tipo Dexterity de lugar con soporte de geolocalización."
-
-#: ../configure.zcml:75
-msgid "Dexterity venue type extension without geolocation support."
-msgstr "Extensión de tipo Dexterity de lugar sin soporte de geolocalización."
-
-#: ../configure.zcml:55
-msgid "Dexterity venue type extension."
-msgstr "Extensión de tipo Dexterity de lugar."
-
-#: ../vocabularies.py:39
-msgid "Esri.DeLorme"
-msgstr "Esri - DeLorme"
-
-#: ../vocabularies.py:46
-msgid "Esri.NatGeoWorldMap"
-msgstr "Esri - Mapa mundial de NatGeo"
-
-#: ../vocabularies.py:45
-msgid "Esri.OceanBasemap"
-msgstr "Esri - Mapa base oceánico"
-
-#: ../vocabularies.py:47
-msgid "Esri.WorldGrayCanvas"
-msgstr "Esri - Lienzo gris mundial"
-
-#: ../vocabularies.py:41
-msgid "Esri.WorldImagery"
-msgstr "Esri - Imágenes del mundo"
-
-#: ../vocabularies.py:44
-msgid "Esri.WorldPhysical"
-msgstr "Esri - Físico mundial"
-
-#: ../vocabularies.py:43
-msgid "Esri.WorldShadedRelief"
-msgstr "Esri - Relieve sombreado mundial"
-
-#: ../vocabularies.py:38
-msgid "Esri.WorldStreetMap"
-msgstr "Esri - Mapa mundial de calles"
-
-#: ../vocabularies.py:42
-msgid "Esri.WorldTerrain"
-msgstr "Esri - Terreno mundial"
-
-#: ../vocabularies.py:40
-msgid "Esri.WorldTopoMap"
-msgstr "Esri - Mapa topográfico mundial"
-
-#: ../browser/controlpanel.py:10
+#: ../browser/controlpanel.py:13
 msgid "Event Venue Settings"
-msgstr "Configuración del lugar del evento"
+msgstr "Configuración de lugar del evento"
 
-#: ../vocabularies.py:50
-msgid "NASAGIBS.ViirsEarthAtNight2012"
-msgstr "NASAGIBS - Viirs La Tierra de noche 2012"
+#: ../browser/venue_base.pt:110
+msgid "Facebook"
+msgstr "Facebook"
 
-#: ../vocabularies.py:24
-msgid "OpenStreetMap.BlackAndWhite"
-msgstr "OpenStreetMap - Blanco y negro"
+#: ../browser/venue_base.pt:128
+msgid "Google Plus"
+msgstr "Google Plus"
 
-#: ../vocabularies.py:25
-msgid "OpenStreetMap.DE"
-msgstr "OpenStreetMap - Aleman"
+#: ../browser/venue_base.pt:137
+msgid "Instagram"
+msgstr "Instagram"
 
-#: ../vocabularies.py:26
-msgid "OpenStreetMap.France"
-msgstr "OpenStreetMap - Francia"
+#: ../configure.zcml:82
+msgid "Install profile for Dexterity content type called Venue with geolocation support."
+msgstr "Perfil de instalación del tipo de contenido Dexterity llamado Venue con soporte de geolocalización."
 
-#: ../vocabularies.py:23
-msgid "OpenStreetMap.Mapnik"
-msgstr "OpenStreetMap - Mapnik"
+#: ../configure.zcml:123
+msgid "Install profile for Dexterity content type called Venue without geolocation support."
+msgstr "Perfil de instalación del tipo de contenido Dexterity llamado Venue sin soporte de geolocalización."
 
-#: ../browser/controlpanel.py:11
+#: ../configure.zcml:71
+msgid "Install profile for Dexterity content type called Venue."
+msgstr "Perfil de instalación del tipo de contenido Dexterity llamado Venue."
+
+#: ../configure.zcml:102
+msgid "Install profile for refactor geolocation settings."
+msgstr "Perfil de instalación para reestructurar la configuración de geolocalización."
+
+#: ../browser/venue_overlay.pt:18
+msgid "Open in Google Maps"
+msgstr "Abrir en Google Maps"
+
+#: ../browser/controlpanel.py:14
 msgid "Settings for venues, which are referenced by events."
 msgstr "Configuración de lugares, a los que hacen referencia los eventos."
 
-#: ../vocabularies.py:35
-msgid "Stamen.Terrain"
-msgstr "Stamen - Terreno"
+#: ../browser/venue_base.pt:119
+msgid "Twitter"
+msgstr "X"
 
-#: ../vocabularies.py:36
-msgid "Stamen.TerrainBackground"
-msgstr "Stamen - Fondo del terreno"
+#: ../configure.zcml:92
+msgid "Uninstall profile for Dexterity content type called Venue with geolocation support."
+msgstr "Perfil de desinstalación del tipo de contenido Dexterity llamado Venue con soporte de geolocalización."
 
-#: ../vocabularies.py:31
-msgid "Stamen.Toner"
-msgstr "Stamen - Tóner"
+#: ../configure.zcml:132
+msgid "Uninstall profile for Dexterity content type called Venue without geolocation support."
+msgstr "Perfil de desinstalación del tipo de contenido Dexterity llamado Venue sin soporte de geolocalización."
 
-#: ../vocabularies.py:32
-msgid "Stamen.TonerBackground"
-msgstr "Stamen - Fondo de Tóner"
-
-#: ../vocabularies.py:33
-msgid "Stamen.TonerLite"
-msgstr "Stamen - Tóner Lite"
-
-#: ../vocabularies.py:37
-msgid "Stamen.TopOSMRelief"
-msgstr "Stamen - Relieve Top OSM"
-
-#: ../vocabularies.py:34
-msgid "Stamen.Watercolor"
-msgstr "Stamen - Acuarela"
-
-#: ../vocabularies.py:27
-msgid "Thunderforest.OpenCycleMap"
-msgstr "Thunderforest - Mapa de ciclismo abrierto"
-
-#: ../vocabularies.py:30
-msgid "Thunderforest.Outdoors"
-msgstr "Thunderforest - Al aire libre"
-
-#: ../vocabularies.py:28
-msgid "Thunderforest.Transport"
-msgstr "Thunderforest - Transporte"
-
-#: ../vocabularies.py:29
-msgid "Thunderforest.TransportDark"
-msgstr "Thunderforest - Transporte Oscuro"
-
-#: ../browser/configure.zcml:45
+#: ../browser/configure.zcml:59
 msgid "Venue Display"
 msgstr "Mostrar Lugar"
 
-#: ../configure.zcml:55
+#: ../configure.zcml:71
 msgid "collective.venue base profile"
 msgstr "collective.venue: perfil base"
 
-#: ../configure.zcml:29
+#: ../configure.zcml:31
 msgid "collective.venue event location"
 msgstr "collective.venue: ubicación del evento"
 
-#: ../configure.zcml:35
+#: ../configure.zcml:37
 msgid "collective.venue event organizer"
 msgstr "collective.venue: organizador de eventos"
 
-#: ../configure.zcml:65
+#: ../configure.zcml:82
 msgid "collective.venue with geolocation support"
 msgstr "collective.venue con soporte de geolocalización"
 
-#: ../configure.zcml:75
+#: ../configure.zcml:92
+msgid "collective.venue with geolocation support - uninstall"
+msgstr "collective.venue: desinstalar con soporte de geolocalización."
+
+#: ../configure.zcml:123
 msgid "collective.venue without geolocation support"
 msgstr "collective.venue sin soporte de geolocalización"
 
-#. Default: "Default map layer"
-#: ../interfaces.py:120
-msgid "default_map_layer"
-msgstr "Capa predeterminada para el mapa"
+#: ../configure.zcml:132
+msgid "collective.venue without geolocation support - uninstall"
+msgstr "collective.venue: desinstalar sin soporte de geolocalización."
+
+#: ../configure.zcml:102
+msgid "collective.venue: refactor geolocation settings"
+msgstr "collective.venue: reestructurar la configuración de geolocalización."
 
 #. Default: "Select a location."
 #: ../behaviors.py:30
 msgid "description_event_location"
-msgstr "Seleccione un lugar."
+msgstr "Seleccione una ubicación."
 
 #. Default: "One-time location or additional Information."
-#: ../behaviors.py:51
+#: ../behaviors.py:49
 msgid "description_event_location_notes"
 msgstr "Ubicación única o información adicional."
 
 #. Default: "Select an organizer."
-#: ../behaviors.py:79
+#: ../behaviors.py:78
 msgid "description_event_organizer"
 msgstr "Seleccione un organizador."
 
 #. Default: "One-time organizer or additional Information."
-#: ../behaviors.py:100
+#: ../behaviors.py:97
 msgid "description_event_organizer_notes"
 msgstr "Organizador único o información adicional."
 
-#: ../behaviors.py:59
+#: ../behaviors.py:58
 msgid "fieldset_venue"
 msgstr "Lugar"
 
-#. Default: "Set the default map layer"
-#: ../interfaces.py:124
-msgid "help_default_map_layer"
-msgstr "Establecer la capa predeterminada para el mapa"
-
 #. Default: "Default organizer to be used in events."
-#: ../interfaces.py:89
+#: ../interfaces.py:88
 msgid "help_default_organizer"
 msgstr "Organizador predeterminado para usar en eventos."
 
 #. Default: "Default location to be used in events."
-#: ../interfaces.py:68
+#: ../interfaces.py:67
 msgid "help_default_venue"
-msgstr "Lugar predeterminado para usar en eventos."
-
-#. Default: "If you want to use the Google Maps search API for higher accuracy, you have to provide a Google Maps API key here."
-#: ../interfaces.py:107
-msgid "help_google_api_key"
-msgstr "Si desea utilizar la API de búsqueda de Google Maps para obtener una mayor precisión, debe proporcionar una clave API de Google Maps aquí."
-
-#. Default: "Show a link to the Google Maps site, which can be used for further actions like routing."
-#: ../interfaces.py:114
-msgid "help_google_maps_link"
-msgstr "Muestre un enlace al sitio de Google Maps, que se puede utilizar para otras acciones, como el enrutamiento."
-
-#. Default: "Set the available map layers"
-#: ../interfaces.py:135
-msgid "help_map_layers"
-msgstr "Establecer posibles capas de mapa"
+msgstr "Ubicación predeterminada para usar en eventos."
 
 #. Default: "Additional notes for the address."
-#: ../interfaces.py:26
+#: ../interfaces.py:25
 msgid "help_notes"
 msgstr "Notas adicionales para la dirección"
 
 #. Default: "Path, from which venue types should be searched. Useful for lineage multi sites to separate main from child site venue folders. Keep empty to search anywhere."
-#: ../interfaces.py:44
+#: ../interfaces.py:43
 msgid "help_search_base"
-msgstr "Ruta, a partir de la cual se deben buscar los tipos de lugares. Útil para sitios múltiples lineage para separar las carpetas principales de los sitios secundarios. Mantenga vacío para buscar en cualquier lugar."
+msgstr "Ruta, a partir de la cual se deben buscar los tipos de contenidos Lugar. Útil para sitios múltiples lineage para separar las carpetas principales de los sitios secundarios. Mantenga vacío para buscar en donde quiera."
 
 #. Default: "Address"
 #: ../browser/venue_base.pt:41
@@ -256,12 +163,12 @@ msgid "label_contact"
 msgstr "Contactos"
 
 #. Default: "Default Organizer"
-#: ../interfaces.py:85
+#: ../interfaces.py:84
 msgid "label_default_organizer"
 msgstr "Organizador predeterminado"
 
 #. Default: "Default Location"
-#: ../interfaces.py:64
+#: ../interfaces.py:63
 msgid "label_default_venue"
 msgstr "Ubicación predeterminada"
 
@@ -276,40 +183,27 @@ msgid "label_event_location_notes"
 msgstr "Notas de ubicación"
 
 #. Default: "Organizer"
-#: ../behaviors.py:78
+#: ../behaviors.py:77
 msgid "label_event_organizer"
 msgstr "Organizador"
 
 #. Default: "Organizer notes"
-#: ../behaviors.py:97
+#: ../behaviors.py:96
 msgid "label_event_organizer_notes"
 msgstr "Notas para el organizador"
 
-#. Default: "Google maps API Key"
-#: ../interfaces.py:106
-msgid "label_google_api_key"
-msgstr "API Key de Google Maps"
-
 #. Default: "Open in Google Maps"
-#: ../browser/venue_base.pt:22
-#: ../browser/venue_overlay.pt:18
-#: ../interfaces.py:113
+#: ../browser/venue_base.pt:22 ../browser/venue_overlay.pt:18
 msgid "label_google_maps_link"
 msgstr "Abrir en Google Maps"
 
-#. Default: "Map Layers"
-#: ../interfaces.py:134
-msgid "label_map_layers"
-msgstr "Capas de mapa"
-
 #. Default: "Notes"
-#: ../browser/venue_base.pt:150
-#: ../interfaces.py:22
+#: ../browser/venue_base.pt:150 ../interfaces.py:21
 msgid "label_notes"
 msgstr "Notas"
 
 #. Default: "Location Search Base"
-#: ../interfaces.py:40
+#: ../interfaces.py:39
 msgid "label_search_base"
 msgstr "Base de búsqueda de ubicación"
 
