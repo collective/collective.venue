@@ -60,8 +60,19 @@ Event organizer `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ ca
 
 ----
 
-Venue Display `Tile <https://pypi.org/project/plone.tiles/>`_ for Plone Classic UI.
+Dexterity content type called ``Venue`` with geolocation support.
 
+.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/venue_content_type.png
+    :align: center
+    :height: 1438px
+    :width: 800px
+    :alt: Dexterity content type called 'Venue' with geolocation support
+
+    Dexterity content type called ``Venue`` with geolocation support.
+
+----
+
+Venue Display `Tile <https://pypi.org/project/plone.tiles/>`_ for Plone Classic UI.
 
 Translations
 ============
