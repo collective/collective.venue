@@ -55,7 +55,7 @@ class ILocation(model.Schema, IVenueEnabled, IDXEvent):
     )
     directives.fieldset(
         'venue',
-        label=_(u'fieldset_venue'),
+        label=_(u'fieldset_venue', default=u'Location/Organizer'),
         fields=['location_uid', 'location_notes'],
     )
 
@@ -103,7 +103,7 @@ class IOrganizer(model.Schema, IVenueEnabled):
     )
     directives.fieldset(
         'venue',
-        label=_(u'fieldset_venue'),
+        label=_(u'fieldset_venue', default=u'Location/Organizer'),
         fields=['organizer_uid', 'organizer_notes'],
         order=10,
     )

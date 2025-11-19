@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-11-19 12:47+0000\n"
+"POT-Creation-Date: 2025-11-19 14:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Johannes Raggam <raggam-nl@adm.at>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,6 +125,7 @@ msgstr "Wählen Sie einen Veranstalter"
 msgid "description_event_organizer_notes"
 msgstr "Veranstalter zur einmaligen Verwendung oder Zusatzinformation."
 
+#. Default: "Location/Organizer"
 #: ../behaviors.py:58
 msgid "fieldset_venue"
 msgstr "Ort / Veranstalter"

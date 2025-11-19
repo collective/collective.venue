@@ -3,12 +3,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.venue\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-11-19 12:47+0000\n"
+"POT-Creation-Date: 2025-11-19 14:28+0000\n"
 "PO-Revision-Date: 2025-11-19 13:49+0100\n"
 "Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
 "Language-Team: ES <LL@li.org>\n"
-"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,6 +15,8 @@ msgstr ""
 "Language-Name: Español\n"
 "Preferred-Encodings: utf-8\n"
 "Domain: collective.venue\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: es\n"
 "X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 "X-Generator: Poedit 3.8\n"
 
@@ -128,9 +128,10 @@ msgstr "Seleccione un organizador."
 msgid "description_event_organizer_notes"
 msgstr "Organizador único o información adicional."
 
+#. Default: "Location/Organizer"
 #: ../behaviors.py:58
 msgid "fieldset_venue"
-msgstr "Lugar"
+msgstr "Lugar/Organizador"
 
 #. Default: "Default organizer to be used in events."
 #: ../interfaces.py:88
@@ -193,12 +194,14 @@ msgid "label_event_organizer_notes"
 msgstr "Notas para el organizador"
 
 #. Default: "Open in Google Maps"
-#: ../browser/venue_base.pt:22 ../browser/venue_overlay.pt:18
+#: ../browser/venue_base.pt:22
+#: ../browser/venue_overlay.pt:18
 msgid "label_google_maps_link"
 msgstr "Abrir en Google Maps"
 
 #. Default: "Notes"
-#: ../browser/venue_base.pt:150 ../interfaces.py:21
+#: ../browser/venue_base.pt:150
+#: ../interfaces.py:21
 msgid "label_notes"
 msgstr "Notas"
 
