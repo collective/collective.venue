@@ -14,9 +14,9 @@ Event Venue Settings Control panel.
     :align: center
     :height: 509px
     :width: 800px
-    :alt: The Event Venue Settings control panel
+    :alt: The 'Event Venue Settings' control panel
 
-    The Event Venue Settings control panel.
+    The ``Event Venue Settings`` control panel.
 
 ----
 
@@ -26,7 +26,7 @@ Event location `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ cal
     :align: center
     :height: 41px
     :width: 852px
-    :alt: The Event location Behavior
+    :alt: The 'Event location' Behavior
 
     The ``Event location`` Behavior.
 
@@ -34,7 +34,7 @@ Event location `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ cal
     :align: center
     :height: 321px
     :width: 800px
-    :alt: Using the Event location Behavior into the Document content type
+    :alt: Using the 'Event location' Behavior into the Document content type
 
     Using the ``Event location`` Behavior into the Document content type.
 
@@ -46,15 +46,15 @@ Event organizer `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ ca
     :align: center
     :height: 45px
     :width: 852px
-    :alt: The Event organizer Behavior
+    :alt: The 'Event organizer' Behavior
 
     The ``Event organizer`` Behavior.
 
-.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/iorganizer_behavior.png
+.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/iorganizer_behavior_used.png
     :align: center
     :height: 316px
     :width: 800px
-    :alt: Using the Event organizer Behavior into the Document content type
+    :alt: Using the 'Event organizer' Behavior into the Document content type
 
     Using the ``Event organizer`` Behavior into the Document content type.
 
