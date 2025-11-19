@@ -4,6 +4,9 @@ Changelog
 4.2 (unreleased)
 ----------------
 
+- Updated the add-on documentation.
+  [macagua]
+
 - Changed the control panel icon.
   [macagua]
 

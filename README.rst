@@ -8,10 +8,37 @@ for use with events or any other location specific content.
 Features
 ========
 
-- Event Venue Settings Control panel.
-- Event location `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_venue`.
-- Event organizer `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_organizer`.
-- Venue Display `Tile <https://pypi.org/project/plone.tiles/>`_.
+Event Venue Settings Control panel.
+
+.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/venue_controlpanel.png
+    :align: center
+    :height: 509px
+    :width: 800px
+    :alt: The Event Venue Settings control panel
+
+    The Event Venue Settings control panel.
+
+Event location `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_venue`.
+
+.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/ilocation_behavior.png
+    :align: center
+    :height: 41px
+    :width: 852px
+    :alt: The Event location Behavior
+
+    The ``Event location`` Behavior.
+
+Event organizer `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_organizer`.
+
+.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/iorganizer_behavior.png
+    :align: center
+    :height: 45px
+    :width: 852px
+    :alt: The Event organizer Behavior
+
+    The ``Event organizer`` Behavior.
+
+Venue Display `Tile <https://pypi.org/project/plone.tiles/>`_ for Plone Classic UI.
 
 
 Translations
