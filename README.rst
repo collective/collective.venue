@@ -18,6 +18,8 @@ Event Venue Settings Control panel.
 
     The Event Venue Settings control panel.
 
+----
+
 Event location `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_venue`.
 
 .. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/ilocation_behavior.png
@@ -28,6 +30,16 @@ Event location `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ cal
 
     The ``Event location`` Behavior.
 
+.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/ilocation_behavior_used.png
+    :align: center
+    :height: 321px
+    :width: 800px
+    :alt: Using the Event location Behavior into the Document content type
+
+    Using the ``Event location`` Behavior into the Document content type.
+
+----
+
 Event organizer `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ called `collective.venue.default_organizer`.
 
 .. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/iorganizer_behavior.png
@@ -37,6 +49,16 @@ Event organizer `behavior <https://6.docs.plone.org/backend/behaviors.html>`_ ca
     :alt: The Event organizer Behavior
 
     The ``Event organizer`` Behavior.
+
+.. figure:: https://raw.githubusercontent.com/collective/collective.venue/refs/heads/master/docs/images/iorganizer_behavior.png
+    :align: center
+    :height: 316px
+    :width: 800px
+    :alt: Using the Event organizer Behavior into the Document content type
+
+    Using the ``Event organizer`` Behavior into the Document content type.
+
+----
 
 Venue Display `Tile <https://pypi.org/project/plone.tiles/>`_ for Plone Classic UI.
 
