@@ -1,7 +1,7 @@
 Changelog
 =========
 
-4.2 (unreleased)
+4.2 (2026-06-16)
 ----------------
 
 - Updated the add-on documentation.
