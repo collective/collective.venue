@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<registry>
+
+  <records interface="collective.venue.interfaces.IVenueSettings"
+           prefix="collective.venue"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+           prefix="plone.resources/collective-venue"
+           remove="True"
+  />
+  <records interface="Products.CMFPlone.interfaces.IBundleRegistry"
+           prefix="plone.bundles/collective-venue-bundle"
+           remove="True"
+  />
+
+</registry>

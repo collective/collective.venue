@@ -1,0 +1,161 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.venue"
+    >
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package="plone.app.event" />
+  <include package="collective.address" />
+
+  <configure zcml:condition="installed collective.geolocationbehavior">
+    <include package="collective.geolocationbehavior" />
+    <adapter factory=".geolocation.GeoJSONProperties" />
+  </configure>
+
+  <include package=".browser" />
+
+  <plone:static
+      directory="resources"
+      name="collective.venue"
+      type="plone"
+      />
+
+  <plone:behavior
+      name="venue.locationreference"
+      title="collective.venue event location"
+      provides=".behaviors.ILocation"
+      />
+
+  <plone:behavior
+      name="venue.organizerreference"
+      title="collective.venue event organizer"
+      provides=".behaviors.IOrganizer"
+      />
+
+  <class class="plone.app.event.recurrence.Occurrence">
+    <implements interface=".interfaces.IVenueEnabled" />
+  </class>
+  <adapter
+      factory=".icalexporter.VenueICalendarEventComponent"
+      for=".interfaces.IVenueEnabled"
+      />
+
+
+  <!-- indexer -->
+  <adapter
+      factory=".indexer.searchable_text_indexer"
+      name="SearchableText"
+      />
+  <adapter
+      factory=".indexer.latitude"
+      name="latitude"
+      />
+  <adapter
+      factory=".indexer.longitude"
+      name="longitude"
+      />
+
+
+  <genericsetup:registerProfile
+      name="base"
+      title="collective.venue base profile"
+      description="Install profile for Dexterity content type called Venue."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      directory="profiles/base"
+      i18n:attributes="title description"
+      />
+
+  <configure zcml:condition="installed collective.geolocationbehavior">
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.venue with geolocation support"
+        description="Install profile for Dexterity content type called Venue with geolocation support."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        directory="profiles/default-geolocation"
+        i18n:attributes="title description"
+        />
+
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="collective.venue with geolocation support - uninstall"
+        description="Uninstall profile for Dexterity content type called Venue with geolocation support."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        directory="profiles/uninstall"
+        i18n:attributes="title description"
+        />
+
+    <genericsetup:registerProfile
+        name="geolocation_to_2"
+        title="collective.venue: refactor geolocation settings"
+        description="Install profile for refactor geolocation settings."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        directory="profiles/geolocation_to_2"
+        i18n:attributes="title description"
+        />
+
+    <genericsetup:upgradeDepends
+        title="Refactor geolocation settings"
+        description=""
+        profile="collective.venue:default"
+        source="1"
+        destination="2"
+        import_profile="collective.venue:geolocation_to_2"
+        />
+  </configure>
+
+  <configure zcml:condition="not-installed collective.geolocationbehavior">
+    <genericsetup:registerProfile
+        name="default"
+        title="collective.venue without geolocation support"
+        description="Install profile for Dexterity content type called Venue without geolocation support."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        directory="profiles/default-nogeolocation"
+        i18n:attributes="title description"
+        />
+    <genericsetup:registerProfile
+        name="uninstall"
+        title="collective.venue without geolocation support - uninstall"
+        description="Uninstall profile for Dexterity content type called Venue without geolocation support."
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        directory="profiles/uninstall"
+        i18n:attributes="title description"
+        />
+  </configure>
+
+  <genericsetup:upgradeStep
+      title="Upgrade to Plone 5"
+      description="Migrate resources to new resource registry."
+      profile="collective.venue:base"
+      source="3"
+      destination="4"
+      handler="collective.venue.upgrades.upgrade_3_to_4"
+      />
+  <genericsetup:upgradeStep
+      title="Migrate resources"
+      description="Migrate resources to new version."
+      profile="collective.venue:base"
+      source="4"
+      destination="5"
+      handler="collective.venue.upgrades.upgrade_registry"
+      />
+
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="collective.venue-hiddenprofiles"
+      />
+
+  <adapter factory=".eventaccessor.VenueEventAccessor" />
+
+</configure>
