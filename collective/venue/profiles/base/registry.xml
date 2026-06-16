@@ -4,7 +4,7 @@
   <records interface="collective.venue.interfaces.IVenueSettings"
            prefix="collective.venue" />
 
-  <records prefix="plone.resources/collective-venue" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+  <records prefix="plone.resources/collective-venue" interface='plone.base.interfaces.IResourceRegistry'>
     <value key="js">++plone++collective.venue/locationsearch.js</value>
     <value key="url">++plone++collective.venue</value>
     <value key="css">
@@ -12,14 +12,14 @@
     </value>
   </records>
 
-  <records prefix="plone.resources/collective-venue-bundle" interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+  <records prefix="plone.resources/collective-venue-bundle" interface='plone.base.interfaces.IResourceRegistry'>
     <value key="js">++plone++collective.venue/collective-venue-bundle.js</value>
     <value key="css">
       <element>++plone++collective.venue/styles.less</element>
     </value>
   </records>
 
-  <records prefix="plone.bundles/collective-venue-bundle" interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+  <records prefix="plone.bundles/collective-venue-bundle" interface='plone.base.interfaces.IBundleRegistry'>
     <value key="resources">
       <element>collective-venue-bundle</element>
     </value>
