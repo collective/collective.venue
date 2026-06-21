@@ -10,6 +10,13 @@ Changelog
 4.2 (2026-06-16)
 ----------------
 
+- Fix GenericSetup registry import on Plone 6.2: reference
+  ``plone.base.interfaces.IResourceRegistry`` / ``IBundleRegistry`` instead of
+  the deprecated ``Products.CMFPlone.interfaces`` aliases, which resolve to a
+  ``dict`` at runtime and break profile import with
+  ``AttributeError: 'dict' object has no attribute '__identifier__'``.
+  [jensens]
+
 - Updated the add-on documentation.
   [macagua]
 
