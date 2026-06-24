@@ -14,6 +14,7 @@ from Products.Five.browser import BrowserView
 import json
 import pkg_resources
 
+
 try:
     pkg_resources.get_distribution("collective.geolocationbehavior")
 except pkg_resources.DistributionNotFound:
@@ -25,7 +26,6 @@ else:
 
 
 class VenueView(BrowserView):
-
     def __init__(self, context, request):
         venue_uid = request.get("uid", None)
         if venue_uid:
@@ -62,10 +62,8 @@ class VenueView(BrowserView):
         if not coordinates or not show_link:
             return
 
-        maps_link = (
-            "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(  # noqa
-                coordinates[0], coordinates[1]
-            )
+        maps_link = "https://www.google.com/maps/place/{0}+{1}/@{0},{1},17z".format(
+            coordinates[0], coordinates[1]
         )
         return maps_link
 
@@ -144,40 +142,36 @@ class VenueView(BrowserView):
         data = self.data
 
         address = data.get("address")
-        address_str = ", ".join(
-            [
-                it.strip()
-                for it in [
-                    address.get("street"),
-                    address.get("zip_code", "") + " " + address.get("city", ""),
-                    address.get("country"),
-                ]
-                if it
+        address_str = ", ".join([
+            it.strip()
+            for it in [
+                address.get("street"),
+                address.get("zip_code", "") + " " + address.get("city", ""),
+                address.get("country"),
             ]
-        )
+            if it
+        ])
 
         def _wrap_text(text):
             return f"<p>{text}</p>" if text else None
 
-        popup_text = "".join(
-            [_wrap_text(it) for it in [data.get("description"), address_str] if it]
-        )
+        popup_text = "".join([
+            _wrap_text(it) for it in [data.get("description"), address_str] if it
+        ])
         popup_text = "<h3>" + data.get("title") + "</h3>" + popup_text
 
-        geo_json = json.dumps(
-            {
-                "type": "FeatureCollection",
-                "features": [
-                    {
-                        "type": "Feature",
-                        "id": IUUID(self.context),
-                        "properties": {"popup": popup_text},
-                        "geometry": {
-                            "type": "Point",
-                            "coordinates": [data["longitude"], data["latitude"]],
-                        },
+        geo_json = json.dumps({
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "Feature",
+                    "id": IUUID(self.context),
+                    "properties": {"popup": popup_text},
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [data["longitude"], data["latitude"]],
                     },
-                ],
-            }
-        )
+                },
+            ],
+        })
         return geo_json

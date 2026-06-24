@@ -7,7 +7,6 @@ import json
 
 
 class LocationSearch(BrowserView):
-
     @property
     def google_api_key(self):
         return getrec("geolocation.google_api_key")
@@ -16,9 +15,7 @@ class LocationSearch(BrowserView):
         location = None
         try:
             if self.google_api_key:
-                geolocator = geopy.geocoders.GoogleV3(
-                    api_key=self.google_api_key
-                )  # noqa
+                geolocator = geopy.geocoders.GoogleV3(api_key=self.google_api_key)
                 location = geolocator.geocode(address, exactly_one=True)
             else:
                 geolocator = geopy.geocoders.Nominatim()
@@ -42,9 +39,9 @@ class LocationSearch(BrowserView):
         zip_code = safe_unicode(self.request.form.get("zip_code"))
         country = safe_unicode(self.request.form.get("country"))
 
-        address = ", ".join(
-            [it for it in [street, zip_code + " " + city, country] if it]
-        )
+        address = ", ".join([
+            it for it in [street, zip_code + " " + city, country] if it
+        ])
 
         if address:
             location = self.get_location_info(
@@ -55,9 +52,7 @@ class LocationSearch(BrowserView):
                 # Try without title now
                 location = self.get_location_info(address)
 
-        return json.dumps(
-            {
-                "latitude": getattr(location, "latitude", None),
-                "longitude": getattr(location, "longitude", None),
-            }
-        )
+        return json.dumps({
+            "latitude": getattr(location, "latitude", None),
+            "longitude": getattr(location, "longitude", None),
+        })

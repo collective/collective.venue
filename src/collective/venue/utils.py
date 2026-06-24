@@ -6,6 +6,7 @@ from plone.app.uuid.utils import uuidToPhysicalPath
 from plone.uuid.interfaces import IUUID
 from zope.component.hooks import getSite
 
+
 try:
     from collective.geolocationbehavior.geolocation import IGeolocatable
 except ImportError:
@@ -21,7 +22,7 @@ def get_site(context=None):
 
 
 def get_base_path(context=None):
-    search_base = api.portal.get_registry_record("collective.venue.search_base")  # noqa
+    search_base = api.portal.get_registry_record("collective.venue.search_base")
     path = get_site(context)
     if search_base:
         path = uuidToPhysicalPath(search_base)

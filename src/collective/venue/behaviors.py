@@ -22,7 +22,6 @@ def default_location(context):
 
 @provider(IFormFieldProvider)
 class ILocation(model.Schema, IVenueEnabled, IDXEvent):
-
     location_uid = schema.Choice(
         title=_("label_event_location", default="Location"),
         description=_("description_event_location", default="Select a location."),
@@ -65,7 +64,6 @@ def default_organizer(context):
 
 @provider(IFormFieldProvider)
 class IOrganizer(model.Schema, IVenueEnabled):
-
     organizer_uid = schema.Choice(
         title=_("label_event_organizer", default="Organizer"),
         description=_("description_event_organizer", default="Select an organizer."),

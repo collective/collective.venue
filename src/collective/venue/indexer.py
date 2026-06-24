@@ -51,11 +51,12 @@ def searchable_text_indexer(obj):
     address = address_idx(obj)()  # returns DelegatingIndexer callable
     meta_basic = IBasic(obj)
     venue = IVenue(obj)
-    notes = venue.notes and venue.notes.output_relative_to(obj) or ""
+    notes = (venue.notes and venue.notes.output_relative_to(obj)) or ""
     if notes:
         transforms = getToolByName(obj, "portal_transforms")
         body_plain = (
-            transforms.convertTo(
+            transforms
+            .convertTo(
                 "text/plain",
                 notes,
                 mimetype="text/html",

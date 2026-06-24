@@ -17,19 +17,18 @@ def get_location_ref(obj):
 @indexer(ILocation)
 def latitude(obj):
     loc = get_location_ref(obj)
-    return loc and loc.geolocation.latitude or None
+    return (loc and loc.geolocation.latitude) or None
 
 
 @indexer(ILocation)
 def longitude(obj):
     loc = get_location_ref(obj)
-    return loc and loc.geolocation.longitude or None
+    return (loc and loc.geolocation.longitude) or None
 
 
 @adapter(ILocation)
 @implementer(IGeoJSONProperties)
 class GeoJSONProperties:
-
     def __init__(self, context):
         self.context = context
 
@@ -39,14 +38,10 @@ class GeoJSONProperties:
         if location is None:
             location = self.context
 
-        return """
-<header><a href="{}">{}</a></header>
-<p>{}</p>
-            """.format(
-            self.context.absolute_url(),
-            self.context.title,
-            location.title,
-        )
+        return f"""
+<header><a href="{self.context.absolute_url()}">{self.context.title}</a></header>
+<p>{location.title}</p>
+            """
 
     @property
     def extraClasses(self):

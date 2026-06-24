@@ -2,6 +2,7 @@ from Products.CMFCore.utils import getToolByName
 
 import logging
 
+
 logger = logging.getLogger("collective.venue upgrade")
 PROFILE_ID = "profile-collective.venue:base"
 

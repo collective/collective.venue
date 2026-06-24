@@ -21,7 +21,7 @@ class VenueEventAccessor(EventAccessor):
 
     @property
     def _location_link_template(self):
-        return '<a class="pat-plone-modal" href="{url}" title="{address}">{title}</a>'  # noqa
+        return '<a class="pat-plone-modal" href="{url}" title="{address}">{title}</a>'
 
     @property
     def location(self):
@@ -49,12 +49,10 @@ class VenueEventAccessor(EventAccessor):
             location_path = "/".join(location.getPhysicalPath())
             if site_path not in location_path:
                 # location in different site - cannot directly open it
-                location_url = "{}/@@venue_view?uid={}".format(
-                    site.absolute_url(), location_uid
-                )
+                location_url = f"{site.absolute_url()}/@@venue_view?uid={location_uid}"
 
             country = get_pycountry_name(add.country)
-            ret = self._location_link_template.format(  # noqa
+            ret = self._location_link_template.format(
                 url=location_url,
                 address=join_nonempty(
                     (

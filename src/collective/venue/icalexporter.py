@@ -7,6 +7,7 @@ from plone.app.uuid.utils import uuidToObject
 from plone.event.interfaces import IICalendarEventComponent
 from zope.interface import implementer
 
+
 try:
     from collective.geolocationbehavior.geolocation import IGeolocatable
 except ImportError:

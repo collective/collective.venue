@@ -4,7 +4,6 @@ from plone.app.registry.browser import controlpanel
 
 
 class VenueControlPanelForm(controlpanel.RegistryEditForm):
-
     id = "VenueControlPanel"
     schema = IVenueSettings
     schema_prefix = "collective.venue"
