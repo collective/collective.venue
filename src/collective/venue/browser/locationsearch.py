@@ -21,7 +21,7 @@ class LocationSearch(BrowserView):
                 geolocator = geopy.geocoders.Nominatim()
                 location = geolocator.geocode(address, exactly_one=True)
         except:  # noqa: E722
-            pass
+            return location
 
         return location
 
