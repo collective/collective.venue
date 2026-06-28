@@ -6,7 +6,6 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.event.dx.behaviors import EventAccessor
 from plone.app.uuid.utils import uuidToObject
 from plone.event.interfaces import IEventAccessor
-from Products.CMFPlone.utils import safe_unicode
 from zope.component import adapter
 from zope.component.hooks import getSite
 from zope.interface import implementer
@@ -65,9 +64,6 @@ class VenueEventAccessor(EventAccessor):
                 title=meta_basic.title,
             )
 
-        ret = safe_unicode(ret)
-        location_notes = safe_unicode(location_notes)
-
         ret = join_nonempty([ret, location_notes], ". ")
 
         return ret
@@ -75,4 +71,4 @@ class VenueEventAccessor(EventAccessor):
     @location.setter
     def location(self, value):
         acc = ILocation(self.context)
-        acc.location_notes = safe_unicode(value)
+        acc.location_notes = value

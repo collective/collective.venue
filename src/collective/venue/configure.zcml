@@ -66,7 +66,7 @@
       title="collective.venue base profile"
       description="Install profile for Dexterity content type called Venue."
       provides="Products.GenericSetup.interfaces.EXTENSION"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.siteroot.IPloneSiteRoot"
       directory="profiles/base"
       i18n:attributes="title description"
       />
@@ -77,7 +77,7 @@
         title="collective.venue with geolocation support"
         description="Install profile for Dexterity content type called Venue with geolocation support."
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        for="plone.base.interfaces.siteroot.IPloneSiteRoot"
         directory="profiles/default-geolocation"
         i18n:attributes="title description"
         />
@@ -87,7 +87,7 @@
         title="collective.venue with geolocation support - uninstall"
         description="Uninstall profile for Dexterity content type called Venue with geolocation support."
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        for="plone.base.interfaces.siteroot.IPloneSiteRoot"
         directory="profiles/uninstall"
         i18n:attributes="title description"
         />
@@ -97,7 +97,7 @@
         title="collective.venue: refactor geolocation settings"
         description="Install profile for refactor geolocation settings."
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        for="plone.base.interfaces.siteroot.IPloneSiteRoot"
         directory="profiles/geolocation_to_2"
         i18n:attributes="title description"
         />
@@ -118,7 +118,7 @@
         title="collective.venue without geolocation support"
         description="Install profile for Dexterity content type called Venue without geolocation support."
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        for="plone.base.interfaces.siteroot.IPloneSiteRoot"
         directory="profiles/default-nogeolocation"
         i18n:attributes="title description"
         />
@@ -127,7 +127,7 @@
         title="collective.venue without geolocation support - uninstall"
         description="Uninstall profile for Dexterity content type called Venue without geolocation support."
         provides="Products.GenericSetup.interfaces.EXTENSION"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        for="plone.base.interfaces.siteroot.IPloneSiteRoot"
         directory="profiles/uninstall"
         i18n:attributes="title description"
         />

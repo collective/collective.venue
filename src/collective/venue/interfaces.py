@@ -2,7 +2,7 @@ from collective.venue import _
 from collective.venue.utils import get_base_path
 from collective.venue.utils import get_site
 from plone.app.textfield import RichText
-from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.app.z3cform.widgets.contentbrowser import ContentBrowserFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.directives import order_after
 from plone.autoform.interfaces import IFormFieldProvider
@@ -42,7 +42,7 @@ class IVenueSettings(Interface):
     )
     form.widget(
         "search_base",
-        RelatedItemsFieldWidget,
+        ContentBrowserFieldWidget,
         pattern_options={
             "selectableTypes": ["Folder"],  # better: is_folderish
             "basePath": get_site,
@@ -58,7 +58,7 @@ class IVenueSettings(Interface):
     )
     form.widget(
         "default_venue",
-        RelatedItemsFieldWidget,
+        ContentBrowserFieldWidget,
         pattern_options={
             "selectableTypes": ["Venue"],
             "basePath": get_base_path,
@@ -76,7 +76,7 @@ class IVenueSettings(Interface):
     )
     form.widget(
         "default_organizer",
-        RelatedItemsFieldWidget,
+        ContentBrowserFieldWidget,
         pattern_options={
             "selectableTypes": ["Venue"],
             "basePath": get_base_path,

@@ -5,11 +5,11 @@
            prefix="collective.venue"
            remove="True"
   />
-  <records interface="Products.CMFPlone.interfaces.IResourceRegistry"
+  <records interface="plone.base.interfaces.resources.IResourceRegistry"
            prefix="plone.resources/collective-venue"
            remove="True"
   />
-  <records interface="Products.CMFPlone.interfaces.IBundleRegistry"
+  <records interface="plone.base.interfaces.resources.IBundleRegistry"
            prefix="plone.bundles/collective-venue-bundle"
            remove="True"
   />

@@ -74,7 +74,7 @@
 
   <browser:page
       name="venue-controlpanel"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      for="plone.base.interfaces.siteroot.IPloneSiteRoot"
       class=".controlpanel.VenueControlPanel"
       permission="plone.app.controlpanel.Site"
       layer="collective.venue.interfaces.IVenueLayer"

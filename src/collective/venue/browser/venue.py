@@ -5,10 +5,9 @@ from collective.address.vocabulary import get_pycountry_name
 from collective.venue import _
 from plone.api.portal import get_registry_record as getrec
 from plone.app.uuid.utils import uuidToObject
+from plone.base.utils import get_top_request
 from plone.uuid.interfaces import IUUID
 from Products.CMFPlone.resources import add_bundle_on_request
-from Products.CMFPlone.utils import get_top_request
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 
 import json
@@ -47,12 +46,12 @@ class VenueView(BrowserView):
 
     @property
     def title(self):
-        title = safe_unicode(getattr(self.context, "title", ""))
+        title = getattr(self.context, "title", "")
         return title
 
     @property
     def description(self):
-        description = safe_unicode(getattr(self.context, "description", ""))
+        description = getattr(self.context, "description", "")
         return description
 
     @property

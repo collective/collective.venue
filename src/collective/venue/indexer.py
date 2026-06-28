@@ -5,23 +5,6 @@ from plone.app.dexterity.behaviors.metadata import IBasic
 from plone.app.uuid.utils import uuidToObject
 from plone.indexer import indexer
 from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-
-import six
-
-
-def _concat_and_utf8(*args):
-    """Concats args with spaces between and returns utf-8 string, it does not
-    matter if input was unicode or str.
-    Taken from ``plone.app.contenttypes.indexers``
-    """
-    result = ""
-    for value in args:
-        if six.PY2 and isinstance(value, str):
-            value = value.encode("utf-8", "replace")
-        if value:
-            result = " ".join((result, value))
-    return result
 
 
 # Index lat/lng of ILocation behavior providing objects like Events.
@@ -65,11 +48,12 @@ def searchable_text_indexer(obj):
             .strip()
         )
         notes = body_plain
+
     parts = [
-        safe_unicode(address),
-        safe_unicode(meta_basic.title),
-        safe_unicode(meta_basic.description),
-        safe_unicode(notes),
+        address,
+        meta_basic.title,
+        meta_basic.description,
+        notes,
     ]
-    ret = _concat_and_utf8(*parts)
+    ret = " ".join([part for part in parts if part])
     return ret

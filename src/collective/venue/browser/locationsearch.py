@@ -1,5 +1,4 @@
 from plone.api.portal import get_registry_record as getrec
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 
 import geopy
@@ -33,11 +32,11 @@ class LocationSearch(BrowserView):
 
         location = None
 
-        title = safe_unicode(self.request.form.get("title"))
-        street = safe_unicode(self.request.form.get("street"))
-        city = safe_unicode(self.request.form.get("city"))
-        zip_code = safe_unicode(self.request.form.get("zip_code"))
-        country = safe_unicode(self.request.form.get("country"))
+        title = self.request.form.get("title")
+        street = self.request.form.get("street")
+        city = self.request.form.get("city")
+        zip_code = self.request.form.get("zip_code")
+        country = self.request.form.get("country")
 
         address = ", ".join([
             it for it in [street, zip_code + " " + city, country] if it

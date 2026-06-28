@@ -3,7 +3,7 @@ from collective.venue.interfaces import IVenueEnabled
 from collective.venue.utils import get_base_path
 from plone import api
 from plone.app.event.dx.interfaces import IDXEvent
-from plone.app.z3cform.widget import RelatedItemsFieldWidget
+from plone.app.z3cform.widgets.contentbrowser import ContentBrowserFieldWidget
 from plone.autoform import directives as form
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import directives
@@ -32,7 +32,7 @@ class ILocation(model.Schema, IVenueEnabled, IDXEvent):
     )
     form.widget(
         "location_uid",
-        RelatedItemsFieldWidget,
+        ContentBrowserFieldWidget,
         pattern_options={
             "selectableTypes": ["Venue"],
             "basePath": get_base_path,
@@ -74,7 +74,7 @@ class IOrganizer(model.Schema, IVenueEnabled):
     )
     form.widget(
         "organizer_uid",
-        RelatedItemsFieldWidget,
+        ContentBrowserFieldWidget,
         pattern_options={
             "selectableTypes": ["Venue"],
             "basePath": get_base_path,
