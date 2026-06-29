@@ -6,7 +6,7 @@ on:
       python-version:
         required: false
         type: string
-        default: "3.13"
+        default: "3.14"
       plone-version:
         required: false
         type: string
@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Compute several vars needed for the CI
         id: vars
@@ -47,7 +47,7 @@ jobs:
           echo "base-tag=sha-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
           echo "plone-version=${{ inputs.plone-version }}" >> $GITHUB_OUTPUT
 
-      - uses: dorny/paths-filter@v3.0.2
+      - uses: dorny/paths-filter@v4.0.1
         id: filter
         with:
           filters: |
