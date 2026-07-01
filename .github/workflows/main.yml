@@ -18,7 +18,6 @@ jobs:
     with:
       python-version: ${{ needs.config.outputs.python-version }}
       plone-version: ${{ needs.config.outputs.plone-version }}
-      version-check-python: "--only pyproject.toml"
 
   test:
     name: "Backend: Test"
