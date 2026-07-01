@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      lang="en"
+      metal:use-macro="context/@@main_template/macros/master"
+      xml:lang="en"
+      i18n:domain="collective.venue"
+>
+  <body>
+
+    <metal:content-core fill-slot="content-core">
+      <metal:block define-macro="content-core">
+
+        <div class="venue_overlay"
+             tal:define="
+               data view/data;
+               geojson view/data_geojson;
+             "
+             tal:condition="geojson"
+        >
+          <div class="pat-leaflet"
+               data-geojson="${geojson}"
+               data-pat-leaflet="${view/map_configuration}"
+          ></div>
+
+          <div class="documentByLine">
+            <tal:if tal:define="
+                      google_maps_link view/google_maps_link;
+                    "
+                    tal:condition="google_maps_link"
+            >
+              <a target="_blank"
+                 title="Open in Google Maps"
+                 tal:attributes="
+                   href google_maps_link;
+                 "
+                 i18n:attributes="title"
+                 i18n:translate="label_google_maps_link"
+              >Open in Google Maps</a>
+      &mdash;
+            </tal:if>
+            <dfn i18n:domain="collective.geolocationbehavior"
+                 i18n:translate=""
+            >Geolocation</dfn>
+            <span class="latitude">
+              <span i18n:domain="plone.formwidget.geolocation"
+                    i18n:translate="label_latitude"
+              >Latitude</span>:
+              <span i18n:ignore="">${data/latitude}</span>
+            </span>
+            <span class="longitude">
+              <span i18n:domain="plone.formwidget.geolocation"
+                    i18n:translate="label_longitude"
+              >Longitude</span>:
+              <span i18n:ignore="">${data/longitude}</span>
+            </span>
+          </div>
+        </div>
+
+      </metal:block>
+    </metal:content-core>
+
+  </body>
+</html>

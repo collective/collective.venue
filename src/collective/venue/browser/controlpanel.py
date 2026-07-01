@@ -1,0 +1,16 @@
+from collective.venue import _
+from collective.venue.interfaces import IVenueSettings
+from plone.app.registry.browser import controlpanel
+
+
+class VenueControlPanelForm(controlpanel.RegistryEditForm):
+    id = "VenueControlPanel"
+    schema = IVenueSettings
+    schema_prefix = "collective.venue"
+
+    label = _("Event Venue Settings")
+    description = _("Settings for venues, which are referenced by events.")
+
+
+class VenueControlPanel(controlpanel.ControlPanelFormWrapper):
+    form = VenueControlPanelForm
