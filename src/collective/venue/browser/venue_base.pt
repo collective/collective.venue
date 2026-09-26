@@ -1,0 +1,258 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      lang="en"
+      xml:lang="en"
+      tal:omit-tag=""
+      i18n:domain="collective.venue"
+>
+
+  <tal:def define="
+             data view/data;
+             address data/address|nothing;
+             contact data/contact|nothing;
+             social data/social|nothing;
+           ">
+
+    <div class="venueview">
+
+      <tal:geo tal:define="
+                 geojson view/data_geojson;
+               "
+               tal:condition="geojson"
+      >
+        <section class="map">
+          <div class="pat-leaflet"
+               data-geojson="${geojson}"
+               data-pat-leaflet="${view/map_configuration}"
+          ></div>
+
+          <div class="documentByLine">
+            <tal:if tal:define="
+                      google_maps_link view/google_maps_link;
+                    "
+                    tal:condition="google_maps_link"
+            >
+              <a target="_blank"
+                 tal:attributes="
+                   href google_maps_link;
+                 "
+                 i18n:translate="label_google_maps_link"
+              >Open in Google Maps</a>
+        &mdash;
+            </tal:if>
+            <dfn i18n:domain="collective.geolocationbehavior"
+                 i18n:translate=""
+            >Geolocation</dfn>
+            <span class="latitude">
+              <span i18n:domain="plone.formwidget.geolocation"
+                    i18n:translate="label_latitude"
+              >Latitude</span>:
+              <span i18n:ignore="">${data/latitude}</span>
+            </span>
+            <span class="longitude">
+              <span i18n:domain="plone.formwidget.geolocation"
+                    i18n:translate="label_longitude"
+              >Longitude</span>:
+              <span i18n:ignore="">${data/longitude}</span>
+            </span>
+          </div>
+        </section>
+      </tal:geo>
+
+      <tal:if condition="address">
+        <section class="address">
+          <heading>
+            <h3 i18n:translate="label_address">Address</h3>
+          </heading>
+          <address>
+            <dl>
+              <tal:if condition="address/street|nothing">
+                <dt class="street"
+                    i18n:domain="collective.address"
+                    i18n:translate="label_street"
+                >Street</dt>
+                <dd class="street">${address/street}</dd>
+              </tal:if>
+
+              <tal:if condition="address/zip_code|nothing">
+                <dt class="zip_code"
+                    i18n:domain="collective.address"
+                    i18n:translate="label_zip_code"
+                >Zip</dt>
+                <dd class="zip_code">${address/zip_code}</dd>
+              </tal:if>
+
+              <tal:if condition="address/city|nothing">
+                <dt class="city"
+                    i18n:domain="collective.address"
+                    i18n:translate="label_city"
+                >City</dt>
+                <dd class="city">${address/city}</dd>
+              </tal:if>
+
+              <tal:if condition="address/country|nothing">
+                <dt class="country"
+                    i18n:domain="collective.address"
+                    i18n:translate="label_country"
+                >Country</dt>
+                <dd class="country">${address/country}</dd>
+              </tal:if>
+            </dl>
+          </address>
+        </section>
+      </tal:if>
+
+      <tal:if condition="contact">
+        <section class="contact">
+          <heading>
+            <h3 i18n:translate="label_contact">Contact</h3>
+          </heading>
+          <dl>
+            <tal:if condition="contact/email|nothing">
+              <dt class="email"
+                  i18n:domain="collective.address"
+                  i18n:translate="label_email"
+              >Email</dt>
+              <dd class="email"><a href="mailto:${contact/email}">${contact/email}</a></dd>
+            </tal:if>
+
+            <tal:if condition="contact/web|nothing">
+              <dt class="web"
+                  i18n:domain="collective.address"
+                  i18n:translate="label_web"
+              >Web</dt>
+              <dd class="web"><a href="${contact/web}">${contact/web}</a></dd>
+            </tal:if>
+
+            <tal:if condition="contact/phone|nothing">
+              <dt class="phone"
+                  i18n:domain="collective.address"
+                  i18n:translate="label_phone"
+              >Phone</dt>
+              <dd class="phone"><a href="tel:${contact/phone}">${contact/phone}</a></dd>
+            </tal:if>
+
+            <tal:if condition="contact/mobile|nothing">
+              <dt class="mobile"
+                  i18n:domain="collective.address"
+                  i18n:translate="label_mobile"
+              >Mobile</dt>
+              <dd class="mobile"><a href="tel:${contact/mobile}">${contact/mobile}</a></dd>
+            </tal:if>
+
+            <tal:if condition="contact/fax|nothing">
+              <dt class="fax"
+                  i18n:domain="collective.address"
+                  i18n:translate="label_fax"
+              >Fax</dt>
+              <dd class="fax">${contact/fax}</dd>
+            </tal:if>
+          </dl>
+        </section>
+      </tal:if>
+
+      <tal:if condition="social">
+        <section class="social">
+          <heading>
+            <h3 i18n:translate="label_social">Social Media</h3>
+          </heading>
+          <dl>
+            <tal:if condition="social/facebook|nothing">
+              <dt class="facebook"
+                  i18n:translate=""
+              >Facebook</dt>
+              <dd class="facebook">
+                <a class="facebook"
+                   href="${social/facebook}"
+                   title="Facebook"
+                   i18n:attributes="title"
+                >
+                  <img alt="Facebook"
+                       height="32"
+                       src="++resource++collective.venue/facebook.svg"
+                       width="32"
+                       i18n:attributes="alt"
+                  />
+                </a>
+              </dd>
+            </tal:if>
+
+            <tal:if condition="social/twitter|nothing">
+              <dt class="twitter"
+                  i18n:translate=""
+              >Twitter</dt>
+              <dd class="twitter">
+                <a class="twitter"
+                   href="${social/twitter}"
+                   title="Twitter"
+                   i18n:attributes="title"
+                >
+                  <img alt="Twitter"
+                       height="32"
+                       src="++resource++collective.venue/twitter.svg"
+                       width="32"
+                       i18n:attributes="alt"
+                  />
+                </a>
+              </dd>
+            </tal:if>
+
+            <tal:if condition="social/google_plus|nothing">
+              <dt class="google_plus"
+                  i18n:translate=""
+              >Google Plus</dt>
+              <dd class="google_plus">
+                <a class="google_plus"
+                   href="${social/google_plus}"
+                   title="Google Plus"
+                   i18n:attributes="title"
+                >
+                  <img alt="Google Plus"
+                       height="32"
+                       src="++resource++collective.venue/google-plus.svg"
+                       width="32"
+                       i18n:attributes="alt"
+                  />
+                </a>
+              </dd>
+            </tal:if>
+
+            <tal:if condition="social/instagram|nothing">
+              <dt class="instagram"
+                  i18n:translate=""
+              >Instagram</dt>
+              <dd class="instagram">
+                <a class="instagram"
+                   href="${social/instagram}"
+                   title="Instagram"
+                   i18n:attributes="title"
+                >
+                  <img alt="Instagram"
+                       height="32"
+                       src="++resource++collective.venue/instagram.svg"
+                       width="32"
+                       i18n:attributes="alt"
+                  />
+                </a>
+              </dd>
+            </tal:if>
+          </dl>
+        </section>
+      </tal:if>
+
+      <section class="notes"
+               tal:condition="address/notes|nothing"
+      >
+        <heading>
+          <h3 i18n:translate="label_notes">Notes</h3>
+        </heading>
+        <p tal:content="structure address/notes">Venue notes</p>
+      </section>
+
+    </div>
+
+  </tal:def>
+
+</html>
