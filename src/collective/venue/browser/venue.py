@@ -11,17 +11,12 @@ from Products.CMFPlone.resources import add_bundle_on_request
 from Products.Five.browser import BrowserView
 
 import json
-import pkg_resources
 
 
 try:
-    pkg_resources.get_distribution("collective.geolocationbehavior")
-except pkg_resources.DistributionNotFound:
-    HAS_GEOLOCATION = False
-else:
     from collective.geolocationbehavior.geolocation import IGeolocatable
-
-    HAS_GEOLOCATION = True
+except ImportError:
+    IGeolocatable = None
 
 
 class VenueView(BrowserView):
@@ -78,7 +73,7 @@ class VenueView(BrowserView):
 
     @property
     def data_coordinates(self):
-        if not HAS_GEOLOCATION:
+        if not IGeolocatable:
             return
         geo = IGeolocatable(self.context, None)
         if not geo:
