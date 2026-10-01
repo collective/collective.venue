@@ -4,7 +4,9 @@ Changelog
 4.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix AttributeError in the iCalendar GEO export for events with a location
+  when the optional ``collective.venue[geolocation]`` extra isn't installed.
+  [afonsojanu]
 
 
 4.2 (2026-06-16)
