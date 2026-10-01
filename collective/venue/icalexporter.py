@@ -72,7 +72,7 @@ class VenueICalendarEventComponent(ICalendarEventComponent):
         ref = ILocation(self.context)
         item = uuidToObject(ref.location_uid)
 
-        if not IGeolocatable.providedBy(item):
+        if IGeolocatable is None or not IGeolocatable.providedBy(item):
             return super(VenueICalendarEventComponent, self).geo
 
         geo = IGeolocatable(item, None)
