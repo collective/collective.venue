@@ -1,4 +1,10 @@
 from collective.venue import PACKAGE_NAME
+from importlib.util import find_spec
+
+
+# configure.zcml registers a different default profile when the optional
+# geolocation extra is installed.
+HAS_GEOLOCATION = find_spec("collective.geolocationbehavior") is not None
 
 
 class TestSetupInstall:
@@ -14,4 +20,5 @@ class TestSetupInstall:
 
     def test_latest_version(self, profile_last_version):
         """Test latest version of default profile."""
-        assert profile_last_version(f"{PACKAGE_NAME}:default") == "1"
+        expected = "2" if HAS_GEOLOCATION else "1"
+        assert profile_last_version(f"{PACKAGE_NAME}:default") == expected
