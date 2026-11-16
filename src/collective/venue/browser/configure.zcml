@@ -1,0 +1,92 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="collective.venue"
+    >
+
+  <browser:page
+      name="base_venue_view"
+      for="*"
+      class=".venue.VenueView"
+      template="venue_base.pt"
+      permission="zope2.View"
+      layer="..interfaces.IVenueLayer"
+      />
+
+  <browser:page
+      name="venue_view"
+      for="*"
+      class=".venue.VenueView"
+      template="venue.pt"
+      permission="zope2.View"
+      layer="..interfaces.IVenueLayer"
+      />
+
+  <browser:page
+      name="venue_overlay"
+      for="*"
+      class=".venue.VenueView"
+      template="venue_overlay.pt"
+      permission="zope2.View"
+      layer="..interfaces.IVenueLayer"
+      />
+
+  <browser:page
+      name="event_summary"
+      for="collective.venue.behaviors.ILocation"
+      class="plone.app.event.browser.event_summary.EventSummaryView"
+      template="event_summary.pt"
+      permission="zope2.View"
+      />
+
+  <plone:portletRenderer
+      portlet="plone.app.event.portlets.portlet_events.IEventsPortlet"
+      template="portlet_events.pt"
+      layer="..interfaces.IVenueLayer"
+      />
+
+  <configure zcml:condition="installed plone.tiles">
+    <include
+        package="plone.tiles"
+        file="meta.zcml"
+        />
+    <plone:tile
+        name="collective.venue.venuetile"
+        title="Venue Display"
+        for="*"
+        class=".venuetile.VenueTile"
+        template="venue_base.pt"
+        permission="zope2.View"
+        add_permission="cmf.ModifyPortalContent"
+        />
+  </configure>
+
+  <configure zcml:condition="installed geopy">
+    <browser:page
+        name="locationsearch"
+        for="*"
+        class=".locationsearch.LocationSearch"
+        permission="cmf.AddPortalContent"
+        />
+  </configure>
+
+  <browser:page
+      name="venue-controlpanel"
+      for="plone.base.interfaces.siteroot.IPloneSiteRoot"
+      class=".controlpanel.VenueControlPanel"
+      permission="plone.app.controlpanel.Site"
+      layer="collective.venue.interfaces.IVenueLayer"
+      />
+  <configure zcml:condition="installed collective.lineage">
+    <browser:page
+        name="venue-controlpanel"
+        for="collective.lineage.interfaces.IChildSite"
+        class=".controlpanel.VenueControlPanel"
+        permission="plone.app.controlpanel.Site"
+        layer="collective.venue.interfaces.IVenueLayer"
+        />
+  </configure>
+
+</configure>
