@@ -171,7 +171,7 @@
                 >
                   <img alt="Facebook"
                        height="32"
-                       src="++resource++collective.venue/facebook.svg"
+                       src="++plone++collective.venue/facebook.svg"
                        width="32"
                        i18n:attributes="alt"
                   />
@@ -191,7 +191,7 @@
                 >
                   <img alt="Twitter"
                        height="32"
-                       src="++resource++collective.venue/twitter.svg"
+                       src="++plone++collective.venue/twitter.svg"
                        width="32"
                        i18n:attributes="alt"
                   />
@@ -211,7 +211,7 @@
                 >
                   <img alt="Google Plus"
                        height="32"
-                       src="++resource++collective.venue/google-plus.svg"
+                       src="++plone++collective.venue/google-plus.svg"
                        width="32"
                        i18n:attributes="alt"
                   />
@@ -231,7 +231,7 @@
                 >
                   <img alt="Instagram"
                        height="32"
-                       src="++resource++collective.venue/instagram.svg"
+                       src="++plone++collective.venue/instagram.svg"
                        width="32"
                        i18n:attributes="alt"
                   />
