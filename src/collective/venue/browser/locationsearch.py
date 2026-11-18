@@ -21,10 +21,15 @@ class LocationSearch(BrowserView):
         location = None
         try:
             if self.google_api_key:
-                geolocator = geopy.geocoders.GoogleV3(api_key=self.google_api_key)
+                geolocator = geopy.geocoders.GoogleV3(
+                    user_agent="collective.venue",
+                    api_key=self.google_api_key,
+                )
                 location = geolocator.geocode(address, exactly_one=True)
             else:
-                geolocator = geopy.geocoders.Nominatim()
+                geolocator = geopy.geocoders.ArcGIS(
+                    user_agent="collective.venue",
+                )
                 location = geolocator.geocode(address, exactly_one=True)
         except:  # noqa: E722
             return location
