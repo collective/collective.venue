@@ -149,6 +149,14 @@
       destination="5"
       handler="collective.venue.upgrades.upgrade_registry"
       />
+  <genericsetup:upgradeStep
+      title="Modernize resources"
+      description="Replace the Plone 5 RequireJS/LESS resources with the webpack module federation bundle."
+      profile="collective.venue:base"
+      source="5"
+      destination="6"
+      handler="collective.venue.upgrades.upgrade_5_to_6"
+      />
 
 
   <utility
