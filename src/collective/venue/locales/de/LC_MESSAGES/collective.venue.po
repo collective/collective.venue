@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-11-19 14:28+0000\n"
+"POT-Creation-Date: 2026-11-17 23:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Johannes Raggam <raggam-nl@adm.at>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,197 +17,205 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.venue\n"
 
-#: ../browser/controlpanel.py:13
+#: ../browser/locationsearch.py:12
+msgid "Could not find an address."
+msgstr "Die Adresse konnte nicht gefunden werden."
+
+#: ../browser/controlpanel.py:11
 msgid "Event Venue Settings"
 msgstr "Veranstaltungsort Einstellungen"
 
-#: ../browser/venue_base.pt:110
+#: ../browser/venue_base.pt:163
 msgid "Facebook"
 msgstr ""
 
-#: ../browser/venue_base.pt:128
+#: ../browser/venue_base.pt:203
 msgid "Google Plus"
 msgstr ""
 
-#: ../browser/venue_base.pt:137
+#: ../browser/venue_base.pt:223
 msgid "Instagram"
 msgstr ""
 
-#: ../configure.zcml:82
+#: ../configure.zcml:83
 msgid "Install profile for Dexterity content type called Venue with geolocation support."
 msgstr ""
 
-#: ../configure.zcml:123
+#: ../configure.zcml:124
 msgid "Install profile for Dexterity content type called Venue without geolocation support."
 msgstr ""
 
-#: ../configure.zcml:71
+#: ../configure.zcml:72
 msgid "Install profile for Dexterity content type called Venue."
 msgstr ""
 
-#: ../configure.zcml:102
+#: ../configure.zcml:103
 msgid "Install profile for refactor geolocation settings."
 msgstr ""
 
-#: ../browser/venue_overlay.pt:18
+#: ../browser/venue_overlay.pt:33
 msgid "Open in Google Maps"
 msgstr ""
 
-#: ../browser/controlpanel.py:14
+#: ../browser/locationsearch.py:11
+msgid "Search location"
+msgstr "Ort suchen"
+
+#: ../browser/controlpanel.py:12
 msgid "Settings for venues, which are referenced by events."
 msgstr "Einstellungen für Veranstaltungsorte."
 
-#: ../browser/venue_base.pt:119
+#: ../browser/venue_base.pt:183
 msgid "Twitter"
 msgstr ""
 
-#: ../configure.zcml:92
+#: ../configure.zcml:93
 msgid "Uninstall profile for Dexterity content type called Venue with geolocation support."
 msgstr ""
 
-#: ../configure.zcml:132
+#: ../configure.zcml:133
 msgid "Uninstall profile for Dexterity content type called Venue without geolocation support."
 msgstr ""
 
-#: ../browser/configure.zcml:59
+#: ../browser/configure.zcml:63
 msgid "Venue Display"
 msgstr ""
 
-#: ../configure.zcml:71
+#: ../configure.zcml:72
 msgid "collective.venue base profile"
 msgstr ""
 
-#: ../configure.zcml:31
+#: ../configure.zcml:32
 msgid "collective.venue event location"
 msgstr ""
 
-#: ../configure.zcml:37
+#: ../configure.zcml:38
 msgid "collective.venue event organizer"
 msgstr ""
 
-#: ../configure.zcml:82
+#: ../configure.zcml:83
 msgid "collective.venue with geolocation support"
 msgstr ""
 
-#: ../configure.zcml:92
+#: ../configure.zcml:93
 msgid "collective.venue with geolocation support - uninstall"
 msgstr ""
 
-#: ../configure.zcml:123
+#: ../configure.zcml:124
 msgid "collective.venue without geolocation support"
 msgstr ""
 
-#: ../configure.zcml:132
+#: ../configure.zcml:133
 msgid "collective.venue without geolocation support - uninstall"
 msgstr ""
 
-#: ../configure.zcml:102
+#: ../configure.zcml:103
 msgid "collective.venue: refactor geolocation settings"
 msgstr ""
 
 #. Default: "Select a location."
-#: ../behaviors.py:30
+#: ../behaviors.py:27
 msgid "description_event_location"
 msgstr "Wählen Sie einen einen Ort"
 
 #. Default: "One-time location or additional Information."
-#: ../behaviors.py:49
+#: ../behaviors.py:44
 msgid "description_event_location_notes"
 msgstr "Ort zur einmaligen Verwendung oder Zusatzinformation"
 
 #. Default: "Select an organizer."
-#: ../behaviors.py:78
+#: ../behaviors.py:69
 msgid "description_event_organizer"
 msgstr "Wählen Sie einen Veranstalter"
 
 #. Default: "One-time organizer or additional Information."
-#: ../behaviors.py:97
+#: ../behaviors.py:86
 msgid "description_event_organizer_notes"
 msgstr "Veranstalter zur einmaligen Verwendung oder Zusatzinformation."
 
 #. Default: "Location/Organizer"
-#: ../behaviors.py:58
+#: ../behaviors.py:53
 msgid "fieldset_venue"
 msgstr "Ort / Veranstalter"
 
 #. Default: "Default organizer to be used in events."
-#: ../interfaces.py:88
+#: ../interfaces.py:70
 msgid "help_default_organizer"
 msgstr "Veranstalter, der als Standardwert verwendet werden soll."
 
 #. Default: "Default location to be used in events."
-#: ../interfaces.py:67
+#: ../interfaces.py:54
 msgid "help_default_venue"
 msgstr "Ort, der als Standardwert verwendet werden soll."
 
 #. Default: "Additional notes for the address."
-#: ../interfaces.py:25
+#: ../interfaces.py:22
 msgid "help_notes"
 msgstr "Zusatzinformation zur Adresse"
 
 #. Default: "Path, from which venue types should be searched. Useful for lineage multi sites to separate main from child site venue folders. Keep empty to search anywhere."
-#: ../interfaces.py:43
+#: ../interfaces.py:33
 msgid "help_search_base"
 msgstr "Pfad, in dem die Ort/ Veranstalter Inhaltstypen gesucht werden sollen. Dies ist brauchbar für Lineage Multis-Webseiten um die Veranstalter und Orte der Seiten zu trennen. Leer lassen um überall zu suchen."
 
 #. Default: "Address"
-#: ../browser/venue_base.pt:41
+#: ../browser/venue_base.pt:67
 msgid "label_address"
 msgstr "Adresse"
 
 #. Default: "Contact"
-#: ../browser/venue_base.pt:72
+#: ../browser/venue_base.pt:110
 msgid "label_contact"
 msgstr "Kontakt"
 
 #. Default: "Default Organizer"
-#: ../interfaces.py:84
+#: ../interfaces.py:69
 msgid "label_default_organizer"
 msgstr "Standardwert Veranstalter"
 
 #. Default: "Default Location"
-#: ../interfaces.py:63
+#: ../interfaces.py:53
 msgid "label_default_venue"
 msgstr "Standardwert Ort"
 
 #. Default: "Location"
-#: ../behaviors.py:29
+#: ../behaviors.py:26
 msgid "label_event_location"
 msgstr "Ort"
 
 #. Default: "Location notes"
-#: ../behaviors.py:48
+#: ../behaviors.py:43
 msgid "label_event_location_notes"
 msgstr "Zusatzinformation zum Ort"
 
 #. Default: "Organizer"
-#: ../behaviors.py:77
+#: ../behaviors.py:68
 msgid "label_event_organizer"
 msgstr "Veranstalter"
 
 #. Default: "Organizer notes"
-#: ../behaviors.py:96
+#: ../behaviors.py:85
 msgid "label_event_organizer_notes"
 msgstr "Zusatzinformation zum Veranstalter"
 
 #. Default: "Open in Google Maps"
-#: ../browser/venue_base.pt:22
-#: ../browser/venue_overlay.pt:18
+#: ../browser/venue_base.pt:37
+#: ../browser/venue_overlay.pt:33
 msgid "label_google_maps_link"
 msgstr "Mit Google Maps öffnen"
 
 #. Default: "Notes"
-#: ../browser/venue_base.pt:150
+#: ../browser/venue_base.pt:249
 #: ../interfaces.py:21
 msgid "label_notes"
 msgstr "Zusatzinformation"
 
 #. Default: "Location Search Base"
-#: ../interfaces.py:39
+#: ../interfaces.py:32
 msgid "label_search_base"
 msgstr "Ort Suchbasis"
 
 #. Default: "Social Media"
-#: ../browser/venue_base.pt:106
+#: ../browser/venue_base.pt:159
 msgid "label_social"
 msgstr "Social Media"

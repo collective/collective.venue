@@ -1,8 +1,15 @@
+from collective.venue import _
 from plone.api.portal import get_registry_record as getrec
 from Products.Five.browser import BrowserView
 
 import geopy
 import json
+
+
+# Messages of the collective-venue-locationsearch JavaScript pattern.
+# Listed here for i18n extraction, translated client side via @@plonejsi18n.
+_("Search location")
+_("Could not find an address.")
 
 
 class LocationSearch(BrowserView):
@@ -14,10 +21,15 @@ class LocationSearch(BrowserView):
         location = None
         try:
             if self.google_api_key:
-                geolocator = geopy.geocoders.GoogleV3(api_key=self.google_api_key)
+                geolocator = geopy.geocoders.GoogleV3(
+                    user_agent="collective.venue",
+                    api_key=self.google_api_key,
+                )
                 location = geolocator.geocode(address, exactly_one=True)
             else:
-                geolocator = geopy.geocoders.Nominatim()
+                geolocator = geopy.geocoders.ArcGIS(
+                    user_agent="collective.venue",
+                )
                 location = geolocator.geocode(address, exactly_one=True)
         except:  # noqa: E722
             return location

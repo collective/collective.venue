@@ -5,13 +5,12 @@
            prefix="collective.venue"
            remove="True"
   />
-  <records interface="plone.base.interfaces.resources.IResourceRegistry"
-           prefix="plone.resources/collective-venue"
-           remove="True"
-  />
   <records interface="plone.base.interfaces.resources.IBundleRegistry"
            prefix="plone.bundles/collective-venue-bundle"
            remove="True"
+  />
+  <record name="plone.icon.contenttype/venue"
+          remove="True"
   />
 
 </registry>

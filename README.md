@@ -133,6 +133,25 @@ make create-site
     make install
     ```
 
+### JavaScript and CSS 🎨
+
+The JavaScript sources live in `resources/` and are compiled with webpack
+into a [module federation](https://webpack.js.org/concepts/module-federation/)
+bundle at `src/collective/venue/resources/collective-venue-bundle/`.
+The bundle shares Patternslib with Plone's main bundle.
+
+The styles are plain CSS in
+`src/collective/venue/resources/collective-venue.css` and need no build step.
+
+You need [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/).
+
+```shell
+pnpm install
+pnpm build   # Production build.
+pnpm watch   # Development build, rebuilt on changes.
+pnpm test    # Run the JavaScript tests.
+```
+
 ## License
 
 The project is licensed under GPLv2.

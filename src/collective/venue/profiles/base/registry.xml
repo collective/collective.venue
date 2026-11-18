@@ -5,45 +5,20 @@
            prefix="collective.venue"
   />
 
-  <records interface="plone.base.interfaces.resources.IResourceRegistry"
-           prefix="plone.resources/collective-venue"
-  >
-    <value key="js">++plone++collective.venue/locationsearch.js</value>
-    <value key="url">++plone++collective.venue</value>
-    <value key="css">
-      <element>++plone++collective.venue/styles.less</element>
-    </value>
-  </records>
-
-  <records interface="plone.base.interfaces.resources.IResourceRegistry"
-           prefix="plone.resources/collective-venue-bundle"
-  >
-    <value key="js">++plone++collective.venue/collective-venue-bundle.js</value>
-    <value key="css">
-      <element>++plone++collective.venue/styles.less</element>
-    </value>
-  </records>
-
   <records interface="plone.base.interfaces.resources.IBundleRegistry"
            prefix="plone.bundles/collective-venue-bundle"
   >
-    <value key="resources">
-      <element>collective-venue-bundle</element>
-    </value>
     <value key="enabled">True</value>
-    <value key="jscompilation">++plone++collective.venue/collective-venue-bundle-compiled.js</value>
-    <value key="csscompilation">++plone++collective.venue/collective-venue-bundle-compiled.css</value>
-    <value key="last_compilation">2019-03-09 00:00:00</value>
-    <value key="stub_js_modules">
-      <element>jquery</element>
-      <element>pat-base</element>
-      <element>pat-compat</element>
-      <element>pat-logger</element>
-      <element>pat-mockup-parser</element>
-      <element>pat-registry</element>
-      <element>pat-utils</element>
-      <element>underscore</element>
-    </value>
+    <value key="jscompilation">++plone++collective.venue/collective-venue-bundle/remote.min.js</value>
+    <value key="csscompilation">++plone++collective.venue/collective-venue.css</value>
+    <value key="depends">plone</value>
   </records>
+
+  <record name="plone.icon.contenttype/venue">
+    <field type="plone.registry.field.TextLine">
+      <title>Venue</title>
+    </field>
+    <value key="resource">++plone++bootstrap-icons/geo-alt.svg</value>
+  </record>
 
 </registry>
