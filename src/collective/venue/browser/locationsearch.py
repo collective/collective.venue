@@ -1,8 +1,15 @@
+from collective.venue import _
 from plone.api.portal import get_registry_record as getrec
 from Products.Five.browser import BrowserView
 
 import geopy
 import json
+
+
+# Messages of the collective-venue-locationsearch JavaScript pattern.
+# Listed here for i18n extraction, translated client side via @@plonejsi18n.
+_("Search location")
+_("Could not find an address.")
 
 
 class LocationSearch(BrowserView):
