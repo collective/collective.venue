@@ -1,0 +1,27 @@
+# pnpm configuration — mirrors the known caveats of plone/mockup and
+# bda.aaf.site:
+#
+# - shamefullyHoist: webpack module resolution needs a flat node_modules
+#   directory, see https://github.com/webpack/webpack/issues/5087
+# - allowBuilds: pnpm >= 10 blocks dependency build scripts by default;
+#   allow the ones we actually need.
+# - overrides: Patternslib pulls in "slick-carousel" and "slides" as git
+#   subdependencies, which pnpm blocks (blockExoticSubdeps). They are only
+#   needed by patterns this add-on does not import.
+
+shamefullyHoist: true
+
+overrides:
+  "slick-carousel": "-"
+  "slides": "-"
+
+allowBuilds:
+  '@parcel/watcher': true
+  '@patternslib/dev': true
+  unrs-resolver: true
+  yarn: false
+
+# Trust our own repositories.
+minimumReleaseAgeExclude:
+    - "@patternslib/patternslib"
+    - "@patternslib/dev"
