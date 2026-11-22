@@ -27,7 +27,7 @@ class LocationSearch(BrowserView):
                 )
                 location = geolocator.geocode(address, exactly_one=True)
             else:
-                geolocator = geopy.geocoders.ArcGIS(
+                geolocator = geopy.geocoders.Nominatim(
                     user_agent="collective.venue",
                 )
                 location = geolocator.geocode(address, exactly_one=True)
