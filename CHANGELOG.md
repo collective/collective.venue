@@ -11,53 +11,48 @@
 
 ## 5.0 (2026-11-22)
 
-
-### Breaking changes:
+### Breaking changes
 
 - Plone 6.2 release.
-
   - Modernize package using plonecli/cookieplone.
   - Use pyproject.toml with hatchling build backend.
   - PEP420 native namespaces.
   - Move everything in src/ folder.
-
-  @thet [#modernize](https://github.com/collective/collective.venue/issues/modernize)
+  @thet
 - locationsearch: Rewrite the location search pattern without jQuery.
   Rewrite the location search pattern as a Patternslib `BasePattern`
   without jQuery and RequireJS, using `fetch` and a small i18n helper,
   which loads the `collective.venue` catalog from `@@plonejsi18n`.
   The search button now has a translated label, is disabled while
   searching and is only added to forms with address fields.
-  @thet 
+  @thet
 - registry: Register the webpack bundle and the Venue icon.
   Register the webpack bundle and the CSS file instead of the Plone 5
   resources and the compiled RequireJS/LESS bundle. Register a
   `plone.icon.contenttype/venue` icon. Add an upgrade step, which removes
   the obsolete resource and bundle registry records.
-  @thet 
+  @thet
 - styles: Replace the LESS styles with plain CSS.
   Replace the LESS styles, which Plone 6 cannot compile, with plain CSS.
   Use inline blocks and a grid instead of floats for the layout. Drop the
   fontello icon font for the Venue content type icon.
-  @thet 
+  @thet
 
-
-### Bug fixes:
+### Bug fixes
 
 - Fix an AttributeError in the iCalendar GEO export for events with a location when the optional `geolocation` extra is not installed. Fix and test from #20.
-  @afonsojanu 
+  @afonsojanu
 - Fix the URLs of the social media icons in the venue view. They used the `++resource++` namespace, but the static resources are registered under `++plone++collective.venue`.
-  @thet 
+  @thet
 - Locationsearch: Fix no results.
   Set the user agent for the geolocator to confirm HTTP rules and to allow
-  location searches. @thet 
+  location searches. @thet
 - Look up the optional `collective.geolocationbehavior` with an import instead of `pkg_resources`, which setuptools 82 and later no longer ship.
-  @thet 
+  @thet
 - Reference the resource and bundle registry interfaces from `plone.base`, so the GenericSetup profile imports on Plone 6.2.
-  @thet 
+  @thet
 
-
-### Internal:
+### Internal
 
 - build: Add a webpack module federation build.
   Add a webpack build for the JavaScript resources in `resources/`, like
@@ -65,14 +60,13 @@
   written to `src/collective/venue/resources/collective-venue-bundle/` and
   shares Patternslib with Plone's main bundle. Add a Jest configuration
   for the JavaScript tests.
-  @thet 
+  @thet
 
-
-### Documentation:
+### Documentation
 
 - docs: Document the JavaScript and CSS build.
   Document how to build and test the JavaScript resources.
-  @thet 
+  @thet
 
 ## 4.2 (2026-06-16)
 
